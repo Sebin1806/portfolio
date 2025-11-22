@@ -1,4 +1,5 @@
 import { GraduationCap, Award, BookOpen } from "lucide-react";
+import educationBackground from "@/assets/education-bg.jpg";
 
 const education = [
   {
@@ -29,8 +30,15 @@ const education = [
 
 export const EducationHistory = () => {
   return (
-    <section id="education" className="py-20 px-6">
-      <div className="container mx-auto max-w-4xl">
+    <section id="education" className="py-20 px-6 relative overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+        style={{ backgroundImage: `url(${educationBackground})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/95 to-background" />
+      
+      <div className="container mx-auto max-w-4xl relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
           Education
         </h2>

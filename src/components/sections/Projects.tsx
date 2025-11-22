@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
+import projectsBackground from "@/assets/projects-bg.jpg";
 
 const projects = [
   {
@@ -21,8 +22,15 @@ const projects = [
 
 export const Projects = () => {
   return (
-    <section id="projects" className="py-20 px-6 bg-muted/30">
-      <div className="container mx-auto max-w-6xl">
+    <section id="projects" className="py-20 px-6 relative overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
+        style={{ backgroundImage: `url(${projectsBackground})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/95 to-background" />
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
           Projects
         </h2>
