@@ -1,7 +1,16 @@
+import aboutBackground from "@/assets/about-bg.jpg";
+
 export const About = () => {
   return (
-    <section id="about" className="py-24 px-6 bg-card/50 backdrop-blur-sm">
-      <div className="container mx-auto max-w-5xl">
+    <section id="about" className="py-24 px-6 relative overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+        style={{ backgroundImage: `url(${aboutBackground})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/95 to-background" />
+      
+      <div className="container mx-auto max-w-5xl relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">
           About Me
         </h2>
