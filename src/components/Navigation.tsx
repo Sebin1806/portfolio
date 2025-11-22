@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About Me", href: "#about" },
-  { name: "Important Dates", href: "#dates" },
+  { name: "Skills", href: "#skills" },
+  { name: "Education", href: "#education" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];

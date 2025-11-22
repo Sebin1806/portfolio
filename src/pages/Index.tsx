@@ -1,7 +1,8 @@
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
-import { ImportantDates } from "@/components/sections/ImportantDates";
+import { TechnicalSkills } from "@/components/sections/TechnicalSkills";
+import { EducationHistory } from "@/components/sections/EducationHistory";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
 
@@ -11,7 +12,8 @@ const Index = () => {
       <Navigation />
       <Hero />
       <About />
-      <ImportantDates />
+      <TechnicalSkills />
+      <EducationHistory />
       <Projects />
       <Contact />
       <footer className="py-8 text-center text-muted-foreground bg-muted/30">
