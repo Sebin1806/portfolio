@@ -1,10 +1,9 @@
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const contactInfo = [
   { icon: Mail, label: "Email", value: "hello@example.com" },
   { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
-  { icon: MapPin, label: "Location", value: "San Francisco, CA" },
 ];
 
 const socialLinks = [
@@ -26,7 +25,7 @@ export const Contact = () => {
             Whether you have a question or just want to say hi, feel free to reach out!
           </p>
           
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {contactInfo.map((item, index) => (
               <div
                 key={index}
