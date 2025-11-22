@@ -1,12 +1,22 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Navigation } from "@/components/Navigation";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { ImportantDates } from "@/components/sections/ImportantDates";
+import { Projects } from "@/components/sections/Projects";
+import { Contact } from "@/components/sections/Contact";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <Navigation />
+      <Hero />
+      <About />
+      <ImportantDates />
+      <Projects />
+      <Contact />
+      <footer className="py-8 text-center text-muted-foreground bg-muted/30">
+        <p>&copy; 2024 Portfolio. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
