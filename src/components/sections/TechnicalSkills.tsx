@@ -1,76 +1,98 @@
-import { Code, Database, Layout, Server, GitBranch, Palette } from "lucide-react";
+import { Code, Database, Layout, Server, GitBranch, Brain } from "lucide-react";
+import { motion } from "framer-motion";
 import skillsBackground from "@/assets/skills-bg.jpg";
 
 const skillCategories = [
   {
     icon: Code,
-    title: "Frontend Development",
-    skills: ["React", "TypeScript", "Tailwind CSS", "HTML/CSS", "JavaScript"],
+    title: "Programming",
+    color: "from-primary to-primary/60",
+    skills: ["Python", "R", "SQL", "JavaScript", "TypeScript", "C++"],
   },
   {
-    icon: Server,
-    title: "Backend Development",
-    skills: ["Node.js", "Python", "REST APIs", "GraphQL", "Express"],
+    icon: Brain,
+    title: "Machine Learning",
+    color: "from-secondary to-secondary/60",
+    skills: ["Scikit-learn", "TensorFlow", "PyTorch", "Keras", "XGBoost", "LightGBM"],
   },
   {
     icon: Database,
-    title: "Databases",
-    skills: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "Supabase"],
+    title: "Data Science",
+    color: "from-accent to-accent/60",
+    skills: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter", "Feature Engineering"],
+  },
+  {
+    icon: Server,
+    title: "Deep Learning",
+    color: "from-primary to-secondary",
+    skills: ["CNNs", "RNNs", "Transformers", "GANs", "NLP", "Computer Vision"],
   },
   {
     icon: GitBranch,
     title: "Tools & DevOps",
-    skills: ["Git", "Docker", "AWS", "CI/CD", "Linux"],
+    color: "from-secondary to-accent",
+    skills: ["Git", "Docker", "AWS", "MLflow", "Streamlit", "FastAPI"],
   },
   {
     icon: Layout,
-    title: "Design & UI/UX",
-    skills: ["Figma", "Adobe XD", "Responsive Design", "Wireframing", "Prototyping"],
-  },
-  {
-    icon: Palette,
-    title: "Other Skills",
-    skills: ["Agile/Scrum", "Problem Solving", "Team Collaboration", "Testing", "Documentation"],
+    title: "Visualization",
+    color: "from-accent to-primary",
+    skills: ["Tableau", "Power BI", "Plotly", "D3.js", "Dash", "Streamlit"],
   },
 ];
 
 export const TechnicalSkills = () => {
   return (
-    <section id="skills" className="py-20 px-6 relative overflow-hidden">
-      {/* Background Image with Overlay */}
+    <section id="skills" className="py-24 px-6 relative overflow-hidden">
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
         style={{ backgroundImage: `url(${skillsBackground})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/95 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+      <div className="absolute inset-0 section-pattern" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-          Technical Skills
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
+            Technical <span className="text-primary">Skills</span>
+          </h2>
+          <p className="text-center text-muted-foreground mb-16 max-w-lg mx-auto">
+            Core competencies in AI, ML, and Data Science
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-card rounded-lg border border-border p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="glass rounded-2xl p-6 hover:shadow-glow transition-all duration-300 hover:-translate-y-1 group"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <category.icon className="text-primary" size={20} />
+              <div className="flex items-center gap-3 mb-5">
+                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity`}>
+                  <category.icon className="text-foreground" size={20} />
                 </div>
-                <h3 className="text-xl font-semibold">{category.title}</h3>
+                <h3 className="text-lg font-semibold text-foreground">{category.title}</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIndex) => (
                   <span
                     key={skillIndex}
-                    className="px-3 py-1 bg-secondary text-secondary-foreground text-sm rounded-full border border-border"
+                    className="px-3 py-1.5 bg-muted/50 text-muted-foreground text-xs rounded-lg border border-border/50 hover:text-primary hover:border-primary/30 transition-colors font-medium"
                   >
                     {skill}
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
