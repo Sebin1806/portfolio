@@ -34,10 +34,8 @@ export const Hero = () => {
 
           <div className="space-y-6">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[1.05] tracking-tight">
-              Building{" "}
-              <span className="text-gradient animate-gradient">Intelligent</span>
-              <br />
-              Solutions
+              Hi, I am{" "}
+              <span className="text-gradient animate-gradient">Sebin.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Transforming complex data into actionable insights through Machine Learning, Deep Learning, and innovative AI solutions.
