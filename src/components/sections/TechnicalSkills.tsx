@@ -1,6 +1,5 @@
 import { Code, Database, Layout, Server, GitBranch, Brain } from "lucide-react";
 import { motion } from "framer-motion";
-import skillsBackground from "@/assets/skills-bg.jpg";
 
 const skillCategories = [
   { icon: Code, title: "Programming", skills: ["Python", "R", "SQL", "JavaScript", "TypeScript", "C++"] },
@@ -14,8 +13,7 @@ const skillCategories = [
 export const TechnicalSkills = () => {
   return (
     <section id="skills" className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-8" style={{ backgroundImage: `url(${skillsBackground})` }} />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/97 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
       <div className="absolute inset-0 section-pattern" />
 
       <div className="container mx-auto max-w-6xl relative z-10">
