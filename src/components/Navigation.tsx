@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Brain } from "lucide-react";
+import { Menu, X, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -20,7 +20,6 @@ export const Navigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      
       const sections = navItems.map(item => item.href.slice(1));
       for (const section of sections.reverse()) {
         const el = document.getElementById(section);
@@ -48,38 +47,34 @@ export const Navigation = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "glass-strong shadow-lg shadow-background/50"
-          : "bg-transparent"
+        isScrolled ? "glass-strong shadow-lg shadow-background/50 py-3" : "bg-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
           <a
             href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("#home");
-            }}
-            className="flex items-center gap-2 text-xl font-bold text-foreground hover:text-primary transition-colors"
+            onClick={(e) => { e.preventDefault(); scrollToSection("#home"); }}
+            className="flex items-center gap-2.5 group"
           >
-            <Brain size={24} className="text-primary" />
-            <span>Sebin<span className="text-primary">.</span>S</span>
+            <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-all">
+              <Zap size={18} className="text-primary" />
+            </div>
+            <span className="text-lg font-bold text-foreground tracking-tight">
+              Sebin<span className="text-primary">.</span>S
+            </span>
           </a>
 
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-1 glass-subtle rounded-full px-2 py-1.5">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(item.href);
-                }}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeSection === item.href.slice(1)
                     ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {item.name}
@@ -109,11 +104,8 @@ export const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.href);
-                  }}
-                  className={`block py-3 px-4 rounded-lg text-sm font-medium transition-all ${
+                  onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                  className={`block py-3 px-4 rounded-xl text-sm font-medium transition-all ${
                     activeSection === item.href.slice(1)
                       ? "text-primary bg-primary/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted/50"

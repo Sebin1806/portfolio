@@ -31,67 +31,42 @@ const education = [
 
 export const EducationHistory = () => {
   return (
-    <section id="education" className="py-24 px-6 relative overflow-hidden">
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
-        style={{ backgroundImage: `url(${educationBackground})` }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+    <section id="education" className="py-32 px-6 relative overflow-hidden">
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-8" style={{ backgroundImage: `url(${educationBackground})` }} />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/97 to-background" />
       <div className="absolute inset-0 section-pattern" />
-      
+
       <div className="container mx-auto max-w-4xl relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Education & <span className="text-primary">Certifications</span>
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+          <p className="text-primary font-mono text-sm tracking-widest uppercase text-center mb-3">Background</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+            Education & <span className="text-gradient animate-gradient">Certifications</span>
           </h2>
-          <p className="text-center text-muted-foreground mb-16 max-w-lg mx-auto">
-            Academic journey and continuous learning
+          <p className="text-center text-muted-foreground mb-20 max-w-xl mx-auto">
+            Academic journey and continuous learning in AI & Data Science.
           </p>
         </motion.div>
 
-        <div className="space-y-6">
-          {education.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
+        <div className="space-y-8">
+          {education.map((item, i) => (
+            <motion.div key={i} initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.15 }}
               className="flex gap-6 group"
             >
-              {/* Timeline */}
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground shrink-0 shadow-glow group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/20 flex items-center justify-center text-primary shrink-0 group-hover:from-primary/30 group-hover:to-secondary/30 group-hover:border-primary/40 transition-all duration-500">
                   <item.icon size={20} />
                 </div>
-                {index < education.length - 1 && (
-                  <div className="w-px flex-1 bg-gradient-to-b from-primary/40 to-transparent mt-3" />
-                )}
+                {i < education.length - 1 && <div className="w-px flex-1 bg-gradient-to-b from-border to-transparent mt-4" />}
               </div>
 
-              {/* Content Card */}
-              <div className="glass rounded-2xl p-6 flex-1 mb-2 hover:shadow-glow transition-all duration-300">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs font-mono text-primary bg-primary/10 px-3 py-1 rounded-full">
-                    {item.year}
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-1">{item.degree}</h3>
-                <p className="text-sm text-muted-foreground mb-3">{item.institution}</p>
-                <p className="text-sm text-foreground/70 mb-4">{item.description}</p>
+              <div className="glass rounded-3xl p-7 flex-1 mb-2 hover-lift">
+                <span className="text-xs font-mono text-primary/80 bg-primary/5 border border-primary/10 px-3 py-1 rounded-full">{item.year}</span>
+                <h3 className="text-xl font-bold text-foreground mt-3 mb-1">{item.degree}</h3>
+                <p className="text-sm text-muted-foreground mb-4">{item.institution}</p>
+                <p className="text-sm text-foreground/65 mb-5 leading-relaxed">{item.description}</p>
                 <div className="flex flex-wrap gap-2">
-                  {item.achievements.map((achievement, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-accent/10 text-accent text-xs rounded-lg border border-accent/20 font-medium"
-                    >
-                      {achievement}
-                    </span>
+                  {item.achievements.map((a, j) => (
+                    <span key={j} className="px-3 py-1 bg-accent/5 text-accent/80 text-xs rounded-lg border border-accent/10 font-medium">{a}</span>
                   ))}
                 </div>
               </div>

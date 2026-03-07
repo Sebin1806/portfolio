@@ -1,11 +1,11 @@
-import { Mail, Phone, Github, Linkedin, Code2, Send } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Code2, Send, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import contactBackground from "@/assets/contact-bg.jpg";
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "hello@example.com", href: "mailto:hello@example.com" },
-  { icon: Phone, label: "Phone", value: "+1 (555) 123-4567", href: "tel:+15551234567" },
+  { icon: Mail, label: "Email", value: "sebinsebin180606@gmail.com", href: "mailto:sebinsebin180606@gmail.com" },
+  { icon: Phone, label: "Phone", value: "+91 9342813276", href: "tel:+919342813276" },
 ];
 
 const socialLinks = [
@@ -16,46 +16,37 @@ const socialLinks = [
 
 export const Contact = () => {
   return (
-    <section id="contact" className="py-24 px-6 relative overflow-hidden">
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
-        style={{ backgroundImage: `url(${contactBackground})` }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+    <section id="contact" className="py-32 px-6 relative overflow-hidden">
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10" style={{ backgroundImage: `url(${contactBackground})` }} />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/97 to-background" />
       <div className="absolute inset-0 section-pattern" />
-      
+
+      {/* Ambient orbs */}
+      <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-primary/4 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-secondary/4 rounded-full blur-3xl" />
+
       <div className="container mx-auto max-w-4xl relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Get In <span className="text-primary">Touch</span>
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+          <p className="text-primary font-mono text-sm tracking-widest uppercase text-center mb-3">Connect</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+            Get In <span className="text-gradient animate-gradient">Touch</span>
           </h2>
-          <p className="text-center text-muted-foreground mb-16 max-w-lg mx-auto">
-            Open to collaborations, research opportunities, and interesting projects
+          <p className="text-center text-muted-foreground mb-20 max-w-xl mx-auto">
+            Open to collaborations, research opportunities, and interesting projects.
           </p>
         </motion.div>
 
-        <div className="space-y-10">
+        <div className="space-y-12">
           {/* Contact Cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
             className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto"
           >
-            {contactInfo.map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                className="glass rounded-2xl p-6 flex flex-col items-center text-center hover:shadow-glow hover:-translate-y-1 transition-all duration-300 group"
+            {contactInfo.map((item, i) => (
+              <a key={i} href={item.href}
+                className="glass rounded-3xl p-8 flex flex-col items-center text-center hover-lift group"
               >
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <item.icon className="text-primary" size={24} />
+                <div className="w-14 h-14 rounded-2xl bg-primary/8 border border-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 group-hover:border-primary/25 transition-all duration-500">
+                  <item.icon className="text-primary" size={22} />
                 </div>
                 <h3 className="font-semibold text-foreground mb-1">{item.label}</h3>
                 <p className="text-sm text-muted-foreground">{item.value}</p>
@@ -64,43 +55,25 @@ export const Contact = () => {
           </motion.div>
 
           {/* Send Email CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex justify-center"
-          >
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 rounded-xl shadow-glow hover:shadow-glow transition-all hover:scale-105"
-              asChild
-            >
-              <a href="mailto:hello@example.com">
-                <Send size={18} />
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="flex justify-center">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-10 py-6 rounded-2xl shadow-glow hover:shadow-[0_0_40px_hsl(210_100%_60%/0.3)] transition-all duration-500 group" asChild>
+              <a href="mailto:sebinsebin180606@gmail.com">
+                <Send size={16} />
                 Send Me an Email
+                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             </Button>
           </motion.div>
 
           {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex justify-center gap-4"
-          >
-            {socialLinks.map((social, index) => (
-              <Button
-                key={index}
-                variant="outline"
-                size="icon"
-                className="w-12 h-12 rounded-xl border-border hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-all hover:scale-110 hover:shadow-glow"
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="flex justify-center gap-4">
+            {socialLinks.map((social, i) => (
+              <Button key={i} variant="outline" size="icon"
+                className="w-12 h-12 rounded-2xl border-border/40 hover:bg-primary/8 hover:text-primary hover:border-primary/20 transition-all duration-500 hover:scale-110"
                 asChild
               >
                 <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
-                  <social.icon size={20} />
+                  <social.icon size={18} />
                 </a>
               </Button>
             ))}
