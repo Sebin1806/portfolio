@@ -32,8 +32,8 @@ const Certificates = () => {
 
   return (
     <div className="min-h-screen bg-background relative">
-      <div className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-8" style={{ backgroundImage: `url(${certificatesBg})` }} />
-      <div className="fixed inset-0 bg-gradient-to-b from-background/90 via-background/95 to-background" />
+      <div className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-15" style={{ backgroundImage: `url(${certificatesBg})` }} />
+      <div className="fixed inset-0 bg-gradient-to-b from-background/85 via-background/90 to-background" />
       <div className="relative z-10">
       <Navigation />
       {/* Grid */}
