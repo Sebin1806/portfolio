@@ -1,4 +1,4 @@
-import { Code, Database, Layout, Server, GitBranch, Brain } from "lucide-react";
+import { Code, Database, GitBranch, Brain } from "lucide-react";
 import { motion } from "framer-motion";
 
 const skillCategories = [
