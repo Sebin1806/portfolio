@@ -1,5 +1,7 @@
-import { GraduationCap, BookOpen } from "lucide-react";
+import { GraduationCap, BookOpen, Award, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const education = [
   {
@@ -64,6 +66,15 @@ export const EducationHistory = () => {
           ))}
         </div>
 
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="flex justify-center mt-12">
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 rounded-2xl shadow-glow transition-all duration-500 group" asChild>
+            <Link to="/certificates">
+              <Award size={16} />
+              View All Certificates
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
