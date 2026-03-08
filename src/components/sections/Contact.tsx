@@ -1,4 +1,5 @@
 import { Mail, Phone, Github, Linkedin, Code2, Send, ArrowUpRight, User, MessageSquare } from "lucide-react";
+import { RobotBuddy } from "@/components/RobotBuddy";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -99,8 +100,12 @@ export const Contact = () => {
 
           {/* Contact Form */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
-            className="max-w-2xl mx-auto"
+            className="max-w-2xl mx-auto relative"
           >
+            {/* Robot buddy */}
+            <div className="absolute -left-8 md:-left-28 top-1/2 -translate-y-1/2 z-20 hidden sm:block">
+              <RobotBuddy />
+            </div>
             <div className="glass rounded-3xl p-8 md:p-10 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
               <div className="relative z-10">
