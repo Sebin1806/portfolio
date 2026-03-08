@@ -72,7 +72,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between">
           <a
             href="#home"
-            onClick={(e) => { e.preventDefault(); scrollToSection("#home"); }}
+            onClick={(e) => { e.preventDefault(); handleNavClick("#home"); }}
             className="flex items-center gap-2.5 group"
           >
             <span className="text-lg font-bold text-foreground tracking-tight">
@@ -85,9 +85,9 @@ export const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
                 className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeSection === item.href.slice(1)
+                  isActive(item.href)
                     ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
@@ -119,9 +119,9 @@ export const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
                   className={`block py-3 px-4 rounded-xl text-sm font-medium transition-all ${
-                    activeSection === item.href.slice(1)
+                    isActive(item.href)
                       ? "text-primary bg-primary/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                   }`}
