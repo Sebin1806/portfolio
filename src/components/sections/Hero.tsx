@@ -1,6 +1,6 @@
 import { Download, FolderOpen, Award, FileText, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import heroBackground from "@/assets/hero-bg.jpg";
 import { useState, useEffect } from "react";
 
@@ -13,14 +13,36 @@ const stats = [
 const roles = ["DATA SCIENTIST", "MACHINE LEARNING", "DEEP LEARNING"];
 
 export const Hero = () => {
+  const [displayText, setDisplayText] = useState("");
   const [roleIndex, setRoleIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const currentRole = roles[roleIndex];
+    const speed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && displayText === currentRole) {
+      // Pause before deleting
+      const timeout = setTimeout(() => setIsDeleting(true), 1500);
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting && displayText === "") {
+      setIsDeleting(false);
       setRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setDisplayText(
+        isDeleting
+          ? currentRole.substring(0, displayText.length - 1)
+          : currentRole.substring(0, displayText.length + 1)
+      );
+    }, speed);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, roleIndex]);
 
   const scrollToProjects = () => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
   const scrollToContact = () => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
@@ -41,18 +63,10 @@ export const Hero = () => {
           
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3 }} className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-subtle text-sm font-medium h-9 overflow-hidden">
             <Sparkles size={14} className="text-primary shrink-0" />
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={roleIndex}
-                initial={{ x: 80, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -80, opacity: 0 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="text-primary font-mono tracking-widest whitespace-nowrap"
-              >
-                {roles[roleIndex]}
-              </motion.span>
-            </AnimatePresence>
+            <span className="text-primary font-mono tracking-widest whitespace-nowrap">
+              {displayText}
+              <span className="inline-block w-[2px] h-4 bg-primary ml-0.5 animate-pulse align-middle" />
+            </span>
           </motion.div>
 
           <div className="space-y-6">
