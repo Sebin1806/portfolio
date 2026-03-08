@@ -19,11 +19,13 @@ export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      const sections = navItems.map(item => item.href.slice(1));
+      const sections = navItems.filter(i => i.href.startsWith("#")).map(item => item.href.slice(1));
       for (const section of sections.reverse()) {
         const el = document.getElementById(section);
         if (el && el.getBoundingClientRect().top <= 100) {
@@ -36,12 +38,25 @@ export const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
+  const handleNavClick = (href: string) => {
+    setIsMobileMenuOpen(false);
+    if (href.startsWith("#")) {
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      } else {
+        document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate(href);
     }
+  };
+
+  const isActive = (href: string) => {
+    if (href.startsWith("/")) return location.pathname === href;
+    return location.pathname === "/" && activeSection === href.slice(1);
   };
 
   return (
