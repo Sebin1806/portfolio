@@ -110,12 +110,12 @@ const Certificates = () => {
                     <p className="text-sm text-muted-foreground">{certificates[selected].issuer} · {certificates[selected].date}</p>
                   </div>
                 </div>
-    </div>
-    </div>
+              </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+    </div>
     </div>
   );
 };
