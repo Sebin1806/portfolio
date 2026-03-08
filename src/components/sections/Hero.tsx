@@ -44,11 +44,11 @@ export const Hero = () => {
             <AnimatePresence mode="wait">
               <motion.span
                 key={roleIndex}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -20, opacity: 0 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="text-primary font-mono tracking-widest"
+                initial={{ x: 80, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -80, opacity: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="text-primary font-mono tracking-widest whitespace-nowrap"
               >
                 {roles[roleIndex]}
               </motion.span>

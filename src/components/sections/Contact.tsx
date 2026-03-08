@@ -37,9 +37,9 @@ export const Contact = () => {
         </motion.div>
 
         <div className="space-y-12">
-          {/* Contact Cards */}
+          {/* All Contact Cards */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-            className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto"
           >
             {contactInfo.map((item, i) => (
               <a key={i} href={item.href}
@@ -50,6 +50,17 @@ export const Contact = () => {
                 </div>
                 <h3 className="font-semibold text-foreground mb-1">{item.label}</h3>
                 <p className="text-sm text-muted-foreground">{item.value}</p>
+              </a>
+            ))}
+            {socialLinks.map((social, i) => (
+              <a key={i} href={social.href} target="_blank" rel="noopener noreferrer"
+                className="glass rounded-3xl p-8 flex flex-col items-center text-center hover-lift group"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-primary/8 border border-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 group-hover:border-primary/25 transition-all duration-500">
+                  <social.icon className="text-primary" size={22} />
+                </div>
+                <h3 className="font-semibold text-foreground mb-1">{social.label}</h3>
+                <p className="text-sm text-muted-foreground">View Profile</p>
               </a>
             ))}
           </motion.div>
@@ -63,20 +74,6 @@ export const Contact = () => {
                 <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             </Button>
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="flex justify-center gap-4">
-            {socialLinks.map((social, i) => (
-              <Button key={i} variant="outline" size="icon"
-                className="w-12 h-12 rounded-2xl border-border/40 hover:bg-primary/8 hover:text-primary hover:border-primary/20 transition-all duration-500 hover:scale-110"
-                asChild
-              >
-                <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
-                  <social.icon size={18} />
-                </a>
-              </Button>
-            ))}
           </motion.div>
         </div>
       </div>
