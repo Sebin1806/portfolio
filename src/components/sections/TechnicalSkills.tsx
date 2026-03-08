@@ -1,13 +1,11 @@
-import { Code, Database, Layout, Server, GitBranch, Brain } from "lucide-react";
+import { Code, Database, GitBranch, Brain } from "lucide-react";
 import { motion } from "framer-motion";
 
 const skillCategories = [
-  { icon: Code, title: "Programming", skills: ["Python", "R", "SQL", "JavaScript", "TypeScript", "C++"] },
-  { icon: Brain, title: "Machine Learning", skills: ["Scikit-learn", "TensorFlow", "PyTorch", "Keras", "XGBoost", "LightGBM"] },
-  { icon: Database, title: "Data Science", skills: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter", "Feature Engineering"] },
-  { icon: Server, title: "Deep Learning", skills: ["CNNs", "RNNs", "Transformers", "GANs", "NLP", "Computer Vision"] },
-  { icon: GitBranch, title: "Tools & DevOps", skills: ["Git", "Docker", "AWS", "MLflow", "Streamlit", "FastAPI"] },
-  { icon: Layout, title: "Visualization", skills: ["Tableau", "Power BI", "Plotly", "D3.js", "Dash", "Streamlit"] },
+  { icon: Code, title: "Languages", skills: ["Python", "SQL"] },
+  { icon: Database, title: "Data Science", skills: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter"] },
+  { icon: GitBranch, title: "Tools", skills: ["Power BI", "Git", "Visual Studio Code", "Streamlit", "AWS"] },
+  { icon: Brain, title: "Areas of Interest", skills: ["Artificial Intelligence", "Data Science"] },
 ];
 
 export const TechnicalSkills = () => {
