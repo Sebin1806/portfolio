@@ -4,27 +4,19 @@ import { motion } from "framer-motion";
 const education = [
   {
     icon: GraduationCap,
-    degree: "Master of Computer Science",
-    institution: "University of Technology",
-    year: "2020 - 2022",
-    description: "Specialized in Artificial Intelligence and Machine Learning. Conducted research in NLP and Deep Learning.",
-    achievements: ["GPA: 3.9/4.0", "Dean's List", "Research Assistant"],
+    degree: "B.Tech in Artificial Intelligence & Data Science",
+    institution: "College",
+    year: "2023 - 2027",
+    description: "Pursuing B.Tech specializing in Artificial Intelligence and Data Science, building expertise in ML, deep learning, and data analytics.",
+    achievements: ["AI & DS Major", "Projects in ML & NLP", "Active Learner"],
   },
   {
     icon: BookOpen,
-    degree: "Bachelor of Science in Computer Science",
-    institution: "State University",
-    year: "2016 - 2020",
-    description: "Strong foundation in algorithms, data structures, and statistical methods for data science.",
-    achievements: ["Cum Laude", "Hackathon Winner", "AI Club President"],
-  },
-  {
-    icon: Award,
-    degree: "Professional Certifications",
-    institution: "Various Platforms",
-    year: "2020 - Present",
-    description: "Continuous learning in AI/ML through industry certifications and specialized courses.",
-    achievements: ["AWS ML Specialty", "TensorFlow Developer", "Deep Learning Specialization"],
+    degree: "12th Grade (Higher Secondary)",
+    institution: "School",
+    year: "2022 - 2023",
+    description: "Completed higher secondary education with a focus on science and mathematics, building a strong foundation for engineering studies.",
+    achievements: ["Science Stream", "Mathematics", "Computer Science"],
   },
 ];
 
