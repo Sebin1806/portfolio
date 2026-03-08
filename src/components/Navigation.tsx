@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -11,17 +12,20 @@ const navItems = [
   { name: "Education", href: "#education" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
+  { name: "Certificates", href: "/certificates" },
 ];
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      const sections = navItems.map(item => item.href.slice(1));
+      const sections = navItems.filter(i => i.href.startsWith("#")).map(item => item.href.slice(1));
       for (const section of sections.reverse()) {
         const el = document.getElementById(section);
         if (el && el.getBoundingClientRect().top <= 100) {
@@ -34,12 +38,25 @@ export const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
+  const handleNavClick = (href: string) => {
+    setIsMobileMenuOpen(false);
+    if (href.startsWith("#")) {
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      } else {
+        document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate(href);
     }
+  };
+
+  const isActive = (href: string) => {
+    if (href.startsWith("/")) return location.pathname === href;
+    return location.pathname === "/" && activeSection === href.slice(1);
   };
 
   return (
@@ -55,7 +72,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between">
           <a
             href="#home"
-            onClick={(e) => { e.preventDefault(); scrollToSection("#home"); }}
+            onClick={(e) => { e.preventDefault(); handleNavClick("#home"); }}
             className="flex items-center gap-2.5 group"
           >
             <span className="text-lg font-bold text-foreground tracking-tight">
@@ -68,9 +85,9 @@ export const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
                 className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeSection === item.href.slice(1)
+                  isActive(item.href)
                     ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
@@ -102,9 +119,9 @@ export const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
                   className={`block py-3 px-4 rounded-xl text-sm font-medium transition-all ${
-                    activeSection === item.href.slice(1)
+                    isActive(item.href)
                       ? "text-primary bg-primary/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                   }`}
