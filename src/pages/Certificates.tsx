@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, X, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 
 import aiml from "@/assets/certificates/AIML.jpg";
