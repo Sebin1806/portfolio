@@ -26,8 +26,8 @@ const education = [
 export const EducationHistory = () => {
   return (
     <section id="education" className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15" style={{ backgroundImage: `url(${educationBg})` }} />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25" style={{ backgroundImage: `url(${educationBg})` }} />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/85 to-background/80" />
       <div className="absolute inset-0 section-pattern" />
 
       <div className="container mx-auto max-w-4xl relative z-10">
