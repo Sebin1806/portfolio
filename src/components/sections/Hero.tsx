@@ -1,7 +1,8 @@
-import { ArrowDown, Download, FolderOpen, Award, FileText, Sparkles, ArrowRight } from "lucide-react";
+import { Download, FolderOpen, Award, FileText, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import heroBackground from "@/assets/hero-bg.jpg";
+import { useState, useEffect } from "react";
 
 const stats = [
   { icon: FolderOpen, value: "5+", label: "Projects", color: "text-primary" },
@@ -9,7 +10,18 @@ const stats = [
   { icon: FileText, value: "1", label: "Research Paper", color: "text-accent" },
 ];
 
+const roles = ["DATA SCIENTIST", "MACHINE LEARNING", "DEEP LEARNING"];
+
 export const Hero = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToProjects = () => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
   const scrollToContact = () => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
   const scrollToAbout = () => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
@@ -27,9 +39,20 @@ export const Hero = () => {
       <div className="container mx-auto max-w-5xl text-center relative z-10">
         <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} className="space-y-10">
           
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3 }} className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-subtle text-sm text-primary font-medium">
-            <Sparkles size={14} />
-            AI & Data Science Enthusiast
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3 }} className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-subtle text-sm font-medium h-9 overflow-hidden">
+            <Sparkles size={14} className="text-primary shrink-0" />
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={roleIndex}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -20, opacity: 0 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="text-primary font-mono tracking-widest"
+              >
+                {roles[roleIndex]}
+              </motion.span>
+            </AnimatePresence>
           </motion.div>
 
           <div className="space-y-6">
