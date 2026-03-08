@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -58,9 +58,6 @@ export const Navigation = () => {
             onClick={(e) => { e.preventDefault(); scrollToSection("#home"); }}
             className="flex items-center gap-2.5 group"
           >
-            <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-all">
-              <Zap size={18} className="text-primary" />
-            </div>
             <span className="text-lg font-bold text-foreground tracking-tight">
               Sebin<span className="text-primary">.</span>S
             </span>
