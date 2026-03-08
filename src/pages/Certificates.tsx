@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Award, X, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
+import certificatesBg from "@/assets/certificates-bg.jpg";
 
 import aiml from "@/assets/certificates/AIML.jpg";
 import dataViz from "@/assets/certificates/Data_Visualization.jpg";
@@ -30,9 +31,11 @@ const Certificates = () => {
   const [selected, setSelected] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <div className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-8" style={{ backgroundImage: `url(${certificatesBg})` }} />
+      <div className="fixed inset-0 bg-gradient-to-b from-background/90 via-background/95 to-background" />
+      <div className="relative z-10">
       <Navigation />
-
       {/* Grid */}
       <div className="container mx-auto max-w-6xl px-6 pt-32 pb-16">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
@@ -112,6 +115,7 @@ const Certificates = () => {
           </motion.div>
         )}
       </AnimatePresence>
+    </div>
     </div>
   );
 };
