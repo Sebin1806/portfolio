@@ -1,3 +1,4 @@
+import { CursorTrail } from "@/components/CursorTrail";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
@@ -27,6 +28,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <CursorTrail />
       <Navigation />
       <Hero />
       <About />
