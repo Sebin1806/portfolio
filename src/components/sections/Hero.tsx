@@ -1,6 +1,6 @@
 import { Download, FolderOpen, Award, FileText, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import heroBackground from "@/assets/hero-bg.jpg";
 import { useState, useEffect } from "react";
 
@@ -13,14 +13,36 @@ const stats = [
 const roles = ["DATA SCIENTIST", "MACHINE LEARNING", "DEEP LEARNING"];
 
 export const Hero = () => {
+  const [displayText, setDisplayText] = useState("");
   const [roleIndex, setRoleIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const currentRole = roles[roleIndex];
+    const speed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && displayText === currentRole) {
+      // Pause before deleting
+      const timeout = setTimeout(() => setIsDeleting(true), 1500);
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting && displayText === "") {
+      setIsDeleting(false);
       setRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setDisplayText(
+        isDeleting
+          ? currentRole.substring(0, displayText.length - 1)
+          : currentRole.substring(0, displayText.length + 1)
+      );
+    }, speed);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, roleIndex]);
 
   const scrollToProjects = () => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
   const scrollToContact = () => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
