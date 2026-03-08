@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Award, X, ArrowLeft, ExternalLink, FileText } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { Award, X, ExternalLink } from "lucide-react";
+import { Navigation } from "@/components/Navigation";
 
 import aiml from "@/assets/certificates/AIML.jpg";
 import dataViz from "@/assets/certificates/Data_Visualization.jpg";
@@ -28,26 +27,13 @@ const certificates = [
 
 const Certificates = () => {
   const [selected, setSelected] = useState<number | null>(null);
-  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="sticky top-0 z-40 glass-strong py-4 px-6">
-        <div className="container mx-auto max-w-6xl flex items-center justify-between">
-          <Button variant="ghost" onClick={() => navigate("/")} className="gap-2 text-muted-foreground hover:text-foreground">
-            <ArrowLeft size={16} /> Back to Portfolio
-          </Button>
-          <div className="flex items-center gap-2">
-            <Award size={18} className="text-primary" />
-            <span className="font-bold text-foreground">Certificates & Publications</span>
-          </div>
-          <div className="w-[140px]" />
-        </div>
-      </div>
+      <Navigation />
 
       {/* Grid */}
-      <div className="container mx-auto max-w-6xl px-6 py-16">
+      <div className="container mx-auto max-w-6xl px-6 pt-32 pb-16">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <p className="text-primary font-mono text-sm tracking-widest uppercase text-center mb-3">Achievements</p>
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">
