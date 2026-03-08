@@ -1,5 +1,7 @@
-import { GraduationCap, BookOpen } from "lucide-react";
+import { GraduationCap, BookOpen, Award, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const education = [
   {

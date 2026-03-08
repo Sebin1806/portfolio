@@ -111,9 +111,6 @@ export const Hero = () => {
         </motion.div>
       </div>
 
-      <motion.button initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }} onClick={scrollToAbout} className="absolute bottom-10 left-1/2 -translate-x-1/2 w-10 h-16 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center pt-2 hover:border-primary/50 transition-colors z-10" aria-label="Scroll down">
-        <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }} className="w-1.5 h-1.5 rounded-full bg-primary" />
-      </motion.button>
     </section>
   );
 };
