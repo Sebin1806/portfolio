@@ -1,6 +1,10 @@
-import { Mail, Phone, Github, Linkedin, Code2, Send, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Code2, Send, ArrowUpRight, User, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 import contactBackground from "@/assets/contact-bg.jpg";
 
 const contactInfo = [
@@ -15,13 +19,41 @@ const socialLinks = [
 ];
 
 export const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      toast({ title: "Please fill all fields", variant: "destructive" });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast({ title: "Please enter a valid email", variant: "destructive" });
+      return;
+    }
+    setSending(true);
+    const subject = encodeURIComponent(`Portfolio Contact from ${name.trim()}`);
+    const body = encodeURIComponent(`Name: ${name.trim()}\nEmail: ${email.trim()}\n\n${message.trim()}`);
+    window.open(`mailto:sebinsebin180606@gmail.com?subject=${subject}&body=${body}`, "_self");
+    setTimeout(() => {
+      setSending(false);
+      setName("");
+      setEmail("");
+      setMessage("");
+      toast({ title: "Email client opened!", description: "Send the email to complete your message." });
+    }, 1000);
+  };
+
   return (
     <section id="contact" className="py-32 px-6 relative overflow-hidden">
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10" style={{ backgroundImage: `url(${contactBackground})` }} />
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/97 to-background" />
       <div className="absolute inset-0 section-pattern" />
 
-      {/* Ambient orbs */}
       <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-primary/4 rounded-full blur-3xl" />
       <div className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-secondary/4 rounded-full blur-3xl" />
 
@@ -36,8 +68,8 @@ export const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="space-y-12">
-          {/* All Contact Cards */}
+        <div className="space-y-16">
+          {/* Contact Cards */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto"
           >
@@ -65,15 +97,60 @@ export const Contact = () => {
             ))}
           </motion.div>
 
-          {/* Send Email CTA */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="flex justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-10 py-6 rounded-2xl shadow-glow hover:shadow-[0_0_40px_hsl(210_100%_60%/0.3)] transition-all duration-500 group" asChild>
-              <a href="mailto:sebinsebin180606@gmail.com">
-                <Send size={16} />
-                Send Me an Email
-                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-            </Button>
+          {/* Contact Form */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
+            className="max-w-2xl mx-auto"
+          >
+            <div className="glass rounded-3xl p-8 md:p-10 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold text-foreground text-center mb-2">
+                  Let's Connect & Build <span className="text-gradient animate-gradient">Something Amazing</span>
+                </h3>
+                <p className="text-sm text-muted-foreground text-center mb-8">Drop me a message and I'll get back to you soon.</p>
+
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="relative">
+                    <User size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                    <Input
+                      placeholder="Full Name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      maxLength={100}
+                      className="pl-11 py-6 rounded-2xl bg-background/50 border-border/40 text-foreground placeholder:text-muted-foreground focus:border-primary/40 focus:ring-primary/20 transition-all"
+                    />
+                  </div>
+                  <div className="relative">
+                    <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                    <Input
+                      type="email"
+                      placeholder="Email Address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      maxLength={255}
+                      className="pl-11 py-6 rounded-2xl bg-background/50 border-border/40 text-foreground placeholder:text-muted-foreground focus:border-primary/40 focus:ring-primary/20 transition-all"
+                    />
+                  </div>
+                  <Textarea
+                    placeholder="Message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    maxLength={1000}
+                    rows={5}
+                    className="rounded-2xl bg-background/50 border-border/40 text-foreground placeholder:text-muted-foreground focus:border-primary/40 focus:ring-primary/20 transition-all resize-none"
+                  />
+                  <Button
+                    type="submit"
+                    disabled={sending}
+                    size="lg"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base py-6 rounded-2xl shadow-glow hover:shadow-[0_0_40px_hsl(210_100%_60%/0.3)] transition-all duration-500 uppercase tracking-wider"
+                  >
+                    {sending ? "Opening..." : "Submit"}
+                    {!sending && <Send size={16} />}
+                  </Button>
+                </form>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
