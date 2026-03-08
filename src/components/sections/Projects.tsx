@@ -4,34 +4,28 @@ import projectsBackground from "@/assets/projects-bg.jpg";
 
 const projects = [
   {
-    title: "AI-Powered Chatbot",
-    description: "An intelligent conversational agent using NLP and Transformer architecture for automated customer support.",
-    tags: ["Python", "Transformers", "NLP", "FastAPI"],
-    github: "https://github.com/Sebin1806",
+    title: "AI Healthcare Chatbot",
+    description: "An intelligent healthcare chatbot powered by AI to assist users with medical queries and health-related information.",
+    tags: ["Python", "NLP", "AI", "Healthcare"],
+    github: "https://github.com/Sebin1806/AI-Healthcare-Chatbot",
   },
   {
-    title: "Image Classification System",
-    description: "Deep learning model for multi-class image classification with 95%+ accuracy using CNNs and transfer learning.",
-    tags: ["PyTorch", "CNN", "Transfer Learning", "OpenCV"],
-    github: "https://github.com/Sebin1806",
+    title: "Multi-Agent Data Analysis System",
+    description: "A multi-agent data analysis system built with CrewAI for collaborative and automated data insights.",
+    tags: ["CrewAI", "Python", "Multi-Agent", "Data Analysis"],
+    github: "http://github.com/Sebin1806/Multi-Agent-Data-Analysis-System-with-CrewAI",
   },
   {
-    title: "Predictive Analytics Dashboard",
-    description: "End-to-end data pipeline with interactive visualizations for business intelligence and forecasting.",
-    tags: ["Python", "Streamlit", "Pandas", "Plotly"],
-    github: "https://github.com/Sebin1806",
+    title: "Email Spam Shield",
+    description: "A machine learning-based email spam detection system to classify and filter spam emails effectively.",
+    tags: ["Python", "ML", "NLP", "Classification"],
+    github: "https://github.com/Sebin1806/Email-spam-shield",
   },
   {
-    title: "Sentiment Analysis Engine",
-    description: "Real-time sentiment analysis tool processing social media data using BERT and ensemble methods.",
-    tags: ["BERT", "NLP", "Scikit-learn", "Flask"],
-    github: "https://github.com/Sebin1806",
-  },
-  {
-    title: "Recommendation System",
-    description: "Collaborative filtering and content-based recommendation engine for personalized user experiences.",
-    tags: ["Python", "TensorFlow", "Matrix Factorization", "APIs"],
-    github: "https://github.com/Sebin1806",
+    title: "Dragonball OpenCV",
+    description: "A computer vision project using OpenCV for Dragon Ball themed image processing and detection.",
+    tags: ["Python", "OpenCV", "Computer Vision", "Deep Learning"],
+    github: "https://github.com/Sebin1806/Dragon-Ball",
   },
 ];
 
