@@ -26,8 +26,8 @@ const timeline = [
 export const Journey = () => {
   return (
     <section id="journey" className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25" style={{ backgroundImage: `url(${journeyBg})` }} />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/85 to-background/80" />
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style={{ backgroundImage: `url(${journeyBg})` }} />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background/60" />
       <div className="absolute inset-0 section-pattern" />
 
       <div className="container mx-auto max-w-4xl relative z-10">
