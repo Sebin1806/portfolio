@@ -70,15 +70,7 @@ export const Navigation = () => {
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
-          <a
-            href="#home"
-            onClick={(e) => { e.preventDefault(); handleNavClick("#home"); }}
-            className="flex items-center gap-2.5 group"
-          >
-            <span className="text-lg font-bold text-foreground tracking-tight">
-              Sebin<span className="text-primary">.</span>S
-            </span>
-          </a>
+          <div className="w-[120px]" />
 
           <div className="hidden md:flex items-center gap-1 glass-subtle rounded-full px-2 py-1.5">
             {navItems.map((item) => (
