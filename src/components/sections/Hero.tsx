@@ -50,9 +50,16 @@ export const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative px-6 py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroBackground})` }} />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/80 to-background" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/60" />
+      <div className="absolute inset-0" style={{
+        background: `linear-gradient(95deg, #a748f5 25%, transparent 25%) -50px 0,
+          linear-gradient(-15deg, #a748f5 25%, transparent 25%) -50px 0,
+          linear-gradient(25deg, transparent 75%, #a748f5 75%) -50px 0,
+          linear-gradient(-45deg, transparent 75%, #a748f5 75%) -50px 0,
+          linear-gradient(-15deg, transparent 75%, #a748f5 75%) -50px 0`,
+        backgroundColor: '#b669fd',
+        backgroundSize: '40px 40px',
+      }} />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background" />
       
       {/* Ambient orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
