@@ -1,4 +1,4 @@
-import { Mail, Phone, Github, Linkedin, Code2, Send, ArrowUpRight, User, MessageSquare } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Code2, Send, User } from "lucide-react";
 import { RobotBuddy } from "@/components/RobotBuddy";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,15 +8,12 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import contactBackground from "@/assets/contact-bg.jpg";
 
-const contactInfo = [
-  { icon: Mail, label: "Email", value: "sebinsebin180606@gmail.com", href: "mailto:sebinsebin180606@gmail.com" },
-  { icon: Phone, label: "Phone", value: "+91 9342813276", href: "tel:+919342813276" },
-];
-
-const socialLinks = [
-  { icon: Github, label: "GitHub", href: "https://github.com/Sebin1806" },
-  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/sebin-s-098bb62ab/" },
-  { icon: Code2, label: "LeetCode", href: "https://leetcode.com/u/Sebin_S/" },
+const glassCards = [
+  { icon: Mail, label: "Email", href: "mailto:sebinsebin180606@gmail.com", rotation: -15 },
+  { icon: Phone, label: "Phone", href: "tel:+919342813276", rotation: -7 },
+  { icon: Github, label: "GitHub", href: "https://github.com/Sebin1806", rotation: 0 },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/sebin-s-098bb62ab/", rotation: 7 },
+  { icon: Code2, label: "LeetCode", href: "https://leetcode.com/u/Sebin_S/", rotation: 15 },
 ];
 
 export const Contact = () => {
@@ -24,6 +21,7 @@ export const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -70,30 +68,39 @@ export const Contact = () => {
         </motion.div>
 
         <div className="space-y-16">
-          {/* Contact Cards */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto"
+          {/* Glass Cards - Uiverse.io style */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex justify-center items-center py-8"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
-            {contactInfo.map((item, i) => (
-              <a key={i} href={item.href}
-                className="glass rounded-3xl p-8 flex flex-col items-center text-center hover-lift group"
+            {glassCards.map((card, i) => (
+              <a
+                key={i}
+                href={card.href}
+                target={card.label === "Email" || card.label === "Phone" ? "_self" : "_blank"}
+                rel="noopener noreferrer"
+                className="relative flex flex-col justify-center items-center border border-white/10 backdrop-blur-[10px] rounded-[10px] transition-all duration-500 cursor-pointer"
+                style={{
+                  width: "180px",
+                  height: "200px",
+                  background: "linear-gradient(rgba(255,255,255,0.13), transparent)",
+                  boxShadow: "0 25px 25px rgba(0,0,0,0.25)",
+                  transform: isHovered ? "rotate(0deg)" : `rotate(${card.rotation}deg)`,
+                  margin: isHovered ? "0 10px" : "0 -45px",
+                }}
               >
-                <div className="w-14 h-14 rounded-2xl bg-primary/8 border border-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 group-hover:border-primary/25 transition-all duration-500">
-                  <item.icon className="text-primary" size={22} />
+                <card.icon size={40} className="text-foreground" />
+                <div
+                  className="absolute bottom-0 w-full h-10 flex justify-center items-center text-foreground text-sm font-medium rounded-b-[10px]"
+                  style={{ background: "rgba(255,255,255,0.05)" }}
+                >
+                  {card.label}
                 </div>
-                <h3 className="font-semibold text-foreground mb-1">{item.label}</h3>
-                <p className="text-sm text-muted-foreground">{item.value}</p>
-              </a>
-            ))}
-            {socialLinks.map((social, i) => (
-              <a key={i} href={social.href} target="_blank" rel="noopener noreferrer"
-                className="glass rounded-3xl p-8 flex flex-col items-center text-center hover-lift group"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-primary/8 border border-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 group-hover:border-primary/25 transition-all duration-500">
-                  <social.icon className="text-primary" size={22} />
-                </div>
-                <h3 className="font-semibold text-foreground mb-1">{social.label}</h3>
-                <p className="text-sm text-muted-foreground">View Profile</p>
               </a>
             ))}
           </motion.div>
