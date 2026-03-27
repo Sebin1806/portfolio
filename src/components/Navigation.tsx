@@ -72,16 +72,16 @@ export const Navigation = () => {
         <div className="flex items-center justify-between">
           <div className="w-[120px]" />
 
-          <div className="hidden md:flex items-center gap-1 glass-subtle rounded-full px-2 py-1.5">
+          <div className="hidden md:flex items-center gap-2">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`nav-uiverse-link text-[15px] font-semibold transition-colors duration-300 ${
                   isActive(item.href)
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "text-primary"
+                    : "text-foreground/80 hover:text-foreground"
                 }`}
               >
                 {item.name}
@@ -112,10 +112,10 @@ export const Navigation = () => {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                  className={`block py-3 px-4 rounded-xl text-sm font-medium transition-all ${
+                  className={`nav-uiverse-link block py-3 px-4 text-base font-semibold transition-all ${
                     isActive(item.href)
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                      ? "text-primary"
+                      : "text-foreground/80 hover:text-foreground"
                   }`}
                 >
                   {item.name}
