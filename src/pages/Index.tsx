@@ -12,11 +12,7 @@ import { ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const footerLinks = [
-  { icon: Github, href: "https://github.com/Sebin1806", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/sebin-s-098bb62ab/", label: "LinkedIn" },
-  { icon: Code2, href: "https://leetcode.com/u/Sebin_S/", label: "LeetCode" },
-];
+
 
 const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
