@@ -1,5 +1,6 @@
 import { CursorTrail } from "@/components/CursorTrail";
 import { Navigation } from "@/components/Navigation";
+import { WebGLOceanBackground } from "@/components/WebGLOceanBackground";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { TechnicalSkills } from "@/components/sections/TechnicalSkills";
@@ -7,7 +8,7 @@ import { Journey } from "@/components/sections/Journey";
 import { EducationHistory } from "@/components/sections/EducationHistory";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
-import { Github, Linkedin, Code2, Heart, ArrowUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -27,7 +28,8 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen relative">
+      <WebGLOceanBackground />
       <CursorTrail />
       <Navigation />
       <Hero />

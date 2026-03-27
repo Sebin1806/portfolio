@@ -50,20 +50,6 @@ export const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative px-6 py-20 overflow-hidden">
-      <div className="absolute inset-0" style={{
-        background: `linear-gradient(95deg, #a748f5 25%, transparent 25%) -50px 0,
-          linear-gradient(-15deg, #a748f5 25%, transparent 25%) -50px 0,
-          linear-gradient(25deg, transparent 75%, #a748f5 75%) -50px 0,
-          linear-gradient(-45deg, transparent 75%, #a748f5 75%) -50px 0,
-          linear-gradient(-15deg, transparent 75%, #a748f5 75%) -50px 0`,
-        backgroundColor: '#b669fd',
-        backgroundSize: '40px 40px',
-      }} />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background" />
-      
-      {/* Ambient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto max-w-5xl text-center relative z-10">
         <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} className="space-y-10">

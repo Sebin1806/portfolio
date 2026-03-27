@@ -5,7 +5,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import contactBackground from "@/assets/contact-bg.jpg";
 
 const glassCards = [
   { icon: Mail, label: "Email", id: "sebinsebin180606@gmail.com", href: "mailto:sebinsebin180606@gmail.com", rotation: -12 },
@@ -89,12 +88,6 @@ export const Contact = () => {
 
   return (
     <section id="contact" className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style={{ backgroundImage: `url(${contactBackground})` }} />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background/60" />
-      <div className="absolute inset-0 section-pattern" />
-
-      <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-primary/4 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-secondary/4 rounded-full blur-3xl" />
 
       <div className="container mx-auto max-w-4xl relative z-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>

@@ -2,7 +2,6 @@ import { GraduationCap, BookOpen, Award, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import educationBg from "@/assets/education-bg.jpg";
 
 const education = [
   {
@@ -26,9 +25,6 @@ const education = [
 export const EducationHistory = () => {
   return (
     <section id="education" className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style={{ backgroundImage: `url(${educationBg})` }} />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background/60" />
-      <div className="absolute inset-0 section-pattern" />
 
       <div className="container mx-auto max-w-4xl relative z-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
