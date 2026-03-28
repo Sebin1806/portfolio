@@ -41,13 +41,19 @@ export const Navigation = () => {
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
     if (href.startsWith("#")) {
+      const scrollToSection = () => {
+        const el = document.querySelector(href);
+        if (el) {
+          const yOffset = el.getBoundingClientRect().top + window.pageYOffset - 80;
+          window.scrollTo({ top: yOffset, behavior: "smooth" });
+        }
+      };
       if (location.pathname !== "/") {
         navigate("/");
-        setTimeout(() => {
-          document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+        setTimeout(scrollToSection, 300);
       } else {
-        document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+        // Small delay to let mobile menu close first
+        setTimeout(scrollToSection, 100);
       }
     } else {
       navigate(href);
