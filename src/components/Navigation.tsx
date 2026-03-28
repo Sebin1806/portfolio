@@ -105,21 +105,21 @@ export const Navigation = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-4 pb-4 space-y-1 overflow-hidden"
+              className="md:hidden mt-4 pb-4 space-y-1 overflow-hidden glass-strong rounded-lg"
             >
               {navItems.map((item) => (
-                <a
+                <button
                   key={item.name}
-                  href={item.href}
-                  onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                  className={`nav-uiverse-link block py-3 px-4 text-base font-semibold transition-all ${
+                  type="button"
+                  onClick={() => handleNavClick(item.href)}
+                  className={`nav-uiverse-link block w-full text-left py-3 px-4 text-base font-semibold transition-all ${
                     isActive(item.href)
                       ? "text-primary"
                       : "text-foreground/80 hover:text-foreground"
                   }`}
                 >
                   {item.name}
-                </a>
+                </button>
               ))}
             </motion.div>
           )}
