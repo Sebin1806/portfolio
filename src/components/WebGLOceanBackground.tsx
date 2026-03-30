@@ -1,5 +1,10 @@
 import { useEffect, useRef } from "react";
 
+const isMobile = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+    || window.innerWidth < 768;
+};
+
 const vertexShaderSource = `
 attribute vec2 a;
 void main() {
@@ -16,8 +21,8 @@ uniform vec3  uBg;
 
 #define PI 3.14159265359
 #define TAU 6.28318530718
-#define MARCH_STEPS 22
-#define REFINE_STEPS 5
+#define MARCH_STEPS %MARCH_STEPS%
+#define REFINE_STEPS %REFINE_STEPS%
 
 float sat(float x) { return clamp(x, 0.0, 1.0); }
 
@@ -282,8 +287,13 @@ export const WebGLOceanBackground = () => {
       return s;
     };
 
+    const mobile = isMobile();
+    const fragSrc = fragmentShaderSource
+      .replace('%MARCH_STEPS%', mobile ? '10' : '22')
+      .replace('%REFINE_STEPS%', mobile ? '3' : '5');
+
     const vert = mkShader(gl.VERTEX_SHADER, vertexShaderSource);
-    const frag = mkShader(gl.FRAGMENT_SHADER, fragmentShaderSource);
+    const frag = mkShader(gl.FRAGMENT_SHADER, fragSrc);
     if (!vert || !frag) return;
 
     const prog = gl.createProgram();
@@ -323,10 +333,10 @@ export const WebGLOceanBackground = () => {
     let maxScroll = 1;
     let tgt = 0;
     let smooth = 0;
-    let qualityScale = 1.0;
-    const MAX_DPR = 1.5;
-    const MIN_QUALITY = 0.82;
-    const MAX_QUALITY = 1.0;
+    let qualityScale = mobile ? 0.55 : 1.0;
+    const MAX_DPR = mobile ? 1.0 : 1.5;
+    const MIN_QUALITY = mobile ? 0.45 : 0.82;
+    const MAX_QUALITY = mobile ? 0.65 : 1.0;
 
     const resize = () => {
       const cssW = window.innerWidth;

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
-import certificatesBg from "@/assets/certificates-bg.jpg";
+
 
 import aiml from "@/assets/certificates/AIML.jpg";
 import dataViz from "@/assets/certificates/Data_Visualization.jpg";
@@ -63,10 +63,7 @@ const Certificates = () => {
   }, [selected, goNext, goPrev]);
 
   return (
-    <div className="min-h-screen bg-background relative">
-      <div className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-40" style={{ backgroundImage: `url(${certificatesBg})` }} />
-      <div className="fixed inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background/60" />
-      <div className="relative z-10">
+    <div className="min-h-screen relative z-10">
         <Navigation />
         <div className="container mx-auto max-w-6xl px-6 pt-32 pb-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
@@ -164,7 +161,6 @@ const Certificates = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
     </div>
   );
 };

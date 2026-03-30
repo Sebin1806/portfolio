@@ -1,6 +1,6 @@
 import { CursorTrail } from "@/components/CursorTrail";
 import { Navigation } from "@/components/Navigation";
-import { WebGLOceanBackground } from "@/components/WebGLOceanBackground";
+
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { TechnicalSkills } from "@/components/sections/TechnicalSkills";
@@ -25,7 +25,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen relative">
-      <WebGLOceanBackground />
+      
       <CursorTrail />
       <Navigation />
       <Hero />
