@@ -21,8 +21,8 @@ uniform vec3  uBg;
 
 #define PI 3.14159265359
 #define TAU 6.28318530718
-#define MARCH_STEPS 22
-#define REFINE_STEPS 5
+#define MARCH_STEPS %MARCH_STEPS%
+#define REFINE_STEPS %REFINE_STEPS%
 
 float sat(float x) { return clamp(x, 0.0, 1.0); }
 
