@@ -1,5 +1,10 @@
 import { useEffect, useRef } from "react";
 
+const isMobile = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+    || window.innerWidth < 768;
+};
+
 const vertexShaderSource = `
 attribute vec2 a;
 void main() {
