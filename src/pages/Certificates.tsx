@@ -161,7 +161,6 @@ const Certificates = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
     </div>
   );
 };
