@@ -287,8 +287,13 @@ export const WebGLOceanBackground = () => {
       return s;
     };
 
+    const mobile = isMobile();
+    const fragSrc = fragmentShaderSource
+      .replace('%MARCH_STEPS%', mobile ? '10' : '22')
+      .replace('%REFINE_STEPS%', mobile ? '3' : '5');
+
     const vert = mkShader(gl.VERTEX_SHADER, vertexShaderSource);
-    const frag = mkShader(gl.FRAGMENT_SHADER, fragmentShaderSource);
+    const frag = mkShader(gl.FRAGMENT_SHADER, fragSrc);
     if (!vert || !frag) return;
 
     const prog = gl.createProgram();
