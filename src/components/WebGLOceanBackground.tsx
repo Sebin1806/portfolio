@@ -325,13 +325,14 @@ export const WebGLOceanBackground = () => {
     gl.uniform3f(uBg, 0.039, 0.039, 0.059);
 
     const N = 5;
+    const mobile = isMobile();
     let maxScroll = 1;
     let tgt = 0;
     let smooth = 0;
-    let qualityScale = 1.0;
-    const MAX_DPR = 1.5;
-    const MIN_QUALITY = 0.82;
-    const MAX_QUALITY = 1.0;
+    let qualityScale = mobile ? 0.55 : 1.0;
+    const MAX_DPR = mobile ? 1.0 : 1.5;
+    const MIN_QUALITY = mobile ? 0.45 : 0.82;
+    const MAX_QUALITY = mobile ? 0.65 : 1.0;
 
     const resize = () => {
       const cssW = window.innerWidth;
