@@ -25,7 +25,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen relative">
-      <WebGLOceanBackground />
+      
       <CursorTrail />
       <Navigation />
       <Hero />
