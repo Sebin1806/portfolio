@@ -330,7 +330,6 @@ export const WebGLOceanBackground = () => {
     gl.uniform3f(uBg, 0.039, 0.039, 0.059);
 
     const N = 5;
-    const mobile = isMobile();
     let maxScroll = 1;
     let tgt = 0;
     let smooth = 0;
