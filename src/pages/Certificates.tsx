@@ -63,9 +63,7 @@ const Certificates = () => {
   }, [selected, goNext, goPrev]);
 
   return (
-    <div className="min-h-screen relative">
-      <div className="relative z-10">
-      <div className="relative z-10">
+    <div className="min-h-screen relative z-10">
         <Navigation />
         <div className="container mx-auto max-w-6xl px-6 pt-32 pb-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
