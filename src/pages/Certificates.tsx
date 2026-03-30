@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
-import certificatesBg from "@/assets/certificates-bg.jpg";
+
 
 import aiml from "@/assets/certificates/AIML.jpg";
 import dataViz from "@/assets/certificates/Data_Visualization.jpg";
