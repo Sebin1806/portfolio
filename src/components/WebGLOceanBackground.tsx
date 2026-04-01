@@ -138,8 +138,8 @@ void main() {
   vec3 sunDir = normalize(vec3(sunArcX, sunArcY, -1.0));
   vec3 moonDir = normalize(vec3(-0.14, 0.42, -1.0));
 
-  float waveAmp = sF(0.082,0.070,0.100,0.054,0.30);
-  waveAmp += storm * 0.020;
+  float waveAmp = sF(0.14,0.12,0.16,0.09,0.38);
+  waveAmp += storm * 0.04;
   float fogDen = sF(0.020,0.010,0.022,0.034,0.046);
   float moonAmt = sF(0.0,0.0,0.05,0.92,0.06);
   float sunAbove = step(0.0, sunDir.y);
