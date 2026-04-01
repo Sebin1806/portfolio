@@ -1,7 +1,5 @@
 import { Download, FolderOpen, Award, FileText, Sparkles, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-
 import { useState, useEffect } from "react";
 
 const stats = [
@@ -22,7 +20,6 @@ export const Hero = () => {
     const speed = isDeleting ? 50 : 100;
 
     if (!isDeleting && displayText === currentRole) {
-      // Pause before deleting
       const timeout = setTimeout(() => setIsDeleting(true), 1500);
       return () => clearTimeout(timeout);
     }
@@ -46,11 +43,9 @@ export const Hero = () => {
 
   const scrollToProjects = () => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
   const scrollToContact = () => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-  const scrollToAbout = () => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative px-6 py-20 overflow-hidden">
-
       <div className="container mx-auto max-w-5xl text-center relative z-10">
         <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} className="space-y-10">
           
@@ -85,25 +80,31 @@ export const Hero = () => {
             ))}
           </motion.div>
 
-          {/* CTA */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-            <Button onClick={scrollToProjects} size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base px-8 py-6 rounded-2xl shadow-glow hover:shadow-[0_0_40px_hsl(210_100%_60%/0.3)] transition-all duration-500 group">
-              View Projects
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button onClick={scrollToContact} size="lg" variant="outline" className="font-semibold text-base px-8 py-6 rounded-2xl border-border/60 hover:bg-muted/30 transition-all duration-500">
+          {/* CTA - Uiverse buttons */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="flex flex-col sm:flex-row justify-center gap-5 pt-4">
+            <button onClick={scrollToProjects} className="btn-uiverse">
+              <span className="flex items-center gap-2">
+                View Projects
+                <ArrowRight size={16} />
+              </span>
+            </button>
+            <button onClick={scrollToContact} className="btn-uiverse">
               Contact Me
-            </Button>
-            <Button size="lg" variant="outline" className="font-semibold text-base px-8 py-6 rounded-2xl border-primary/20 text-primary hover:bg-primary/5 transition-all duration-500" asChild>
-              <a href="https://drive.google.com/drive/folders/1sHTdch-tyl_7__Iq0KvuVEchrvteGOjX?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            </button>
+            <a
+              href="https://drive.google.com/drive/folders/1sHTdch-tyl_7__Iq0KvuVEchrvteGOjX?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-uiverse"
+            >
+              <span className="flex items-center gap-2">
                 <Download size={16} />
                 Resume
-              </a>
-            </Button>
+              </span>
+            </a>
           </motion.div>
         </motion.div>
       </div>
-
     </section>
   );
 };

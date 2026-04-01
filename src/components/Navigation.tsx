@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -52,7 +51,6 @@ export const Navigation = () => {
         navigate("/");
         setTimeout(scrollToSection, 300);
       } else {
-        // Small delay to let mobile menu close first
         setTimeout(scrollToSection, 100);
       }
     } else {
@@ -71,38 +69,36 @@ export const Navigation = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "glass-strong shadow-lg shadow-background/50 py-3" : "bg-transparent py-5"
+        isScrolled ? "py-2" : "py-4"
       }`}
     >
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between">
-          <div className="w-[120px]" />
-
-          <div className="hidden md:flex items-center gap-2">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                className={`nav-uiverse-link text-[15px] font-semibold transition-colors duration-300 ${
-                  isActive(item.href)
-                    ? "text-primary"
-                    : "text-foreground/80 hover:text-foreground"
-                }`}
-              >
-                {item.name}
-              </a>
-            ))}
+        <div className="flex items-center justify-center">
+          {/* Desktop: Radio-style nav */}
+          <div className="hidden md:block">
+            <div className="radio-nav">
+              {navItems.map((item) => (
+                <button
+                  key={item.name}
+                  type="button"
+                  onClick={() => handleNavClick(item.href)}
+                  className={`nav-label ${isActive(item.href) ? "active" : ""}`}
+                >
+                  <span className="nav-text">{item.name}</span>
+                </button>
+              ))}
+            </div>
           </div>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X /> : <Menu />}
-          </Button>
+          {/* Mobile hamburger */}
+          <div className="md:hidden ml-auto">
+            <button
+              className="text-foreground p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         <AnimatePresence>
@@ -111,22 +107,20 @@ export const Navigation = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-4 pb-4 space-y-1 overflow-hidden glass-strong rounded-lg"
+              className="md:hidden mt-3 overflow-hidden"
             >
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  type="button"
-                  onClick={() => handleNavClick(item.href)}
-                  className={`nav-uiverse-link block w-full text-left py-3 px-4 text-base font-semibold transition-all ${
-                    isActive(item.href)
-                      ? "text-primary"
-                      : "text-foreground/80 hover:text-foreground"
-                  }`}
-                >
-                  {item.name}
-                </button>
-              ))}
+              <div className="radio-nav-mobile">
+                {navItems.map((item) => (
+                  <button
+                    key={item.name}
+                    type="button"
+                    onClick={() => handleNavClick(item.href)}
+                    className={`nav-label ${isActive(item.href) ? "active" : ""}`}
+                  >
+                    <span className="nav-text">{item.name}</span>
+                  </button>
+                ))}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
