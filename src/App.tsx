@@ -46,6 +46,7 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ScrollToTop />
             <WebGLOceanBackground />
             <Routes>
               <Route path="/" element={<Index />} />
