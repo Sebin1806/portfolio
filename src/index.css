@@ -175,38 +175,223 @@
   ::-webkit-scrollbar-thumb:hover { background: hsl(210 100% 60% / 0.5); }
 }
 
-.nav-uiverse-link {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.25rem 0.75rem;
-  background: none;
-  border: none;
+/* Uiverse CTA Button */
+.btn-uiverse {
+  --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+  --border-width: 0.125em;
+  --curve-size: 0.5em;
+  --blur: 30px;
+  --bg: #080312;
+  --color: #afffff;
+  color: var(--color);
   cursor: pointer;
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  place-content: center;
+  padding: 0.5em 1.5em;
+  font-size: 17px;
+  border: 0;
+  text-transform: uppercase;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+  clip-path: polygon(
+    0% var(--curve-size),
+    var(--curve-size) 0,
+    100% 0,
+    100% calc(100% - var(--curve-size)),
+    calc(100% - var(--curve-size)) 100%,
+    0 100%
+  );
+  transition: color 250ms;
   font-family: 'Poppins', sans-serif;
-  text-shadow: 0 1px 6px hsl(0 0% 0% / 0.6);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
 }
 
-.nav-uiverse-link::before {
-  content: '';
-  width: 0%;
-  height: 2px;
-  background: #f44336;
-  display: block;
-  transition: 0.5s;
-  margin-left: auto;
+.btn-uiverse::after,
+.btn-uiverse::before {
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 
-.nav-uiverse-link::after {
-  content: '';
-  width: 0%;
-  height: 2px;
-  background: #f44336;
-  display: block;
-  transition: 0.5s;
+.btn-uiverse::before {
+  background: var(--border-color);
+  background-size: 300% 300%;
+  animation: move-bg7234 5s ease infinite;
+  z-index: -2;
 }
 
-.nav-uiverse-link:hover::before,
-.nav-uiverse-link:hover::after {
-  width: 100%;
+@keyframes move-bg7234 {
+  0% { background-position: 31% 0%; }
+  50% { background-position: 70% 100%; }
+  100% { background-position: 31% 0%; }
+}
+
+.btn-uiverse::after {
+  background: var(--bg);
+  z-index: -1;
+  clip-path: polygon(
+    var(--border-width) calc(var(--curve-size) + var(--border-width) * 0.5),
+    calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+    calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)),
+    var(--border-width) calc(100% - var(--border-width))
+  );
+  transition: clip-path 500ms;
+}
+
+.btn-uiverse:where(:hover, :focus)::after {
+  clip-path: polygon(
+    calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)),
+    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width))
+  );
+  transition: 200ms;
+}
+
+.btn-uiverse:where(:hover, :focus) {
+  color: #fff;
+}
+
+/* Uiverse Radio Nav */
+.radio-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background-color: black;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.radio-nav .nav-label {
+  min-width: 80px;
+  height: 44px;
+  background: linear-gradient(to bottom, #333333, rgb(36, 35, 35));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  transition: all 0.1s linear;
+  border-top: 1px solid #4e4d4d;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0px 10px 5px 1px rgba(0, 0, 0, 0.2);
+  font-family: 'Poppins', sans-serif;
+}
+
+.radio-nav .nav-label.active {
+  box-shadow: 0px 10px 5px 1px rgba(0, 0, 0, 0);
+  background: linear-gradient(to bottom, #1d1d1d, #1d1d1d);
+  border-top: none;
+}
+
+.radio-nav .nav-label:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.radio-nav .nav-label:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.radio-nav .nav-label::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 103%;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, transparent 10%, transparent, transparent 90%);
+  transition: all 0.1s linear;
+  z-index: -1;
+}
+
+.radio-nav .nav-label.active::before {
+  background: linear-gradient(to bottom, transparent 10%, #cae2fd63, transparent 90%);
+}
+
+.radio-nav .nav-label .nav-text {
+  color: #999;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: all 0.1s linear;
+  text-shadow: -1px -1px 1px rgba(224, 224, 224, 0.1), 0px 2px 3px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+.radio-nav .nav-label.active .nav-text {
+  color: rgb(202, 226, 253);
+  text-shadow: 0px 0px 12px #cae2fd;
+}
+
+.radio-nav .nav-label:hover .nav-text {
+  color: rgb(202, 226, 253);
+}
+
+/* Mobile nav radio style */
+.radio-nav-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background-color: black;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.radio-nav-mobile .nav-label {
+  height: 44px;
+  background: linear-gradient(to bottom, #333333, rgb(36, 35, 35));
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4px 16px;
+  transition: all 0.1s linear;
+  border-top: 1px solid #4e4d4d;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0px 10px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.radio-nav-mobile .nav-label.active {
+  box-shadow: 0px 10px 5px 1px rgba(0, 0, 0, 0);
+  background: linear-gradient(to bottom, #1d1d1d, #1d1d1d);
+  border-top: none;
+}
+
+.radio-nav-mobile .nav-label:first-child {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.radio-nav-mobile .nav-label:last-child {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.radio-nav-mobile .nav-label .nav-text {
+  color: #999;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: all 0.1s linear;
+  font-family: 'Poppins', sans-serif;
+}
+
+.radio-nav-mobile .nav-label.active .nav-text {
+  color: rgb(202, 226, 253);
+  text-shadow: 0px 0px 12px #cae2fd;
+}
+
+.radio-nav-mobile .nav-label:hover .nav-text {
+  color: rgb(202, 226, 253);
 }
