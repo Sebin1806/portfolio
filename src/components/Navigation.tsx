@@ -73,7 +73,7 @@ export const Navigation = () => {
       }`}
     >
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-start">
           {/* Desktop: Radio-style nav */}
           <div className="hidden md:block">
             <div className="radio-nav">
