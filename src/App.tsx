@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { WebGLOceanBackground } from "@/components/WebGLOceanBackground";
 import Index from "./pages/Index";
 import Certificates from "./pages/Certificates";
+import ScrollToTop from "./components/ScrollToTop";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ScrollToTop />
             <WebGLOceanBackground />
             <Routes>
               <Route path="/" element={<Index />} />
