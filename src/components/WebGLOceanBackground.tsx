@@ -71,18 +71,25 @@ float waveH(vec2 p, float t, float amp, float storm) {
   vec2 swell1 = normalize(vec2(1.0, 0.28));
   vec2 swell2 = normalize(vec2(-0.48, 0.88));
   vec2 swell3 = normalize(vec2(0.82, -0.16));
+  vec2 swell4 = normalize(vec2(0.36, 0.94));
   swell2 = rot(storm * 0.18) * swell2;
   swell3 = rot(-storm * 0.14) * swell3;
-  float d1 = dot(p, swell1), d2 = dot(p, swell2), d3 = dot(p, swell3);
-  h += amp * 0.66 * sin(d1 * 0.42 + t * 0.38);
-  h += amp * 0.22 * sin(d1 * 0.94 - t * 0.62);
-  h += amp * 0.14 * sin(d2 * 1.18 - t * 0.82);
-  h += amp * 0.09 * sin(d3 * 1.82 + t * 1.04);
-  h += amp * (0.11 + storm * 0.07) * sin(p.x * 1.45 - t * 0.76 + p.y * 0.66);
-  h += amp * (0.07 + storm * 0.05) * sin(p.x * 2.85 + t * 1.06 - p.y * 0.52);
-  h += amp * (0.04 + storm * 0.03) * sin(p.x * 4.60 - t * 1.50 + p.y * 1.02);
-  float micro = noise(p * 14.0 + vec2(t * 0.18, t * 0.06)) - 0.5;
-  h += micro * amp * (0.010 + storm * 0.008);
+  swell4 = rot(t * 0.02) * swell4;
+  float d1 = dot(p, swell1), d2 = dot(p, swell2), d3 = dot(p, swell3), d4 = dot(p, swell4);
+  h += amp * 0.80 * sin(d1 * 0.38 + t * 0.72);
+  h += amp * 0.36 * sin(d1 * 0.82 - t * 1.10);
+  h += amp * 0.24 * sin(d2 * 1.05 - t * 1.40);
+  h += amp * 0.18 * sin(d3 * 1.60 + t * 1.80);
+  h += amp * 0.14 * sin(d4 * 2.10 - t * 1.25);
+  h += amp * (0.16 + storm * 0.10) * sin(p.x * 1.20 - t * 1.50 + p.y * 0.55);
+  h += amp * (0.12 + storm * 0.08) * sin(p.x * 2.40 + t * 1.90 - p.y * 0.42);
+  h += amp * (0.08 + storm * 0.06) * sin(p.x * 3.80 - t * 2.60 + p.y * 0.88);
+  h += amp * 0.06 * sin(p.x * 5.50 + t * 3.20 - p.y * 1.30);
+  h += amp * 0.04 * sin(p.y * 4.20 - t * 2.10 + p.x * 0.70);
+  float micro = noise(p * 18.0 + vec2(t * 0.35, t * 0.12)) - 0.5;
+  h += micro * amp * (0.025 + storm * 0.018);
+  float ripple = noise(p * 32.0 + vec2(-t * 0.50, t * 0.25)) - 0.5;
+  h += ripple * amp * 0.012;
   return h;
 }
 
@@ -131,8 +138,8 @@ void main() {
   vec3 sunDir = normalize(vec3(sunArcX, sunArcY, -1.0));
   vec3 moonDir = normalize(vec3(-0.14, 0.42, -1.0));
 
-  float waveAmp = sF(0.082,0.070,0.100,0.054,0.30);
-  waveAmp += storm * 0.020;
+  float waveAmp = sF(0.14,0.12,0.16,0.09,0.38);
+  waveAmp += storm * 0.04;
   float fogDen = sF(0.020,0.010,0.022,0.034,0.046);
   float moonAmt = sF(0.0,0.0,0.05,0.92,0.06);
   float sunAbove = step(0.0, sunDir.y);
