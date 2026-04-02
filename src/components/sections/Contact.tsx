@@ -22,18 +22,18 @@ const UvCard = ({ card }: { card: typeof contactCards[0] }) => {
       target={card.label === "EMAIL" || card.label === "PHONE" ? "_self" : "_blank"}
       rel="noopener noreferrer"
       className="uv-card-container noselect block"
+      aria-label={`${card.label}: ${card.id}`}
     >
       <div className="uv-card">
         <div className="card-content">
-          {/* Icon centered as prompt */}
           <div className="uv-prompt">
-            <IconComp size={32} strokeWidth={1.5} color="rgba(255,255,255,0.8)" />
+            <IconComp size={28} strokeWidth={1.7} className="uv-icon" />
           </div>
-          {/* Title shows on hover */}
-          <div className="uv-title">{card.label}</div>
-          {/* ID always visible at bottom */}
-          <div className="uv-subtitle">
-            <span className="uv-highlight">{card.id}</span>
+          <div className="uv-copy">
+            <div className="uv-title">{card.label}</div>
+            <div className="uv-subtitle">
+              <span className="uv-highlight">{card.id}</span>
+            </div>
           </div>
           <div className="glowing-elements">
             <div className="glow-1"></div>
