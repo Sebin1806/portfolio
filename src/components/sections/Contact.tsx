@@ -6,55 +6,49 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
-const glassCards = [
-  { icon: Mail, label: "Email", id: "sebinsebin180606@gmail.com", href: "mailto:sebinsebin180606@gmail.com", rotation: -12 },
-  { icon: Phone, label: "Phone", id: "+91 93428 13276", href: "tel:+919342813276", rotation: 0 },
-  { icon: Github, label: "GitHub", id: "Sebin1806", href: "https://github.com/Sebin1806", rotation: 12 },
+const contactCards = [
+  { icon: Mail, label: "EMAIL", id: "sebinsebin180606@gmail.com", href: "mailto:sebinsebin180606@gmail.com", prompt: "✉" },
+  { icon: Phone, label: "PHONE", id: "+91 93428 13276", href: "tel:+919342813276", prompt: "📞" },
+  { icon: Github, label: "GITHUB", id: "Sebin1806", href: "https://github.com/Sebin1806", prompt: "⌨" },
+  { icon: Linkedin, label: "LINKEDIN", id: "Sebin S", href: "https://www.linkedin.com/in/sebin-s-098bb62ab/", prompt: "🔗" },
+  { icon: Code2, label: "LEETCODE", id: "Sebin_S", href: "https://leetcode.com/u/Sebin_S/", prompt: "💻" },
 ];
 
-const glassCards2 = [
-  { icon: Linkedin, label: "LinkedIn", id: "Sebin S", href: "https://www.linkedin.com/in/sebin-s-098bb62ab/", rotation: -8 },
-  { icon: Code2, label: "LeetCode", id: "Sebin_S", href: "https://leetcode.com/u/Sebin_S/", rotation: 8 },
-];
-
-const GlassCardRow = ({ cards }: { cards: typeof glassCards }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <div
-      className="flex justify-center items-center py-4"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {cards.map((card, i) => (
-        <a
-          key={i}
-          href={card.href}
-          target={card.label === "Email" || card.label === "Phone" ? "_self" : "_blank"}
-          rel="noopener noreferrer"
-          className="relative flex flex-col justify-center items-center border border-white/10 backdrop-blur-[10px] rounded-[10px] transition-all duration-500 cursor-pointer"
-          style={{
-            width: "200px",
-            height: "220px",
-            background: "linear-gradient(rgba(255,255,255,0.13), transparent)",
-            boxShadow: "0 25px 25px rgba(0,0,0,0.25)",
-            transform: isHovered ? "rotate(0deg)" : `rotate(${card.rotation}deg)`,
-            margin: isHovered ? "0 10px" : "0 -45px",
-          }}
-        >
-          <card.icon size={36} className="text-foreground mb-3" />
-          <span className="text-foreground text-xs font-mono px-3 text-center break-all">{card.id}</span>
-          <div
-            className="absolute bottom-0 w-full h-10 flex justify-center items-center text-foreground text-sm font-medium rounded-b-[10px]"
-            style={{ background: "rgba(255,255,255,0.05)" }}
-          >
-            {card.label}
-          </div>
-        </a>
-      ))}
+const UvCard = ({ card }: { card: typeof contactCards[0] }) => (
+  <a
+    href={card.href}
+    target={card.label === "EMAIL" || card.label === "PHONE" ? "_self" : "_blank"}
+    rel="noopener noreferrer"
+    className="uv-card-container noselect"
+  >
+    <div className="uv-card">
+      <div className="card-content">
+        <div className="uv-prompt">{card.prompt}</div>
+        <div className="uv-title">{card.label}</div>
+        <div className="uv-subtitle">
+          <span className="uv-highlight">{card.id}</span>
+        </div>
+        <div className="glowing-elements">
+          <div className="glow-1"></div>
+          <div className="glow-2"></div>
+          <div className="glow-3"></div>
+        </div>
+        <div className="card-particles">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+        <div className="card-glare"></div>
+        <div className="cyber-lines">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div className="corner-elements">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div className="scan-line"></div>
+      </div>
     </div>
-  );
-};
+  </a>
+);
 
 export const Contact = () => {
   const [name, setName] = useState("");
@@ -88,8 +82,7 @@ export const Contact = () => {
 
   return (
     <section id="contact" className="py-32 px-6 relative overflow-hidden">
-
-      <div className="container mx-auto max-w-4xl relative z-10">
+      <div className="container mx-auto max-w-5xl relative z-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
           <p className="text-primary font-mono text-sm tracking-widest uppercase text-center mb-3">Connect</p>
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
@@ -101,16 +94,17 @@ export const Contact = () => {
         </motion.div>
 
         <div className="space-y-12">
-          {/* Glass Cards - Two Rows */}
+          {/* 3D Tilt Cards */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="space-y-6"
+            className="flex flex-wrap justify-center gap-6"
           >
-            <GlassCardRow cards={glassCards} />
-            <GlassCardRow cards={glassCards2} />
+            {contactCards.map((card, i) => (
+              <UvCard key={i} card={card} />
+            ))}
           </motion.div>
 
           {/* Robot buddy */}
@@ -160,7 +154,6 @@ export const Contact = () => {
                     rows={5}
                     className="rounded-2xl bg-background/50 border-border/40 text-foreground placeholder:text-muted-foreground focus:border-primary/40 focus:ring-primary/20 transition-all resize-none"
                   />
-                  {/* Uiverse.io animated send button */}
                   <button
                     type="submit"
                     disabled={sending}
@@ -168,19 +161,11 @@ export const Contact = () => {
                     style={{ background: "hsl(var(--primary))", fontFamily: "inherit", fontSize: "20px" }}
                   >
                     <div className="svg-wrapper transition-transform duration-300 group-hover:animate-[fly-1_0.6s_ease-in-out_infinite_alternate]">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        height="24"
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                         className="block transition-transform duration-300 group-hover:translate-x-[1.2em] group-hover:rotate-45 group-hover:scale-110"
-                        style={{ transformOrigin: "center center" }}
-                      >
+                        style={{ transformOrigin: "center center" }}>
                         <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          fill="currentColor"
-                          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-                        />
+                        <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" />
                       </svg>
                     </div>
                     <span className="block ml-[0.3em] transition-all duration-300 ease-in-out group-hover:translate-x-[5em]">
