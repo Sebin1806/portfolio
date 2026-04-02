@@ -517,30 +517,27 @@
 }
 
 .uv-card .uv-prompt {
-  bottom: 100px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   z-index: 20;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 2px;
+  font-size: 36px;
   transition: 300ms ease-in-out;
   position: absolute;
   text-align: center;
-  color: rgba(255, 255, 255, 0.7);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .uv-card .uv-title {
   opacity: 0;
   transition: 300ms ease-in-out;
   position: absolute;
-  font-size: 22px;
+  top: 30px;
+  left: 0;
+  font-size: 18px;
   font-weight: 800;
   letter-spacing: 3px;
   text-align: center;
   width: 100%;
-  padding-top: 20px;
   background: linear-gradient(45deg, #00ffaa, #00a2ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -549,24 +546,25 @@
 
 .uv-card .uv-subtitle {
   position: absolute;
-  bottom: 40px;
+  bottom: 25px;
   width: 100%;
   text-align: center;
   font-size: 11px;
   letter-spacing: 1px;
-  transform: translateY(30px);
+  transform: translateY(0);
   color: rgba(255, 255, 255, 0.6);
-  padding: 0 8px;
+  padding: 0 10px;
   word-break: break-all;
+  opacity: 1;
 }
 
 .uv-card .uv-subtitle .uv-highlight {
   color: #00ffaa;
-  margin-left: 5px;
   background: linear-gradient(90deg, #5c67ff, #ad51ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
+  font-size: 12px;
 }
 
 .uv-card .glowing-elements {
