@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { CustomCursor } from './components/layout/CustomCursor';
 import { Loader } from './components/ui/Loader';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
