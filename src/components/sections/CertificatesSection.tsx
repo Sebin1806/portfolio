@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Award, ExternalLink, Eye, CheckCircle2, X, Sparkles, ShieldCheck, ChevronLeft, ChevronRight, RotateCw } from 'lucide-react';
+import { Award, ExternalLink, Eye, CheckCircle2, X, Sparkles, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 import { CERTIFICATES } from '../../data/portfolioData';
 import type { Certificate } from '../../data/portfolioData';
 import { ScrollReveal } from '../ui/ScrollReveal';
@@ -8,7 +8,7 @@ export const CertificatesSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [activePreviewCert, setActivePreviewCert] = useState<Certificate | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [isAutoPlay, setIsAutoPlay] = useState<boolean>(false);
+  const [isAutoPlay] = useState<boolean>(true);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
@@ -32,7 +32,7 @@ export const CertificatesSection: React.FC = () => {
     } else {
       setCurrentIndex((prev) => (prev - 1 + totalCerts) % totalCerts);
     }
-    setTimeout(() => setIsAnimating(false), 550);
+    setTimeout(() => setIsAnimating(false), 350);
   };
 
   const handlePrev = () => navigate('prev');
@@ -67,7 +67,7 @@ export const CertificatesSection: React.FC = () => {
     if (!isAutoPlay || activePreviewCert) return;
     const interval = setInterval(() => {
       handleNext();
-    }, 3800);
+    }, 2000);
     return () => clearInterval(interval);
   }, [currentIndex, isAutoPlay, activePreviewCert, totalCerts, isAnimating]);
 
@@ -175,21 +175,8 @@ export const CertificatesSection: React.FC = () => {
               ))}
             </div>
 
-            {/* Controls Right: Auto-Cycle & Dial Counter */}
+            {/* Counter Badge */}
             <div className="flex items-center gap-4">
-              <button
-                onClick={() => setIsAutoPlay(!isAutoPlay)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer border ${
-                  isAutoPlay
-                    ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-300'
-                    : 'bg-white/5 border-white/10 text-slate-400 hover:text-white'
-                }`}
-              >
-                <RotateCw className={`w-3.5 h-3.5 ${isAutoPlay ? 'animate-spin' : ''}`} />
-                <span>{isAutoPlay ? 'Auto-Cycle Active' : 'Auto-Cycle Off'}</span>
-              </button>
-
-              {/* Numbered Counter Badge */}
               <div className="px-3.5 py-1.5 rounded-xl bg-white/5 border border-[#F59E0B]/30 text-xs font-mono text-slate-300">
                 Card <span className="text-[#F59E0B] font-bold">{currentIndex + 1}</span> of {totalCerts}
               </div>
@@ -250,13 +237,13 @@ export const CertificatesSection: React.FC = () => {
                       if (!isCenter && !isAnimating) {
                         setIsAnimating(true);
                         setCurrentIndex(actualIndex);
-                        setTimeout(() => setIsAnimating(false), 550);
+                        setTimeout(() => setIsAnimating(false), 350);
                       }
                     }}
                     className="absolute top-4 w-[310px] sm:w-[350px] cursor-pointer"
                     style={{
                       ...style,
-                      transition: 'transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease, filter 0.6s ease',
+                      transition: 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s ease, filter 0.35s ease',
                       willChange: 'transform, opacity, filter',
                     }}
                   >
