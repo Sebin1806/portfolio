@@ -154,9 +154,9 @@ html {
    ═══════════════════════════════════════════════ */
 
 .scroll-reveal {
-  will-change: transform, opacity, filter;
-  transition-property: transform, opacity, filter;
-  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  transition-property: transform, opacity;
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
@@ -164,7 +164,7 @@ html {
 /* ── Fade Up ── */
 .scroll-reveal.fade-up {
   opacity: 0;
-  transform: translate3d(0, 32px, 0);
+  transform: translate3d(0, 20px, 0);
 }
 .scroll-reveal.fade-up.is-visible {
   opacity: 1;
@@ -174,7 +174,7 @@ html {
 /* ── Fade Down ── */
 .scroll-reveal.fade-down {
   opacity: 0;
-  transform: translate3d(0, -32px, 0);
+  transform: translate3d(0, -20px, 0);
 }
 .scroll-reveal.fade-down.is-visible {
   opacity: 1;
@@ -184,8 +184,8 @@ html {
 /* ── Fade Left (Slide from Left Edge) ── */
 .scroll-reveal.fade-left {
   opacity: 0;
-  transform: translate3d(-140px, 0, 0) scale(0.96);
-  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(-40px, 0, 0) scale(0.98);
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .scroll-reveal.fade-left.is-visible {
   opacity: 1;
@@ -195,30 +195,30 @@ html {
 /* ── Fade Right (Slide from Right Edge) ── */
 .scroll-reveal.fade-right {
   opacity: 0;
-  transform: translate3d(140px, 0, 0) scale(0.96);
-  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(40px, 0, 0) scale(0.98);
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .scroll-reveal.fade-right.is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
 }
 
-/* ── Slide Left (Deep Slide from Left System Edge) ── */
+/* ── Slide Left (Deep Slide from Left Edge) ── */
 .scroll-reveal.slide-left {
   opacity: 0;
-  transform: translate3d(-240px, 0, 0) scale(0.94);
-  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(-60px, 0, 0) scale(0.97);
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .scroll-reveal.slide-left.is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
 }
 
-/* ── Slide Right (Deep Slide from Right System Edge) ── */
+/* ── Slide Right (Deep Slide from Right Edge) ── */
 .scroll-reveal.slide-right {
   opacity: 0;
-  transform: translate3d(240px, 0, 0) scale(0.94);
-  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(60px, 0, 0) scale(0.97);
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .scroll-reveal.slide-right.is-visible {
   opacity: 1;
@@ -228,9 +228,9 @@ html {
 /* ── Blur In (Cinematic Camera Unblur) ── */
 .scroll-reveal.blur-in {
   opacity: 0;
-  filter: blur(12px);
-  transform: translate3d(0, 18px, 0) scale(0.98);
-  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  filter: blur(8px);
+  transform: translate3d(0, 12px, 0) scale(0.98);
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .scroll-reveal.blur-in.is-visible {
   opacity: 1;
@@ -241,8 +241,8 @@ html {
 /* ── Rotate In (Dynamic 3D Tilt) ── */
 .scroll-reveal.rotate-in {
   opacity: 0;
-  transform: rotate3d(0, 0, 1, -4deg) translate3d(0, 24px, 0) scale(0.95);
-  transition-timing-function: cubic-bezier(0.34, 1.4, 0.64, 1);
+  transform: rotate3d(0, 0, 1, -2deg) translate3d(0, 16px, 0) scale(0.98);
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .scroll-reveal.rotate-in.is-visible {
   opacity: 1;
