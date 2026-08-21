@@ -51,7 +51,7 @@ export const BinaryHackerHeading: React.FC<BinaryHackerHeadingProps> = ({ classN
     if (!isStarted) return;
 
     let step = 0;
-    const totalSteps = 35; // 35 steps * 35ms = 1.22 seconds fast decryption duration
+    const totalSteps = 20; // 20 steps * 25ms = 500ms snappy, consistent decryption duration
     const charsToDecode = textChars.length;
 
     const interval = setInterval(() => {
@@ -78,7 +78,7 @@ export const BinaryHackerHeading: React.FC<BinaryHackerHeadingProps> = ({ classN
         setRevealedCount(textChars.length);
         clearInterval(interval);
       }
-    }, 35);
+    }, 25);
 
     return () => clearInterval(interval);
   }, [isStarted, revealedCount, textChars.length]);

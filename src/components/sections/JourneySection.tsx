@@ -20,19 +20,19 @@ export const JourneySection: React.FC = () => {
   };
 
   return (
-    <section id="journey" className="py-24 px-4 sm:px-6 lg:px-8 relative z-10">
-      <div className="max-w-5xl mx-auto">
+    <section id="journey" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-4xl mx-auto">
         
         {/* Section Header */}
         <ScrollReveal animation="rotate-in">
-          <div className="flex flex-col items-center text-center mb-16">
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white flex items-center justify-center gap-3">
-              <span className="text-[#F59E0B] font-mono text-3xl sm:text-5xl md:text-6xl">03.</span>
+          <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white flex items-center justify-center gap-3">
+              <span className="text-[#F59E0B] font-mono text-2xl sm:text-4xl md:text-5xl">03.</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#F59E0B]">
                 MY JOURNEY
               </span>
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-[#F59E0B] via-[#F43F5E] to-[#F97316] rounded-full mt-4" />
+            <div className="w-20 h-1 bg-gradient-to-r from-[#F59E0B] via-[#F43F5E] to-[#F97316] rounded-full mt-3" />
           </div>
         </ScrollReveal>
 
@@ -42,7 +42,7 @@ export const JourneySection: React.FC = () => {
           {/* Vertical Central Glowing Tree Trunk Stem */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#F97316] via-[#F43F5E] to-amber-500 rounded-full shadow-[0_0_15px_rgba(244,63,94,0.5)]" />
 
-          <div className="space-y-12 relative z-10">
+          <div className="space-y-6 sm:space-y-8 relative z-10">
             {treeNodes.map((node: JourneyNode, index: number) => {
               const isEven = index % 2 === 0;
 
@@ -50,40 +50,40 @@ export const JourneySection: React.FC = () => {
                 <ScrollReveal
                   key={node.id}
                   animation={isEven ? 'fade-left' : 'fade-right'}
-                  delay={index * 120}
-                  duration={800}
+                  delay={index * 100}
+                  duration={600}
                 >
                   <div
                     className={`flex flex-col md:flex-row items-center ${
                       isEven ? 'md:flex-row-reverse' : ''
-                    } gap-8 group`}
+                    } gap-4 sm:gap-6 group`}
                   >
                     {/* Card Content Side */}
                     <div className="w-full md:w-1/2">
-                      <div className="glass-panel rounded-3xl p-6 sm:p-8 hover:border-[#F43F5E]/50 transition-all duration-300 relative overflow-hidden group-hover:-translate-y-1 shadow-xl">
+                      <div className="glass-panel rounded-2xl p-4 sm:p-6 hover:border-[#F43F5E]/50 transition-all duration-300 relative overflow-hidden group-hover:-translate-y-1 shadow-lg">
                         
                         {/* Top indicator tag */}
-                        <div className="flex items-center justify-between gap-2 mb-3">
-                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase bg-white/5 border border-white/10 text-[#FB7185]">
+                        <div className="flex items-center justify-between gap-2 mb-2">
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase bg-white/5 border border-white/10 text-[#FB7185]">
                             {node.period}
                           </span>
-                          <span className="text-xs font-mono text-slate-400">{node.location}</span>
+                          <span className="text-[11px] font-mono text-slate-400">{node.location}</span>
                         </div>
 
-                        <h3 className="text-lg font-bold text-white group-hover:text-[#F59E0B] transition-colors">
+                        <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#F59E0B] transition-colors">
                           {node.title}
                         </h3>
-                        <p className="text-xs font-mono text-slate-400 mb-3">{node.subtitle} • {node.institution}</p>
+                        <p className="text-[11px] font-mono text-slate-400 mb-2">{node.subtitle} • {node.institution}</p>
                         
-                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                        <p className="text-xs text-slate-300 leading-relaxed mb-3">
                           {node.description}
                         </p>
 
                         {/* Achievements list */}
-                        <div className="space-y-1.5 pt-3 border-t border-white/10">
+                        <div className="space-y-1 pt-2 border-t border-white/10">
                           {node.achievements.map((ach) => (
-                            <div key={ach} className="flex items-center gap-2 text-xs text-slate-300">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
+                            <div key={ach} className="flex items-center gap-2 text-[11px] text-slate-300">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B] shrink-0" />
                               <span>{ach}</span>
                             </div>
                           ))}
@@ -92,8 +92,8 @@ export const JourneySection: React.FC = () => {
                     </div>
 
                     {/* Central Node Badge */}
-                    <div className="relative flex items-center justify-center z-20">
-                      <div className="w-12 h-12 rounded-2xl bg-[#030712] border-2 border-[#F43F5E] flex items-center justify-center shadow-[0_0_20px_rgba(244,63,94,0.6)] group-hover:scale-125 group-hover:border-[#F59E0B] transition-all">
+                    <div className="relative flex items-center justify-center z-20 shrink-0">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-[#030712] border-2 border-[#F43F5E] flex items-center justify-center shadow-[0_0_20px_rgba(244,63,94,0.6)] group-hover:scale-110 group-hover:border-[#F59E0B] transition-all">
                         {getIcon(node.type)}
                       </div>
                     </div>
@@ -105,15 +105,6 @@ export const JourneySection: React.FC = () => {
               );
             })}
           </div>
-
-          {/* Tree Roots Base Badge */}
-          <ScrollReveal animation="scale-up" delay={200}>
-            <div className="mt-16 flex flex-col items-center text-center">
-              <div className="px-6 py-2.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono text-xs font-semibold shadow-lg shadow-amber-500/10">
-                🌱 Roots: Evans Matriculation HSS & Early Curiosity
-              </div>
-            </div>
-          </ScrollReveal>
 
         </div>
       </div>
