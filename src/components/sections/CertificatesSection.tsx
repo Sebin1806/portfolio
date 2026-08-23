@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, ExternalLink, Eye, CheckCircle2, X, Sparkles, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Award, ExternalLink, Eye, CheckCircle2, X, Sparkles, ShieldCheck, ChevronLeft, ChevronRight, RotateCw } from 'lucide-react';
 import { CERTIFICATES } from '../../data/portfolioData';
 import type { Certificate } from '../../data/portfolioData';
 import { ScrollReveal } from '../ui/ScrollReveal';
@@ -7,6 +7,8 @@ import { ScrollReveal } from '../ui/ScrollReveal';
 export const CertificatesSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [activePreviewCert, setActivePreviewCert] = useState<Certificate | null>(null);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isAutoSpin, setIsAutoSpin] = useState<boolean>(true);
   const [dragRotation, setDragRotation] = useState<number>(0);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [startX, setStartX] = useState<number>(0);
@@ -21,13 +23,13 @@ export const CertificatesSection: React.FC = () => {
   const totalCerts = filteredCerts.length;
 
   const handlePrev = () => {
-    const angleStep = 360 / Math.max(1, totalCerts);
-    setDragRotation((prev) => prev + angleStep);
+    setIsAutoSpin(false);
+    setCurrentIndex((prev) => (prev - 1 + totalCerts) % totalCerts);
   };
 
   const handleNext = () => {
-    const angleStep = 360 / Math.max(1, totalCerts);
-    setDragRotation((prev) => prev - angleStep);
+    setIsAutoSpin(false);
+    setCurrentIndex((prev) => (prev + 1) % totalCerts);
   };
 
   const handlePointerDown = (clientX: number) => {
@@ -45,6 +47,8 @@ export const CertificatesSection: React.FC = () => {
   const handlePointerUp = () => {
     setIsDragging(false);
   };
+
+  const currentRotation = - (360 / Math.max(1, totalCerts)) * currentIndex + dragRotation;
 
   return (
     <section id="certificates" className="py-24 px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
@@ -66,7 +70,7 @@ export const CertificatesSection: React.FC = () => {
             <div className="w-24 h-1.5 bg-gradient-to-r from-[#F59E0B] via-[#F43F5E] to-[#F97316] rounded-full mt-4" />
             <p className="text-xs sm:text-sm font-mono text-slate-400 mt-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#F59E0B] animate-ping" />
-              Drag mouse or swipe left/right to rotate 3D showcase
+              Use Prev/Next buttons or drag mouse to rotate 3D showcase
             </p>
           </div>
         </ScrollReveal>
@@ -80,7 +84,11 @@ export const CertificatesSection: React.FC = () => {
               {categories.map((cat) => (
                 <button
                   key={cat}
-                  onClick={() => setSelectedCategory(cat)}
+                  onClick={() => {
+                    setSelectedCategory(cat);
+                    setCurrentIndex(0);
+                    setDragRotation(0);
+                  }}
                   className={`px-4 py-2 rounded-2xl text-xs font-medium transition-all duration-300 cursor-pointer ${
                     selectedCategory === cat
                       ? 'bg-gradient-to-r from-[#F59E0B] via-[#F43F5E] to-[#F97316] text-white shadow-lg shadow-amber-500/30 border border-transparent font-bold scale-105'
@@ -92,10 +100,22 @@ export const CertificatesSection: React.FC = () => {
               ))}
             </div>
 
-            {/* Total Count Badge */}
-            <div className="flex items-center gap-4">
+            {/* Controls Right: Auto-Spin Toggle & Total Count Badge */}
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setIsAutoSpin(!isAutoSpin)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer border ${
+                  isAutoSpin
+                    ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-300'
+                    : 'bg-amber-500/20 border-amber-500/40 text-amber-300'
+                }`}
+              >
+                <RotateCw className={`w-3.5 h-3.5 ${isAutoSpin ? 'animate-spin' : ''}`} />
+                <span>{isAutoSpin ? 'Auto-Spin Active' : 'Resume Auto Spin'}</span>
+              </button>
+
               <div className="px-3.5 py-1.5 rounded-xl bg-white/5 border border-[#F59E0B]/30 text-xs font-mono text-slate-300">
-                Total Certificates: <span className="text-[#F59E0B] font-bold">{totalCerts}</span>
+                Card <span className="text-[#F59E0B] font-bold">{currentIndex + 1}</span> of {totalCerts}
               </div>
             </div>
 
@@ -103,7 +123,7 @@ export const CertificatesSection: React.FC = () => {
         </ScrollReveal>
 
         {/* ═══════════════════════════════════════════════════════════════
-           UIVERSE.IO 3D ROTATING CYLINDER SHOWCASE (WITH DRAG, SWIPE & NAV BUTTONS)
+           UIVERSE.IO 3D ROTATING CYLINDER SHOWCASE (WITH PREV/NEXT & SWIPE)
            ═══════════════════════════════════════════════════════════════ */}
         <ScrollReveal animation="fade-up" delay={150}>
           <div
@@ -145,10 +165,12 @@ export const CertificatesSection: React.FC = () => {
             </button>
 
             <div
-              className="uiverse-inner"
+              className={`uiverse-inner ${isAutoSpin ? 'is-auto-spin' : ''}`}
               style={{
                 '--quantity': totalCerts,
-                transform: `perspective(1200px) rotateX(-6deg) rotateY(${dragRotation}deg)`
+                transform: isAutoSpin
+                  ? undefined
+                  : `perspective(1200px) rotateX(-6deg) rotateY(${currentRotation}deg)`
               } as React.CSSProperties}
             >
               {filteredCerts.map((cert: Certificate, index: number) => {
