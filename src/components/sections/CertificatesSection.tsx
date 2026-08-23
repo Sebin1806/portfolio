@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, ExternalLink, Eye, CheckCircle2, X, Sparkles, ShieldCheck } from 'lucide-react';
+import { Award, ExternalLink, Eye, CheckCircle2, X, Sparkles, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 import { CERTIFICATES } from '../../data/portfolioData';
 import type { Certificate } from '../../data/portfolioData';
 import { ScrollReveal } from '../ui/ScrollReveal';
@@ -19,6 +19,16 @@ export const CertificatesSection: React.FC = () => {
     : CERTIFICATES.filter((c) => c.category === selectedCategory);
 
   const totalCerts = filteredCerts.length;
+
+  const handlePrev = () => {
+    const angleStep = 360 / Math.max(1, totalCerts);
+    setDragRotation((prev) => prev + angleStep);
+  };
+
+  const handleNext = () => {
+    const angleStep = 360 / Math.max(1, totalCerts);
+    setDragRotation((prev) => prev - angleStep);
+  };
 
   const handlePointerDown = (clientX: number) => {
     setIsDragging(true);
@@ -93,7 +103,7 @@ export const CertificatesSection: React.FC = () => {
         </ScrollReveal>
 
         {/* ═══════════════════════════════════════════════════════════════
-           UIVERSE.IO 3D ROTATING CYLINDER SHOWCASE (WITH DRAG & SWIPE)
+           UIVERSE.IO 3D ROTATING CYLINDER SHOWCASE (WITH DRAG, SWIPE & NAV BUTTONS)
            ═══════════════════════════════════════════════════════════════ */}
         <ScrollReveal animation="fade-up" delay={150}>
           <div
@@ -106,6 +116,34 @@ export const CertificatesSection: React.FC = () => {
             onTouchMove={(e) => handlePointerMove(e.touches[0].clientX)}
             onTouchEnd={handlePointerUp}
           >
+            {/* ── PREVIOUS CERTIFICATE BUTTON ── */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrev();
+              }}
+              aria-label="Previous Certificate"
+              className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-[60] p-[3px] rounded-full bg-gradient-to-br from-[#F59E0B] via-[#F43F5E] to-[#F97316] shadow-[0_0_25px_rgba(245,158,11,0.6)] hover:shadow-[0_0_40px_rgba(245,158,11,0.9)] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer group"
+            >
+              <span className="flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-[#0B132B] group-hover:bg-[#0F172A] border border-white/20 transition-colors">
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-[#F59E0B] group-hover:text-white transition-all group-hover:-translate-x-0.5" />
+              </span>
+            </button>
+
+            {/* ── NEXT CERTIFICATE BUTTON ── */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNext();
+              }}
+              aria-label="Next Certificate"
+              className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-[60] p-[3px] rounded-full bg-gradient-to-br from-[#F43F5E] via-[#F97316] to-[#F59E0B] shadow-[0_0_25px_rgba(244,63,94,0.6)] hover:shadow-[0_0_40px_rgba(244,63,94,0.9)] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer group"
+            >
+              <span className="flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-[#0B132B] group-hover:bg-[#0F172A] border border-white/20 transition-colors">
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-[#F43F5E] group-hover:text-white transition-all group-hover:translate-x-0.5" />
+              </span>
+            </button>
+
             <div
               className="uiverse-inner"
               style={{

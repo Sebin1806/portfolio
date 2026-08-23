@@ -359,14 +359,6 @@ html {
   animation: uiverseRotating 34s linear infinite;
 }
 
-.uiverse-wrapper:hover .uiverse-inner {
-  animation-play-state: paused;
-}
-
-.uiverse-wrapper.is-dragging .uiverse-inner {
-  animation-play-state: paused;
-}
-
 @keyframes uiverseRotating {
   from {
     transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0deg);
