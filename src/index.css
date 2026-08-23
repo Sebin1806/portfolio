@@ -324,3 +324,82 @@ html {
 .animate-fadeIn {
   animation: fadeIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
+/* ═══════════════════════════════════════════════
+   UIVERSE.IO 3D ROTATING CYLINDER CAROUSEL STYLING
+   ═══════════════════════════════════════════════ */
+
+.uiverse-wrapper {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  perspective: 1200px;
+  touch-action: pan-y;
+}
+
+.uiverse-inner {
+  --w: 175px;
+  --h: 240px;
+  --translateZ: 300px;
+  --rotateX: -6deg;
+  --perspective: 1200px;
+  position: absolute;
+  width: var(--w);
+  height: var(--h);
+  top: calc(50% - (var(--h) / 2));
+  left: calc(50% - (var(--w) / 2));
+  z-index: 2;
+  transform-style: preserve-3d;
+  transform: perspective(var(--perspective)) rotateX(var(--rotateX));
+  animation: uiverseRotating 34s linear infinite;
+}
+
+.uiverse-wrapper:hover .uiverse-inner {
+  animation-play-state: paused;
+}
+
+.uiverse-wrapper.is-dragging .uiverse-inner {
+  animation-play-state: paused;
+}
+
+@keyframes uiverseRotating {
+  from {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0deg);
+  }
+  to {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(360deg);
+  }
+}
+
+.uiverse-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  inset: 0;
+  transform: rotateY(calc((360deg / var(--quantity)) * var(--index))) translateZ(var(--translateZ));
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  backface-visibility: visible;
+}
+
+.uiverse-card:hover {
+  transform: rotateY(calc((360deg / var(--quantity)) * var(--index))) translateZ(calc(var(--translateZ) + 30px)) scale(1.06);
+  z-index: 100;
+}
+
+@media (min-width: 640px) {
+  .uiverse-wrapper {
+    height: 440px;
+  }
+  .uiverse-inner {
+    --w: 195px;
+    --h: 260px;
+    --translateZ: 340px;
+  }
+}
