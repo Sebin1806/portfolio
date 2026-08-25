@@ -184,13 +184,13 @@ export const CertificatesSection: React.FC = () => {
                     }}
                   >
                     {/* Glassmorphism Card Container */}
-                    <div className="w-full h-full bg-[#0F172A]/95 border-2 border-[#F59E0B]/50 hover:border-[#F43F5E] p-2.5 sm:p-3 flex flex-col justify-between rounded-2xl relative shadow-[0_0_30px_rgba(245,158,11,0.2)] hover:shadow-[0_0_45px_rgba(244,63,94,0.5)] transition-all duration-300">
+                    <div className="w-full h-full bg-[#0F172A]/95 border-2 border-[#F59E0B]/50 hover:border-[#F43F5E] p-2 sm:p-2.5 flex flex-col justify-between rounded-xl relative shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:shadow-[0_0_35px_rgba(244,63,94,0.5)] transition-all duration-300">
                       
                       {/* Top Accent Gradient Bar */}
                       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F59E0B] via-[#F43F5E] to-[#F97316]" />
 
                       {/* Certificate Image Thumbnail (100% Fully Visible with object-contain) */}
-                      <div className="w-full h-22 sm:h-26 rounded-lg overflow-hidden border border-white/10 relative bg-[#030712] shadow-inner group-hover:scale-[1.02] transition-transform duration-300 shrink-0 flex items-center justify-center p-1">
+                      <div className="w-full h-18 sm:h-22 rounded-lg overflow-hidden border border-white/10 relative bg-[#030712] shadow-inner group-hover:scale-[1.02] transition-transform duration-300 shrink-0 flex items-center justify-center p-0.5">
                         {cert.image ? (
                           <img
                             src={cert.image}
@@ -199,9 +199,9 @@ export const CertificatesSection: React.FC = () => {
                             loading="lazy"
                           />
                         ) : (
-                          <div className={`w-full h-full bg-gradient-to-br ${cert.previewColor} p-3 flex flex-col justify-between rounded-lg`}>
-                            <Award className="w-6 h-6 text-white/80" />
-                            <h4 className="text-xs font-bold text-white line-clamp-2">{cert.title}</h4>
+                          <div className={`w-full h-full bg-gradient-to-br ${cert.previewColor} p-2 flex flex-col justify-between rounded-lg`}>
+                            <Award className="w-5 h-5 text-white/80" />
+                            <h4 className="text-[10px] font-bold text-white line-clamp-2">{cert.title}</h4>
                           </div>
                         )}
 
