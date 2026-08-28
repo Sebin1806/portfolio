@@ -28,9 +28,10 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#030712] text-white relative selection:bg-rose-500/30 selection:text-rose-200 dark overflow-x-hidden">
-
-      {/* Site Initialization Loader */}
+    <div className="min-h-screen bg-premium-mesh text-white relative selection:bg-rose-500/30 selection:text-rose-200 dark overflow-x-hidden">
+      
+      {/* Subtle Tech Dot Grid Overlay */}
+      <div className="fixed inset-0 bg-dot-grid opacity-40 pointer-events-none z-0" />
       <Loader />
 
       {/* Glassmorphic Navigation Header */}

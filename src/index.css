@@ -63,6 +63,21 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Premium Modern Portfolio Background Utilities */
+.bg-premium-mesh {
+  background-color: #030712;
+  background-image: 
+    radial-gradient(ellipse 100% 60% at 50% -10%, rgba(99, 102, 241, 0.16), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 95% 45%, rgba(244, 63, 94, 0.08), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 5% 75%, rgba(245, 158, 11, 0.07), transparent 60%),
+    radial-gradient(ellipse 90% 70% at 50% 110%, rgba(16, 185, 129, 0.07), transparent 70%);
+}
+
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
