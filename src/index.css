@@ -315,13 +315,35 @@ html {
   animation: certSlidePrev 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* ═══════════════════════════════════════════════
-   GLOBAL SMOOTH TRANSITIONS
-   ═══════════════════════════════════════════════ */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
-/* Smooth scroll for anchor links */
-html {
-  scroll-behavior: smooth;
+@keyframes floatElement {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(6deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.08); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 40s linear infinite;
+}
+
+.animate-float {
+  animation: floatElement 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatElement 11s ease-in-out infinite 3s;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 12s ease-in-out infinite;
 }
 
 /* Smooth fade-in for modals / overlays */

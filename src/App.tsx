@@ -18,6 +18,8 @@ import { ContactSection } from './components/sections/ContactSection';
 import { ProjectModal } from './components/ui/ProjectModal';
 import { PROJECTS } from './data/portfolioData';
 import type { Project } from './data/portfolioData';
+import { SubtleAbstractBackground } from './components/ui/SubtleAbstractBackground';
+
 export function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -30,8 +32,11 @@ export function App() {
   return (
     <div className="min-h-screen bg-premium-mesh text-white relative selection:bg-rose-500/30 selection:text-rose-200 dark overflow-x-hidden">
       
+      {/* Subtle Abstract Background with Soft Glows, Geometric Rings & Floating Accents */}
+      <SubtleAbstractBackground />
+
       {/* Subtle Tech Dot Grid Overlay */}
-      <div className="fixed inset-0 bg-dot-grid opacity-40 pointer-events-none z-0" />
+      <div className="fixed inset-0 bg-dot-grid opacity-35 pointer-events-none z-0" />
       <Loader />
 
       {/* Glassmorphic Navigation Header */}
