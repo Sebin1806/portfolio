@@ -8,9 +8,9 @@
   --bg-secondary: #0F172A;
   --card-bg: rgba(255, 255, 255, 0.04);
   --card-border: rgba(255, 255, 255, 0.08);
-  --accent-red: #F43F5E;
-  --accent-orange: #F97316;
-  --accent-amber: #F59E0B;
+  --accent-red: #DC2626;
+  --accent-orange: #991B1B;
+  --accent-amber: #B91C1C;
   --text-primary: #FFFFFF;
   --text-secondary: #CBD5E1;
   --font-geist: 'Carter One', 'Agbalumo', 'Playfair Display', cursive, sans-serif;
@@ -67,15 +67,15 @@ body {
 .bg-premium-mesh {
   background-color: #030712;
   background-image: 
-    radial-gradient(ellipse 100% 60% at 50% -10%, rgba(99, 102, 241, 0.16), transparent 70%),
-    radial-gradient(ellipse 70% 50% at 95% 45%, rgba(244, 63, 94, 0.08), transparent 60%),
-    radial-gradient(ellipse 70% 50% at 5% 75%, rgba(245, 158, 11, 0.07), transparent 60%),
-    radial-gradient(ellipse 90% 70% at 50% 110%, rgba(16, 185, 129, 0.07), transparent 70%);
+    radial-gradient(ellipse 100% 60% at 50% -10%, rgba(220, 38, 38, 0.22), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 95% 45%, rgba(153, 27, 27, 0.18), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 5% 75%, rgba(185, 28, 28, 0.18), transparent 60%),
+    radial-gradient(ellipse 90% 70% at 50% 110%, rgba(220, 38, 38, 0.15), transparent 70%);
 }
 
 .bg-dot-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-image: radial-gradient(rgba(220, 38, 38, 0.18) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
 }
 
 h1, h2, h3, h4, h5, h6 {

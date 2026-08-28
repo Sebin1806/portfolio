@@ -35,8 +35,8 @@ export function App() {
       {/* Subtle Abstract Background with Soft Glows, Geometric Rings & Floating Accents */}
       <SubtleAbstractBackground />
 
-      {/* Subtle Tech Dot Grid Overlay */}
-      <div className="fixed inset-0 bg-dot-grid opacity-35 pointer-events-none z-0" />
+      {/* Tech Dot Grid Overlay */}
+      <div className="fixed inset-0 bg-dot-grid opacity-70 pointer-events-none z-0" />
       <Loader />
 
       {/* Glassmorphic Navigation Header */}

@@ -4,27 +4,32 @@ export const SubtleAbstractBackground: React.FC = () => {
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 select-none">
       
-      {/* 1. Soft Ambient Glowing Orbs */}
-      <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-indigo-600/12 rounded-full blur-[100px] animate-pulse-glow" />
-      <div className="absolute top-1/3 -right-32 w-[600px] h-[600px] bg-rose-600/09 rounded-full blur-[110px] animate-pulse-glow" style={{ animationDelay: '3s' }} />
-      <div className="absolute top-2/3 -left-32 w-[550px] h-[550px] bg-amber-500/08 rounded-full blur-[100px] animate-pulse-glow" style={{ animationDelay: '6s' }} />
-      <div className="absolute -bottom-32 right-1/4 w-[600px] h-[600px] bg-emerald-500/08 rounded-full blur-[110px] animate-pulse-glow" style={{ animationDelay: '9s' }} />
+      {/* 1. Vivid Ambient Glowing Orbs */}
+      <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-red-700/30 rounded-full blur-[100px] animate-pulse-glow" />
+      <div className="absolute top-1/3 -right-32 w-[650px] h-[650px] bg-rose-700/25 rounded-full blur-[110px] animate-pulse-glow" style={{ animationDelay: '3s' }} />
+      <div className="absolute top-2/3 -left-32 w-[600px] h-[600px] bg-red-900/30 rounded-full blur-[100px] animate-pulse-glow" style={{ animationDelay: '6s' }} />
+      <div className="absolute -bottom-32 right-1/4 w-[650px] h-[650px] bg-crimson-800/25 rounded-full blur-[110px] animate-pulse-glow" style={{ animationDelay: '9s' }} />
 
-      {/* 2. Minimal Abstract Geometric Outlines */}
-      {/* Abstract Glowing Ring Top Right */}
-      <div className="absolute top-24 right-12 w-96 h-96 border border-white/5 rounded-full animate-spin-slow opacity-25" />
-      <div className="absolute top-32 right-20 w-80 h-80 border border-indigo-500/10 rounded-full animate-spin-slow opacity-20" style={{ animationDirection: 'reverse' }} />
+      {/* 2. Distinct Abstract Geometric Outlines & Shapes */}
+      {/* Rotating Ring Top Right */}
+      <div className="absolute top-20 right-8 w-[420px] h-[420px] border-2 border-red-500/40 rounded-full animate-spin-slow opacity-70" />
+      <div className="absolute top-28 right-16 w-[350px] h-[350px] border-2 border-[#DC2626]/35 rounded-full animate-spin-slow opacity-60" style={{ animationDirection: 'reverse' }} />
 
-      {/* Abstract Concentric Circles Center Left */}
-      <div className="absolute top-[45%] -left-20 w-96 h-96 border border-[#F43F5E]/10 rounded-full opacity-20 animate-pulse-glow" />
-      <div className="absolute top-[48%] -left-12 w-72 h-72 border border-white/5 rounded-full opacity-15" />
+      {/* Concentric Circles Center Left */}
+      <div className="absolute top-[42%] -left-28 w-[450px] h-[450px] border-2 border-[#DC2626]/40 rounded-full opacity-65 animate-pulse-glow" />
+      <div className="absolute top-[45%] -left-20 w-[380px] h-[380px] border-2 border-red-600/30 rounded-full opacity-55" />
+      <div className="absolute top-[48%] -left-12 w-[300px] h-[300px] border border-white/20 rounded-full opacity-45" />
 
-      {/* Subtle Floating Tech Decorative Accents (+) and Diamonds (◇) */}
-      <div className="absolute top-[18%] left-[12%] text-white/10 font-mono text-xl animate-float">+</div>
-      <div className="absolute top-[35%] right-[18%] text-indigo-400/15 font-mono text-2xl animate-float-delayed">◇</div>
-      <div className="absolute top-[62%] left-[8%] text-[#F43F5E]/15 font-mono text-xl animate-float">◇</div>
-      <div className="absolute top-[78%] right-[10%] text-amber-400/15 font-mono text-2xl animate-float-delayed">+</div>
-      <div className="absolute top-[90%] left-[20%] text-emerald-400/15 font-mono text-xl animate-float">+</div>
+      {/* Slanted Glass Line Accents */}
+      <div className="absolute top-[25%] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-red-600/40 to-transparent opacity-60" />
+      <div className="absolute top-[70%] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#DC2626]/35 to-transparent opacity-50" />
+
+      {/* Floating Tech Decorative Accents (+) and Diamonds (◇) */}
+      <div className="absolute top-[15%] left-[10%] text-red-500/60 font-mono text-2xl font-bold animate-float">+</div>
+      <div className="absolute top-[30%] right-[15%] text-rose-400/60 font-mono text-3xl font-bold animate-float-delayed">◇</div>
+      <div className="absolute top-[55%] left-[6%] text-[#DC2626]/60 font-mono text-2xl font-bold animate-float">◇</div>
+      <div className="absolute top-[75%] right-[8%] text-red-600/60 font-mono text-3xl font-bold animate-float-delayed">+</div>
+      <div className="absolute top-[88%] left-[18%] text-rose-500/60 font-mono text-2xl font-bold animate-float">+</div>
 
     </div>
   );

@@ -59,14 +59,14 @@ export const CertificatesSection: React.FC = () => {
         <ScrollReveal animation="blur-in">
           <div className="flex flex-col items-center text-center mb-10">
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white flex items-center justify-center gap-3">
-              <span className="text-[#F59E0B] font-mono text-3xl sm:text-5xl md:text-6xl">06.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#F59E0B]">
+              <span className="text-[#DC2626] font-mono text-3xl sm:text-5xl md:text-6xl">06.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#DC2626]">
                 CERTIFICATIONS
               </span>
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-[#F59E0B] via-[#F43F5E] to-[#F97316] rounded-full mt-4" />
+            <div className="w-24 h-1.5 bg-gradient-to-r from-[#DC2626] via-[#F43F5E] to-[#991B1B] rounded-full mt-4" />
             <p className="text-xs sm:text-sm font-mono text-slate-400 mt-3 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#F59E0B] animate-ping" />
+              <span className="w-2 h-2 rounded-full bg-[#DC2626] animate-ping" />
               Use Prev/Next buttons or drag mouse to rotate 3D showcase
             </p>
           </div>
@@ -88,7 +88,7 @@ export const CertificatesSection: React.FC = () => {
                   }}
                   className={`px-4 py-2 rounded-2xl text-xs font-medium transition-all duration-300 cursor-pointer ${
                     selectedCategory === cat
-                      ? 'bg-gradient-to-r from-[#F59E0B] via-[#F43F5E] to-[#F97316] text-white shadow-lg shadow-amber-500/30 border border-transparent font-bold scale-105'
+                      ? 'bg-gradient-to-r from-[#DC2626] via-[#F43F5E] to-[#991B1B] text-white shadow-lg shadow-red-500/30 border border-transparent font-bold scale-105'
                       : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 hover:text-white'
                   }`}
                 >
@@ -104,15 +104,15 @@ export const CertificatesSection: React.FC = () => {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer border ${
                   isAutoSpin
                     ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-300'
-                    : 'bg-amber-500/20 border-amber-500/40 text-amber-300'
+                    : 'bg-red-500/20 border-red-500/40 text-red-300'
                 }`}
               >
                 <RotateCw className={`w-3.5 h-3.5 ${isAutoSpin ? 'animate-spin' : ''}`} />
                 <span>{isAutoSpin ? 'Auto-Spin Active' : 'Resume Auto Spin'}</span>
               </button>
 
-              <div className="px-3.5 py-1.5 rounded-xl bg-white/5 border border-[#F59E0B]/30 text-xs font-mono text-slate-300">
-                Card <span className="text-[#F59E0B] font-bold">{currentIndex + 1}</span> of {totalCerts}
+              <div className="px-3.5 py-1.5 rounded-xl bg-white/5 border border-[#DC2626]/30 text-xs font-mono text-slate-300">
+                Card <span className="text-[#DC2626] font-bold">{currentIndex + 1}</span> of {totalCerts}
               </div>
             </div>
 
@@ -140,10 +140,10 @@ export const CertificatesSection: React.FC = () => {
                 handlePrev();
               }}
               aria-label="Previous Certificate"
-              className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-[60] p-[3px] rounded-full bg-gradient-to-br from-[#F59E0B] via-[#F43F5E] to-[#F97316] shadow-[0_0_25px_rgba(245,158,11,0.6)] hover:shadow-[0_0_40px_rgba(245,158,11,0.9)] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer group"
+              className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-[60] p-[3px] rounded-full bg-gradient-to-br from-[#DC2626] via-[#F43F5E] to-[#991B1B] shadow-[0_0_25px_rgba(220,38,38,0.6)] hover:shadow-[0_0_40px_rgba(220,38,38,0.9)] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer group"
             >
               <span className="flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-[#0B132B] group-hover:bg-[#0F172A] border border-white/20 transition-colors">
-                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-[#F59E0B] group-hover:text-white transition-all group-hover:-translate-x-0.5" />
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-[#DC2626] group-hover:text-white transition-all group-hover:-translate-x-0.5" />
               </span>
             </button>
 
@@ -154,7 +154,7 @@ export const CertificatesSection: React.FC = () => {
                 handleNext();
               }}
               aria-label="Next Certificate"
-              className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-[60] p-[3px] rounded-full bg-gradient-to-br from-[#F43F5E] via-[#F97316] to-[#F59E0B] shadow-[0_0_25px_rgba(244,63,94,0.6)] hover:shadow-[0_0_40px_rgba(244,63,94,0.9)] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer group"
+              className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-[60] p-[3px] rounded-full bg-gradient-to-br from-[#F43F5E] via-[#991B1B] to-[#DC2626] shadow-[0_0_25px_rgba(244,63,94,0.6)] hover:shadow-[0_0_40px_rgba(244,63,94,0.9)] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer group"
             >
               <span className="flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-[#0B132B] group-hover:bg-[#0F172A] border border-white/20 transition-colors">
                 <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-[#F43F5E] group-hover:text-white transition-all group-hover:translate-x-0.5" />
@@ -181,10 +181,10 @@ export const CertificatesSection: React.FC = () => {
                     }}
                   >
                     {/* Glassmorphism Card Container */}
-                    <div className="w-full h-full bg-[#0F172A]/95 border-2 border-[#F59E0B]/50 hover:border-[#F43F5E] p-2 sm:p-2.5 flex flex-col justify-between rounded-xl relative shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:shadow-[0_0_35px_rgba(244,63,94,0.5)] transition-all duration-300">
+                    <div className="w-full h-full bg-[#0F172A]/95 border-2 border-[#DC2626]/50 hover:border-[#F43F5E] p-2 sm:p-2.5 flex flex-col justify-between rounded-xl relative shadow-[0_0_20px_rgba(220,38,38,0.25)] hover:shadow-[0_0_35px_rgba(244,63,94,0.5)] transition-all duration-300">
                       
                       {/* Top Accent Gradient Bar */}
-                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F59E0B] via-[#F43F5E] to-[#F97316]" />
+                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#DC2626] via-[#F43F5E] to-[#991B1B]" />
 
                       {/* Certificate Image Thumbnail (100% Fully Visible with object-contain) */}
                       <div className="w-full h-18 sm:h-22 rounded-lg overflow-hidden border border-white/10 relative bg-[#030712] shadow-inner group-hover:scale-[1.02] transition-transform duration-300 shrink-0 flex items-center justify-center p-0.5">
@@ -205,7 +205,7 @@ export const CertificatesSection: React.FC = () => {
                         {/* Hover Overlay */}
                         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                           <span className="px-3 py-1.5 rounded-lg bg-white/20 text-white text-[11px] font-semibold backdrop-blur-md border border-white/30 flex items-center gap-1">
-                            <Eye className="w-3.5 h-3.5 text-[#F59E0B]" /> View Certificate
+                            <Eye className="w-3.5 h-3.5 text-[#DC2626]" /> View Certificate
                           </span>
                         </div>
                       </div>
@@ -215,7 +215,7 @@ export const CertificatesSection: React.FC = () => {
                         <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-[#FB7185] line-clamp-2 leading-tight transition-colors">
                           {cert.title}
                         </h4>
-                        <p className="text-[10px] font-mono text-[#F59E0B] mt-1 flex items-center justify-between">
+                        <p className="text-[10px] font-mono text-[#DC2626] mt-1 flex items-center justify-between">
                           <span className="truncate pr-1">{cert.issuer}</span>
                           <span className="text-slate-400 shrink-0">{cert.issueDate}</span>
                         </p>

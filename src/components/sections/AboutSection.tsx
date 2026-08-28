@@ -17,7 +17,7 @@ export const AboutSection: React.FC = () => {
                 ABOUT ME
               </span>
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-[#F43F5E] via-[#F97316] to-[#F59E0B] rounded-full mt-4" />
+            <div className="w-24 h-1.5 bg-gradient-to-r from-[#F43F5E] via-[#DC2626] to-[#991B1B] rounded-full mt-4" />
           </div>
         </ScrollReveal>
 
@@ -29,12 +29,12 @@ export const AboutSection: React.FC = () => {
             <div className="glass-panel rounded-3xl p-8 md:p-10 relative overflow-hidden flex flex-col justify-between group hover:border-[#F43F5E]/40 transition-all duration-300 h-full">
               <div>
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#F43F5E]/20 to-[#F97316]/20 border border-[#F43F5E]/30 text-[#FB7185] shadow-lg">
+                  <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#F43F5E]/20 to-[#991B1B]/20 border border-[#F43F5E]/30 text-[#FB7185] shadow-lg">
                     <Brain className="w-7 h-7" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white">Engineering the Future of AI</h3>
-                    <p className="text-xs text-[#F59E0B] font-mono mt-0.5">B.Tech AI & Data Science Student</p>
+                    <p className="text-xs text-[#DC2626] font-mono mt-0.5">B.Tech AI & Data Science Student</p>
                   </div>
                 </div>
 

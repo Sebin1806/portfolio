@@ -48,7 +48,7 @@ export const HeroSection: React.FC = () => {
             <span className="text-xs font-medium text-slate-200">
               {PERSONAL_INFO.status}
             </span>
-            <Sparkles className="w-3.5 h-3.5 text-[#F59E0B]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#DC2626]" />
           </div>
         </ScrollReveal>
 
@@ -66,10 +66,10 @@ export const HeroSection: React.FC = () => {
 
         {/* Typewriter Text Box (Centered) */}
         <ScrollReveal animation="zoom-in" delay={800} duration={700}>
-          <div className="h-12 flex items-center justify-center px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md mb-6 font-mono text-sm md:text-base text-[#F59E0B] shadow-lg w-full max-w-md">
+          <div className="h-12 flex items-center justify-center px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md mb-6 font-mono text-sm md:text-base text-[#DC2626] shadow-lg w-full max-w-md">
             <Terminal className="w-4 h-4 mr-2.5 text-[#F43F5E] shrink-0" />
             <span>{currentText}</span>
-            <span className="animate-pulse ml-0.5 font-bold text-[#F97316]">|</span>
+            <span className="animate-pulse ml-0.5 font-bold text-[#991B1B]">|</span>
           </div>
         </ScrollReveal>
 

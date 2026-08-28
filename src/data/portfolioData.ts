@@ -331,7 +331,7 @@ export const CERTIFICATES: Certificate[] = [
     category: 'AI',
     verifyUrl: 'https://futureskillsprime.in',
     downloadUrl: '#',
-    previewColor: 'from-amber-500/20 to-orange-500/20',
+    previewColor: 'from-red-700/20 to-rose-900/20',
     skillsCovered: ['AI Fundamentals', 'Generative AI', 'Ethical AI', 'Digital Skilling'],
     image: '/cert-indiaai-yuva-ai.jpg'
   },
@@ -382,7 +382,7 @@ export const CERTIFICATES: Certificate[] = [
     credentialId: '1I30F791s3A4my9355',
     verifyUrl: 'https://www.guvi.in/certificate?id=1I30F791s3A4my9355',
     downloadUrl: '#',
-    previewColor: 'from-amber-500/20 to-yellow-500/20',
+    previewColor: 'from-red-800/20 to-rose-900/20',
     skillsCovered: ['Power BI', 'Advanced Visualizations', 'DAX', 'Business Intelligence'],
     image: '/cert-guvi-powerbi.png'
   }
