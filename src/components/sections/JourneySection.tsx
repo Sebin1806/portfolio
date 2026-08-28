@@ -10,12 +10,12 @@ export const JourneySection: React.FC = () => {
 
   const getIcon = (type: string) => {
     switch (type) {
-      case 'root': return <School className="w-5 h-5 text-amber-400" />;
-      case 'education': return <GraduationCap className="w-5 h-5 text-[#FB7185]" />;
-      case 'milestone': return <Code className="w-5 h-5 text-[#F59E0B]" />;
-      case 'project': return <Sparkles className="w-5 h-5 text-[#F97316]" />;
+      case 'root': return <School className="w-5 h-5 text-red-500" />;
+      case 'education': return <GraduationCap className="w-5 h-5 text-red-400" />;
+      case 'milestone': return <Code className="w-5 h-5 text-[#DC2626]" />;
+      case 'project': return <Sparkles className="w-5 h-5 text-red-600" />;
       case 'future': return <Rocket className="w-5 h-5 text-emerald-400" />;
-      default: return <CheckCircle2 className="w-5 h-5 text-[#F43F5E]" />;
+      default: return <CheckCircle2 className="w-5 h-5 text-red-500" />;
     }
   };
 
@@ -27,12 +27,12 @@ export const JourneySection: React.FC = () => {
         <ScrollReveal animation="rotate-in">
           <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white flex items-center justify-center gap-3">
-              <span className="text-[#F59E0B] font-mono text-2xl sm:text-4xl md:text-5xl">03.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#F59E0B]">
+              <span className="text-[#DC2626] font-mono text-2xl sm:text-4xl md:text-5xl">03.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-red-500">
                 MY JOURNEY
               </span>
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-[#F59E0B] via-[#F43F5E] to-[#F97316] rounded-full mt-3" />
+            <div className="w-20 h-1 bg-gradient-to-r from-[#DC2626] via-red-600 to-rose-700 rounded-full mt-3" />
           </div>
         </ScrollReveal>
 
@@ -40,7 +40,7 @@ export const JourneySection: React.FC = () => {
         <div className="relative">
           
           {/* Vertical Central Glowing Tree Trunk Stem */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#F97316] via-[#F43F5E] to-amber-500 rounded-full shadow-[0_0_15px_rgba(244,63,94,0.5)]" />
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-red-600 via-rose-700 to-red-800 rounded-full shadow-[0_0_15px_rgba(220,38,38,0.6)]" />
 
           <div className="space-y-6 sm:space-y-8 relative z-10">
             {treeNodes.map((node: JourneyNode, index: number) => {

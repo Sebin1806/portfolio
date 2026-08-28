@@ -81,12 +81,12 @@ export const ContactSection: React.FC = () => {
         <ScrollReveal animation="rotate-in">
           <div className="flex flex-col items-center text-center mb-16">
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white flex items-center justify-center gap-3">
-              <span className="text-[#F59E0B] font-mono text-3xl sm:text-5xl md:text-6xl">11.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#F59E0B]">
+              <span className="text-[#DC2626] font-mono text-3xl sm:text-5xl md:text-6xl">11.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-red-500">
                 GET IN TOUCH
               </span>
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-[#F59E0B] via-[#F43F5E] to-[#F97316] rounded-full mt-4" />
+            <div className="w-24 h-1.5 bg-gradient-to-r from-[#DC2626] via-red-600 to-rose-700 rounded-full mt-4" />
           </div>
         </ScrollReveal>
 
@@ -97,10 +97,10 @@ export const ContactSection: React.FC = () => {
           <ScrollReveal animation="fade-right" delay={100} className="lg:col-span-5">
             <div className="space-y-6">
             
-            <div className="glass-panel rounded-3xl p-8 space-y-6 hover:border-[#F43F5E]/50 transition-all">
-              <h3 className="text-xl font-bold text-white mb-2">Contact Details</h3>
+            <div className="glass-panel rounded-3xl p-8 space-y-6 hover:border-red-500/50 transition-all">
+              <h3 className="text-xl font-bold text-red-400 mb-2">Contact Details</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Messages sent here deliver directly to my inbox (<strong className="text-[#F59E0B]">sebinsebin180606@gmail.com</strong>).
+                Messages sent here deliver directly to my inbox (<strong className="text-red-400 font-mono">sebinsebin180606@gmail.com</strong>).
               </p>
 
               <div className="space-y-4">
@@ -109,12 +109,12 @@ export const ContactSection: React.FC = () => {
                   href={`mailto:${PERSONAL_INFO.email}`}
                   className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 hover:text-white transition-all group"
                 >
-                  <div className="p-3 rounded-xl bg-[#F43F5E]/20 border border-[#F43F5E]/40 text-[#FB7185] group-hover:scale-110 transition-transform">
+                  <div className="p-3 rounded-xl bg-red-600/20 border border-red-500/40 text-red-400 group-hover:scale-110 transition-transform">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-[11px] font-mono text-slate-400 block">Direct Email Inbox</span>
-                    <span className="text-sm font-semibold font-mono text-white group-hover:text-[#FB7185] transition-colors">
+                    <span className="text-sm font-semibold font-mono text-white group-hover:text-red-400 transition-colors">
                       {PERSONAL_INFO.email}
                     </span>
                   </div>
@@ -126,12 +126,12 @@ export const ContactSection: React.FC = () => {
                   className="flex items-center justify-between p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 transition-all group cursor-pointer"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-xl bg-[#F59E0B]/20 border border-[#F59E0B]/40 text-[#F59E0B] group-hover:scale-110 transition-transform">
+                    <div className="p-3 rounded-xl bg-red-600/20 border border-red-500/40 text-red-500 group-hover:scale-110 transition-transform">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
                       <span className="text-[11px] font-mono text-slate-400 block">Phone / WhatsApp</span>
-                      <span className="text-sm font-semibold font-mono text-white group-hover:text-[#F59E0B] transition-colors">
+                      <span className="text-sm font-semibold font-mono text-white group-hover:text-red-400 transition-colors">
                         +91 9342813276
                       </span>
                     </div>
@@ -224,7 +224,7 @@ export const ContactSection: React.FC = () => {
 
                   <a
                     href={`mailto:sebinsebin180606@gmail.com?subject=${encodeURIComponent(formData.subject || 'Portfolio Follow-up')}&body=${encodeURIComponent(`Hi Sebin,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`}
-                    className="flex items-center gap-2 px-6 py-2.5 rounded-2xl text-xs font-semibold bg-gradient-to-r from-[#F43F5E] to-[#F59E0B] text-white hover:opacity-90 transition-all cursor-pointer"
+                    className="flex items-center gap-2 px-6 py-2.5 rounded-2xl text-xs font-semibold bg-gradient-to-r from-red-600 to-rose-700 text-white hover:opacity-90 transition-all cursor-pointer"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     <span>Open in Email App</span>
@@ -234,9 +234,9 @@ export const ContactSection: React.FC = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <h3 className="text-2xl font-extrabold text-white mb-1">Send a Message</h3>
+                  <h3 className="text-2xl font-extrabold text-[#EF4444] mb-1">Send a Message</h3>
                   <p className="text-xs text-slate-400">
-                    Submissions deliver directly to <strong className="text-[#F59E0B]">sebinsebin180606@gmail.com</strong>.
+                    Submissions deliver directly to <strong className="text-red-400 font-mono">sebinsebin180606@gmail.com</strong>.
                   </p>
                 </div>
 
@@ -249,7 +249,7 @@ export const ContactSection: React.FC = () => {
                       placeholder="e.g. Recruiter / Hiring Manager"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#F43F5E] transition-colors"
+                      className="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-red-500 transition-colors"
                     />
                   </div>
 
@@ -261,7 +261,7 @@ export const ContactSection: React.FC = () => {
                       placeholder="name@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#F43F5E] transition-colors"
+                      className="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-red-500 transition-colors"
                     />
                   </div>
                 </div>
@@ -273,7 +273,7 @@ export const ContactSection: React.FC = () => {
                     placeholder="e.g. AI Internship / Job Opportunity"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#F43F5E] transition-colors"
+                    className="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-red-500 transition-colors"
                   />
                 </div>
 
@@ -285,14 +285,14 @@ export const ContactSection: React.FC = () => {
                     placeholder="Hello Sebin, we would love to discuss an AI Engineering role..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#F43F5E] transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-red-500 transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl text-sm font-semibold bg-gradient-to-r from-[#F43F5E] via-[#F97316] to-[#F59E0B] text-white shadow-xl shadow-rose-500/25 hover:shadow-rose-500/40 hover:scale-101 transition-all duration-300 disabled:opacity-50 cursor-pointer"
+                  className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl text-sm font-bold bg-gradient-to-r from-red-600 via-red-700 to-rose-800 text-white shadow-xl shadow-red-600/30 hover:shadow-red-600/50 hover:scale-101 transition-all duration-300 disabled:opacity-50 cursor-pointer"
                 >
                   {loading ? (
                     <span>Sending message to sebinsebin180606@gmail.com...</span>

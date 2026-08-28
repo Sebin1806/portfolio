@@ -13,12 +13,12 @@ export const EducationSection: React.FC = () => {
         <ScrollReveal animation="zoom-in">
           <div className="flex flex-col items-center text-center mb-16">
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white flex items-center justify-center gap-3">
-              <span className="text-[#F97316] font-mono text-3xl sm:text-5xl md:text-6xl">05.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#FB923C]">
+              <span className="text-[#DC2626] font-mono text-3xl sm:text-5xl md:text-6xl">05.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-red-500">
                 EDUCATION & HONORS
               </span>
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-[#F97316] via-[#F43F5E] to-[#F59E0B] rounded-full mt-4" />
+            <div className="w-24 h-1.5 bg-gradient-to-r from-[#DC2626] via-red-600 to-rose-700 rounded-full mt-4" />
           </div>
         </ScrollReveal>
 
@@ -28,10 +28,10 @@ export const EducationSection: React.FC = () => {
             <ScrollReveal key={edu.institution} animation={index === 0 ? 'fade-right' : 'fade-left'} delay={index * 150}>
             <div
               key={edu.institution}
-              className="glass-panel rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between group hover:border-[#F43F5E]/50 transition-all duration-300 shadow-xl"
+              className="glass-panel rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between group hover:border-red-500/50 transition-all duration-300 shadow-xl"
             >
               {/* Background gradient accent */}
-              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#F43F5E]/10 via-[#F97316]/10 to-transparent blur-2xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-red-600/15 via-rose-700/10 to-transparent blur-2xl pointer-events-none" />
 
               <div>
                 {/* Header Badge */}

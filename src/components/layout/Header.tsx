@@ -64,7 +64,7 @@ export const Header: React.FC<HeaderProps> = () => {
             href={PERSONAL_INFO.resumeUrl}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-gradient-to-r from-[#F43F5E] via-[#F97316] to-[#F59E0B] text-white shadow-lg shadow-rose-500/25 hover:shadow-rose-500/40 hover:brightness-110 transition-all duration-300 cursor-pointer"
+            className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-[#DC2626] via-[#EF4444] to-[#B91C1C] text-white shadow-lg shadow-red-600/30 hover:shadow-red-600/50 hover:brightness-110 transition-all duration-300 cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Resume</span>
@@ -76,7 +76,7 @@ export const Header: React.FC<HeaderProps> = () => {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-xl bg-white/5 border border-white/10 text-slate-300 lg:hidden cursor-pointer"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 text-red-500" /> : <Menu className="w-5 h-5 text-red-500" />}
           </button>
         </div>
       </div>
@@ -89,7 +89,7 @@ export const Header: React.FC<HeaderProps> = () => {
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-[#F43F5E] transition-colors cursor-pointer"
+              className="block px-4 py-2.5 rounded-xl text-sm font-medium text-red-400 hover:bg-white/10 hover:text-red-500 transition-colors cursor-pointer"
             >
               {link.name}
             </a>

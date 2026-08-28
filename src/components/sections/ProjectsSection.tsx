@@ -26,12 +26,12 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
         <ScrollReveal animation="flip-up">
           <div className="flex flex-col items-center text-center mb-12">
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white flex items-center justify-center gap-3">
-              <span className="text-[#F43F5E] font-mono text-3xl sm:text-5xl md:text-6xl">04.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#FB7185]">
+              <span className="text-[#DC2626] font-mono text-3xl sm:text-5xl md:text-6xl">04.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-red-500">
                 FEATURED PROJECTS
               </span>
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-[#F43F5E] via-[#F97316] to-[#F59E0B] rounded-full mt-4" />
+            <div className="w-24 h-1.5 bg-gradient-to-r from-[#DC2626] via-red-600 to-rose-700 rounded-full mt-4" />
           </div>
         </ScrollReveal>
 
@@ -42,10 +42,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-2xl text-xs font-medium transition-all duration-300 cursor-pointer ${
+                className={`px-4 py-2 rounded-2xl text-xs font-bold transition-all duration-300 cursor-pointer ${
                   activeCategory === cat
-                    ? 'bg-gradient-to-r from-[#F43F5E] via-[#F97316] to-[#F59E0B] text-white shadow-lg shadow-rose-500/25 border border-transparent'
-                    : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 hover:text-white'
+                    ? 'bg-gradient-to-r from-red-600 via-red-700 to-rose-800 text-white shadow-lg shadow-red-600/30 border border-transparent scale-105'
+                    : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 hover:text-red-400'
                 }`}
               >
                 {cat}
