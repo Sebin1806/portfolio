@@ -53,9 +53,6 @@ export const CertificatesSection: React.FC = () => {
   return (
     <section id="certificates" className="py-24 px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
       
-      {/* Background ambient glowing gradient blobs */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-[#F59E0B]/10 via-[#F43F5E]/15 to-[#F97316]/15 rounded-full blur-[140px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header */}

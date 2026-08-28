@@ -27,8 +27,6 @@ export const AboutSection: React.FC = () => {
           {/* Left Bio Card (7 Cols) */}
           <ScrollReveal animation="fade-right" delay={100} className="lg:col-span-7">
             <div className="glass-panel rounded-3xl p-8 md:p-10 relative overflow-hidden flex flex-col justify-between group hover:border-[#F43F5E]/40 transition-all duration-300 h-full">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#F97316]/15 via-[#F43F5E]/10 to-transparent blur-2xl pointer-events-none" />
-
               <div>
                 <div className="flex items-center gap-4 mb-6">
                   <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#F43F5E]/20 to-[#F97316]/20 border border-[#F43F5E]/30 text-[#FB7185] shadow-lg">

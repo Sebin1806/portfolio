@@ -83,24 +83,18 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Glassmorphism utility with GPU compositing layer */
+/* Lightweight Glassmorphism utility for maximum performance */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(15, 23, 42, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  contain: layout paint;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+  contain: content;
 }
 
 .light .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(241, 245, 249, 0.9);
   border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
 }
 
 .glass-card-hover {

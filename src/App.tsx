@@ -18,8 +18,6 @@ import { ContactSection } from './components/sections/ContactSection';
 import { ProjectModal } from './components/ui/ProjectModal';
 import { PROJECTS } from './data/portfolioData';
 import type { Project } from './data/portfolioData';
-import { ModernPortfolioBackground } from './components/ui/ModernPortfolioBackground';
-
 export function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -30,10 +28,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#040715] text-white relative selection:bg-indigo-500/30 selection:text-indigo-200 dark overflow-x-hidden">
-      
-      {/* Modern High-End Developer Portfolio Background */}
-      <ModernPortfolioBackground />
+    <div className="min-h-screen bg-[#030712] text-white relative selection:bg-rose-500/30 selection:text-rose-200 dark overflow-x-hidden">
 
       {/* Site Initialization Loader */}
       <Loader />

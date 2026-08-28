@@ -36,9 +36,6 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden z-10">
       
-      {/* Background ambient glowing mesh blobs */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[550px] bg-gradient-to-tr from-[#312e81]/25 via-[#4c1d95]/20 to-[#0284c7]/20 rounded-full blur-[140px] pointer-events-none animate-pulse-glow" />
-
       <div className="max-w-5xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
         
         {/* Status Badge */}
