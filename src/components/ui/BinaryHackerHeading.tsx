@@ -102,8 +102,8 @@ export const BinaryHackerHeading: React.FC<BinaryHackerHeadingProps> = ({ classN
                   isSpace ? 'w-[0.85em]' : isWideChar ? 'w-[0.76em]' : 'w-[0.68em]'
                 } ${
                   !isRevealed
-                    ? 'text-[#F97316] drop-shadow-[0_0_16px_rgba(249,115,22,0.9)] opacity-90 select-none'
-                    : 'text-transparent bg-clip-text bg-gradient-to-r from-[#F43F5E] via-[#F97316] to-[#F59E0B]'
+                    ? 'text-[#FF2E37] drop-shadow-[0_0_20px_rgba(255,46,55,0.95)] opacity-90 select-none'
+                    : 'text-transparent bg-clip-text bg-gradient-to-r from-[#FF2E37] via-[#FF525B] to-[#DC2626] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] filter drop-shadow-[0_0_12px_rgba(255,46,55,0.8)]'
                 }`}
               >
                 {displayChar === ' ' ? '\u00A0' : displayChar}

@@ -5,10 +5,10 @@ import { ScrollReveal } from '../ui/ScrollReveal';
 
 export const TechStackSection: React.FC = () => {
   const getIcon = (category: string) => {
-    if (category.includes('Artificial Intelligence')) return <Sparkles className="w-5 h-5 text-[#F59E0B]" />;
-    if (category.includes('Machine Learning')) return <Brain className="w-5 h-5 text-[#F97316]" />;
-    if (category.includes('Data')) return <Database className="w-5 h-5 text-[#F43F5E]" />;
-    return <Terminal className="w-5 h-5 text-[#FB7185]" />;
+    if (category.includes('Artificial Intelligence')) return <Sparkles className="w-5 h-5 text-red-500" />;
+    if (category.includes('Machine Learning')) return <Brain className="w-5 h-5 text-red-400" />;
+    if (category.includes('Data')) return <Database className="w-5 h-5 text-[#DC2626]" />;
+    return <Terminal className="w-5 h-5 text-red-500" />;
   };
 
   return (
@@ -19,12 +19,12 @@ export const TechStackSection: React.FC = () => {
         <ScrollReveal animation="fade-down">
           <div className="flex flex-col items-center text-center mb-12">
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white flex items-center justify-center gap-3">
-              <span className="text-[#F97316] font-mono text-3xl sm:text-5xl md:text-6xl">09.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#FB923C]">
+              <span className="text-[#DC2626] font-mono text-3xl sm:text-5xl md:text-6xl">09.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-red-500">
                 TECH ECOSYSTEM
               </span>
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-[#F97316] via-[#F43F5E] to-[#F59E0B] rounded-full mt-4" />
+            <div className="w-24 h-1.5 bg-gradient-to-r from-[#DC2626] via-red-600 to-rose-700 rounded-full mt-4" />
           </div>
         </ScrollReveal>
 

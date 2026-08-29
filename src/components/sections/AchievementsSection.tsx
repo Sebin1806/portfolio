@@ -9,11 +9,11 @@ export const AchievementsSection: React.FC = () => {
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case 'folder-code': return <FolderCode className="w-6 h-6 text-[#F43F5E]" />;
-      case 'cpu': return <Cpu className="w-6 h-6 text-[#F97316]" />;
-      case 'git-repo': return <GitBranch className="w-6 h-6 text-[#F59E0B]" />;
-      case 'brain-circuit': return <BrainCircuit className="w-6 h-6 text-[#FB7185]" />;
-      default: return <Sparkles className="w-6 h-6 text-amber-400" />;
+      case 'folder-code': return <FolderCode className="w-6 h-6 text-red-500" />;
+      case 'cpu': return <Cpu className="w-6 h-6 text-red-400" />;
+      case 'git-repo': return <GitBranch className="w-6 h-6 text-[#DC2626]" />;
+      case 'brain-circuit': return <BrainCircuit className="w-6 h-6 text-red-500" />;
+      default: return <Sparkles className="w-6 h-6 text-red-500" />;
     }
   };
 
@@ -43,25 +43,25 @@ export const AchievementsSection: React.FC = () => {
         };
       case 'patent':
         return {
-          border: 'hover:border-amber-400/50',
-          iconBg: 'from-amber-500/20 to-orange-500/20',
-          iconBorder: 'border-amber-500/30',
-          iconText: 'text-amber-400',
-          badgeBg: 'bg-amber-500/15 border-amber-500/30 text-amber-400',
-          tagBg: 'bg-amber-500/10 text-amber-300/80 border-amber-500/20',
-          glowShadow: 'group-hover:shadow-amber-500/10',
-          accentLine: 'from-amber-400 to-orange-400',
+          border: 'hover:border-red-500/50',
+          iconBg: 'from-red-600/20 to-rose-700/20',
+          iconBorder: 'border-red-500/30',
+          iconText: 'text-red-400',
+          badgeBg: 'bg-red-500/15 border-red-500/30 text-red-400',
+          tagBg: 'bg-red-500/10 text-red-300/80 border-red-500/20',
+          glowShadow: 'group-hover:shadow-red-500/10',
+          accentLine: 'from-red-500 to-rose-600',
         };
       default:
         return {
           border: 'hover:border-rose-400/50',
-          iconBg: 'from-rose-500/20 to-orange-500/20',
+          iconBg: 'from-rose-500/20 to-red-600/20',
           iconBorder: 'border-rose-500/30',
           iconText: 'text-rose-400',
           badgeBg: 'bg-rose-500/15 border-rose-500/30 text-rose-400',
           tagBg: 'bg-rose-500/10 text-rose-300/80 border-rose-500/20',
           glowShadow: 'group-hover:shadow-rose-500/10',
-          accentLine: 'from-rose-400 to-amber-400',
+          accentLine: 'from-rose-400 to-red-600',
         };
     }
   };
@@ -74,12 +74,12 @@ export const AchievementsSection: React.FC = () => {
         <ScrollReveal animation="slide-up">
           <div className="flex flex-col items-center text-center mb-12">
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white flex items-center justify-center gap-3">
-              <span className="text-[#F59E0B] font-mono text-3xl sm:text-5xl md:text-6xl">07.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#F59E0B]">
+              <span className="text-[#DC2626] font-mono text-3xl sm:text-5xl md:text-6xl">07.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-red-500">
                 ACHIEVEMENTS & RESEARCH
               </span>
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-[#F59E0B] via-[#F43F5E] to-[#F97316] rounded-full mt-4" />
+            <div className="w-24 h-1.5 bg-gradient-to-r from-[#DC2626] via-red-600 to-rose-700 rounded-full mt-4" />
           </div>
         </ScrollReveal>
 

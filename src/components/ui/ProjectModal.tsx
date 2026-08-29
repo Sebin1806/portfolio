@@ -118,7 +118,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {project.features.map((feat) => (
                 <div key={feat} className="flex items-start gap-2.5 p-3 rounded-2xl bg-white/5 border border-white/5 text-xs sm:text-sm text-slate-200">
-                  <CheckCircle className="w-4 h-4 text-[#F59E0B] shrink-0 mt-0.5" />
+                  <CheckCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
                   <span>{feat}</span>
                 </div>
               ))}
@@ -132,7 +132,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1.5 rounded-xl text-xs font-mono bg-[#F97316]/15 border border-[#F97316]/30 text-[#FB923C]"
+                  className="px-3 py-1.5 rounded-xl text-xs font-mono bg-red-600/20 border border-red-500/30 text-red-400"
                 >
                   {tech}
                 </span>

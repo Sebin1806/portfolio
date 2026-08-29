@@ -49,10 +49,10 @@ export const GithubDashboard: React.FC = () => {
   }, []);
 
   const languageBreakdown = [
-    { name: 'Python', percentage: 70, color: '#F43F5E' },
-    { name: 'Jupyter Notebook', percentage: 15, color: '#F97316' },
-    { name: 'HTML / CSS / JS', percentage: 10, color: '#F59E0B' },
-    { name: 'SQL', percentage: 5, color: '#FB7185' }
+    { name: 'Python', percentage: 70, color: '#DC2626' },
+    { name: 'Jupyter Notebook', percentage: 15, color: '#EF4444' },
+    { name: 'HTML / CSS / JS', percentage: 10, color: '#B91C1C' },
+    { name: 'SQL', percentage: 5, color: '#F43F5E' }
   ];
 
   return (
@@ -63,12 +63,12 @@ export const GithubDashboard: React.FC = () => {
         <ScrollReveal animation="fade-up">
           <div className="flex flex-col items-center text-center mb-12">
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white flex items-center justify-center gap-3">
-              <span className="text-[#F43F5E] font-mono text-3xl sm:text-5xl md:text-6xl">08.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#FB7185]">
+              <span className="text-[#DC2626] font-mono text-3xl sm:text-5xl md:text-6xl">08.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-red-500">
                 GITHUB DASHBOARD
               </span>
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-[#F43F5E] via-[#F97316] to-[#F59E0B] rounded-full mt-4" />
+            <div className="w-24 h-1.5 bg-gradient-to-r from-[#DC2626] via-red-600 to-rose-700 rounded-full mt-4" />
           </div>
         </ScrollReveal>
 

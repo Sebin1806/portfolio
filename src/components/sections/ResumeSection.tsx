@@ -12,21 +12,21 @@ export const ResumeSection: React.FC = () => {
         <ScrollReveal animation="blur-in">
           <div className="flex flex-col items-center text-center mb-12">
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white flex items-center justify-center gap-3">
-              <span className="text-[#F43F5E] font-mono text-3xl sm:text-5xl md:text-6xl">10.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#FB7185]">
+              <span className="text-[#DC2626] font-mono text-3xl sm:text-5xl md:text-6xl">10.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-red-500">
                 RESUME & CV
               </span>
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-[#F43F5E] via-[#F97316] to-[#F59E0B] rounded-full mt-4" />
+            <div className="w-24 h-1.5 bg-gradient-to-r from-[#DC2626] via-red-600 to-rose-700 rounded-full mt-4" />
           </div>
         </ScrollReveal>
 
         {/* Main Resume Showcase Card */}
         <ScrollReveal animation="scale-up" delay={150} duration={800}>
-        <div className="glass-panel rounded-3xl p-8 sm:p-12 border border-[#F43F5E]/30 relative overflow-hidden group hover:border-[#F43F5E]/60 transition-all duration-300 shadow-2xl">
+        <div className="glass-panel rounded-3xl p-8 sm:p-12 border border-red-500/30 relative overflow-hidden group hover:border-red-500/60 transition-all duration-300 shadow-2xl">
           
           {/* Background Ambient Glow */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#F43F5E]/15 via-[#F97316]/10 to-transparent blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-red-600/15 via-rose-700/10 to-transparent blur-3xl pointer-events-none" />
 
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             
