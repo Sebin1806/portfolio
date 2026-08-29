@@ -292,7 +292,7 @@ export const ContactSection: React.FC = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl text-sm font-bold bg-gradient-to-r from-red-600 via-red-700 to-rose-800 text-white shadow-xl shadow-red-600/30 hover:shadow-red-600/50 hover:scale-101 transition-all duration-300 disabled:opacity-50 cursor-pointer"
+                  className="btn-red-custom flex items-center justify-center gap-2 w-full py-4 text-sm shadow-xl shadow-red-600/30 hover:scale-101 disabled:opacity-50"
                 >
                   {loading ? (
                     <span>Sending message to sebinsebin180606@gmail.com...</span>

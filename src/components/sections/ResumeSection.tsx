@@ -62,7 +62,7 @@ export const ResumeSection: React.FC = () => {
                 href={PERSONAL_INFO.resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-3 px-8 py-4 rounded-2xl text-base font-bold bg-gradient-to-r from-[#F43F5E] via-[#F97316] to-[#F59E0B] text-white shadow-xl shadow-rose-500/25 hover:shadow-rose-500/50 hover:brightness-110 transition-all duration-300 cursor-pointer"
+                className="btn-red-custom flex items-center gap-3 px-8 py-4 text-base shadow-xl shadow-red-600/30 hover:scale-105"
               >
                 <Download className="w-5 h-5" />
                 <span>Download Resume</span>

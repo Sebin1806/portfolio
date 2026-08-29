@@ -32,10 +32,10 @@ export const Footer: React.FC = () => {
           {/* Back to Top */}
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/5 border border-white/10 text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all group"
+            className="btn-red-custom flex items-center gap-2 px-4 py-2.5 text-xs shadow-md shadow-red-600/30 group"
           >
             <span>Back to top</span>
-            <ArrowUp className="w-4 h-4 text-[#60A5FA] group-hover:-translate-y-1 transition-transform" />
+            <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
           </button>
         </div>
 

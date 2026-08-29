@@ -93,6 +93,52 @@ html {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Custom Red Button with Skewed White Sweep Hover Effect */
+.btn-red-custom {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: #e53935;
+  color: #ffffff !important;
+  border: none;
+  border-radius: 0.625em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  items-center: center;
+  justify-content: center;
+}
+
+.btn-red-custom:hover {
+  color: #e53935 !important;
+}
+
+.btn-red-custom * {
+  transition: color 0.5s ease;
+}
+
+.btn-red-custom:hover * {
+  color: #e53935 !important;
+}
+
+.btn-red-custom::after {
+  content: "";
+  background: #ffffff;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s ease;
+}
+
+.btn-red-custom:hover::after {
+  transform: skewX(-45deg) scale(1, 1);
+}
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

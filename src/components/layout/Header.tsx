@@ -64,7 +64,7 @@ export const Header: React.FC<HeaderProps> = () => {
             href={PERSONAL_INFO.resumeUrl}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-[#DC2626] via-[#EF4444] to-[#B91C1C] text-white shadow-lg shadow-red-600/30 hover:shadow-red-600/50 hover:brightness-110 transition-all duration-300 cursor-pointer"
+            className="btn-red-custom hidden sm:flex items-center gap-1.5 px-4 py-2 text-xs shadow-lg shadow-red-600/30 hover:scale-105"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Resume</span>

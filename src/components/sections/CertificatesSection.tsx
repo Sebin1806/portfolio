@@ -86,10 +86,10 @@ export const CertificatesSection: React.FC = () => {
                     setCurrentIndex(0);
                     setDragRotation(0);
                   }}
-                  className={`px-4 py-2 rounded-2xl text-xs font-medium transition-all duration-300 cursor-pointer ${
+                  className={`btn-red-custom px-4 py-2 text-xs transition-all duration-300 ${
                     selectedCategory === cat
-                      ? 'bg-gradient-to-r from-[#DC2626] via-[#F43F5E] to-[#991B1B] text-white shadow-lg shadow-red-500/30 border border-transparent font-bold scale-105'
-                      : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 hover:text-white'
+                      ? 'scale-105 shadow-lg shadow-red-600/30 font-bold'
+                      : 'opacity-85 hover:opacity-100'
                   }`}
                 >
                   {cat}
