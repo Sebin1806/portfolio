@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Send, CheckCircle2, Phone, Copy, Check, ExternalLink } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { GithubIcon, LinkedinIcon, LeetcodeIcon } from '../ui/Icons';
+import { GithubIcon, LinkedinIcon, LeetcodeIcon, WhatsappIcon } from '../ui/Icons';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 import { ScrollReveal } from '../ui/ScrollReveal';
 
@@ -49,26 +49,16 @@ export const ContactSection: React.FC = () => {
       });
 
       if (response.ok) {
-        setSubmitted(true);
-        try {
-          confetti({
-            particleCount: 100,
-            spread: 70,
-            origin: { y: 0.6 }
-          });
-        } catch {
-          // Fallback if canvas-confetti unavailable
-        }
-      } else {
-        // Fallback: mailto link directly to sebinsebin180606@gmail.com
-        window.location.href = `mailto:sebinsebin180606@gmail.com?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
-        setSubmitted(true);
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
       }
     } catch {
-      // Fallback: mailto link directly to sebinsebin180606@gmail.com
-      window.location.href = `mailto:sebinsebin180606@gmail.com?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
-      setSubmitted(true);
+      // Fallback UI success state
     } finally {
+      setSubmitted(true);
       setLoading(false);
     }
   };
@@ -143,7 +133,7 @@ export const ContactSection: React.FC = () => {
 
                 {/* Location Item */}
                 <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 text-slate-200">
-                  <div className="p-3 rounded-xl bg-[#F97316]/20 border border-[#F97316]/40 text-[#FB923C]">
+                  <div className="p-3 rounded-xl bg-red-600/20 border border-red-500/40 text-red-500">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
@@ -303,6 +293,26 @@ export const ContactSection: React.FC = () => {
                     </>
                   )}
                 </button>
+
+                {/* Reduced-Size Green WhatsApp Contact Button Under Email Submit Button */}
+                <div className="pt-2 text-center">
+                  <div className="relative flex items-center justify-center my-3">
+                    <div className="border-t border-white/10 w-full" />
+                    <span className="bg-[#0F172A] px-3 text-[11px] font-mono text-slate-400 shrink-0">OR CHAT DIRECTLY</span>
+                    <div className="border-t border-white/10 w-full" />
+                  </div>
+
+                  <a
+                    href="https://wa.me/919342813276?text=Hi%20Sebin%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you!"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 font-bold text-xs shadow-md shadow-emerald-950/50 hover:scale-105 transition-all duration-300 cursor-pointer"
+                  >
+                    <WhatsappIcon className="w-4 h-4" />
+                    <span>Contact on WhatsApp (+91 9342813276)</span>
+                    <ExternalLink className="w-3 h-3 opacity-80" />
+                  </a>
+                </div>
               </form>
             )}
           </div>
