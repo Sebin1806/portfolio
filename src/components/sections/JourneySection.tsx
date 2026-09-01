@@ -26,13 +26,13 @@ export const JourneySection: React.FC = () => {
         {/* Section Header */}
         <ScrollReveal animation="rotate-in">
           <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white flex items-center justify-center gap-3">
-              <span className="text-[#DC2626] font-mono text-2xl sm:text-4xl md:text-5xl">03.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-red-500">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-100 flex items-center justify-center gap-3">
+              <span className="text-rose-500 font-mono text-2xl sm:text-4xl md:text-5xl font-bold">03.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-rose-400">
                 MY JOURNEY
               </span>
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-[#DC2626] via-red-600 to-rose-700 rounded-full mt-3" />
+            <div className="w-16 h-1 bg-rose-500 rounded-full mt-3" />
           </div>
         </ScrollReveal>
 
@@ -40,7 +40,7 @@ export const JourneySection: React.FC = () => {
         <div className="relative">
           
           {/* Vertical Central Glowing Tree Trunk Stem */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-red-600 via-rose-700 to-red-800 rounded-full shadow-[0_0_15px_rgba(220,38,38,0.6)]" />
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-slate-800 rounded-full" />
 
           <div className="space-y-6 sm:space-y-8 relative z-10">
             {treeNodes.map((node: JourneyNode, index: number) => {

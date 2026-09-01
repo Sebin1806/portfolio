@@ -8,19 +8,19 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative z-10 pt-16 pb-8 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden bg-[#030712]">
+    <footer className="relative z-10 pt-16 pb-8 px-4 sm:px-6 lg:px-8 border-t border-slate-800 overflow-hidden bg-[#0B0F19]">
       
       {/* Glow Ambient Blob */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[150px] bg-gradient-to-t from-red-600/15 via-red-800/10 to-transparent blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[150px] bg-gradient-to-t from-rose-500/10 via-red-900/5 to-transparent blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-12 border-b border-white/10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-12 border-b border-slate-800">
           
           {/* Brand & Bio */}
           <div className="text-center md:text-left space-y-2">
             <div className="flex items-center justify-center md:justify-start gap-2">
-              <span className="text-xl font-extrabold tracking-tight text-red-500">SEBIN S</span>
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-red-600/20 text-red-400 border border-red-500/30">
+              <span className="text-xl font-extrabold tracking-tight text-rose-500">SEBIN S</span>
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-slate-900 text-rose-400 border border-slate-800 font-medium">
                 B.Tech AI & DS (2023 - 2027 Batch)
               </span>
             </div>

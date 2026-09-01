@@ -11,13 +11,13 @@ export const AboutSection: React.FC = () => {
         {/* Section Header */}
         <ScrollReveal animation="fade-up">
           <div className="flex flex-col items-center text-center mb-16">
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white flex items-center justify-center gap-3">
-              <span className="text-[#F43F5E] font-mono text-3xl sm:text-5xl md:text-6xl">01.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#FB7185]">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-100 flex items-center justify-center gap-3">
+              <span className="text-rose-500 font-mono text-2xl sm:text-4xl md:text-5xl font-bold">01.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-rose-400">
                 ABOUT ME
               </span>
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-[#F43F5E] via-[#DC2626] to-[#991B1B] rounded-full mt-4" />
+            <div className="w-16 h-1 bg-rose-500 rounded-full mt-3" />
           </div>
         </ScrollReveal>
 
@@ -26,21 +26,21 @@ export const AboutSection: React.FC = () => {
           
           {/* Left Bio Card (7 Cols) */}
           <ScrollReveal animation="fade-right" delay={100} className="lg:col-span-7">
-            <div className="glass-panel rounded-3xl p-8 md:p-10 relative overflow-hidden flex flex-col justify-between group hover:border-[#F43F5E]/40 transition-all duration-300 h-full">
+            <div className="glass-panel rounded-2xl p-8 md:p-10 relative overflow-hidden flex flex-col justify-between group hover:border-slate-700 transition-all duration-300 h-full">
               <div>
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#F43F5E]/20 to-[#991B1B]/20 border border-[#F43F5E]/30 text-[#FB7185] shadow-lg">
-                    <Brain className="w-7 h-7" />
+                  <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 shadow-sm">
+                    <Brain className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">Engineering the Future of AI</h3>
-                    <p className="text-xs text-[#DC2626] font-mono mt-0.5">B.Tech AI & Data Science Student</p>
+                    <h3 className="text-xl font-bold text-slate-100">Engineering the Future of AI</h3>
+                    <p className="text-xs text-rose-400 font-mono font-medium mt-0.5">B.Tech AI & Data Science Student</p>
                   </div>
                 </div>
 
                 <div className="space-y-4 text-slate-300 text-sm md:text-base leading-relaxed">
                   <p>
-                    Hi, I'm <strong className="text-white font-semibold">Sebin S</strong>, a Final Year B.Tech Artificial Intelligence & Data Science student at <strong className="text-[#FB7185] font-semibold">V.S.B. College of Engineering Technical Campus, Coimbatore</strong>.
+                    Hi, I'm <strong className="text-slate-100 font-semibold">Sebin S</strong>, a Final Year B.Tech Artificial Intelligence & Data Science student at <strong className="text-rose-400 font-semibold">V.S.B. College of Engineering Technical Campus, Coimbatore</strong>.
                   </p>
                   <p>
                     I'm deeply passionate about Artificial Intelligence, Machine Learning, Generative AI, Retrieval-Augmented Generation (RAG), Multi-Agent AI Systems (CrewAI), Cloud Computing, and Data Analytics. I enjoy designing intelligent software solutions that solve real-world problems and continuously expand my knowledge by exploring emerging technologies.

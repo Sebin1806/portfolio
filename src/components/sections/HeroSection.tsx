@@ -40,15 +40,15 @@ export const HeroSection: React.FC = () => {
         
         {/* Status Badge */}
         <ScrollReveal animation="fade-down" delay={200} duration={800}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-6 shadow-xl shadow-rose-950/30 group hover:border-[#F43F5E]/40 transition-all">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 border border-slate-800 mb-6 shadow-md transition-all">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
             </span>
-            <span className="text-xs font-medium text-slate-200">
+            <span className="text-xs font-mono font-medium text-slate-300">
               {PERSONAL_INFO.status}
             </span>
-            <Sparkles className="w-3.5 h-3.5 text-[#DC2626]" />
+            <Sparkles className="w-3.5 h-3.5 text-rose-500" />
           </div>
         </ScrollReveal>
 
@@ -59,23 +59,23 @@ export const HeroSection: React.FC = () => {
 
         {/* Role Title (Centered) */}
         <ScrollReveal animation="fade-up" delay={600} duration={800}>
-          <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-slate-200 mb-6 max-w-3xl leading-snug">
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-100 mb-6 max-w-3xl leading-snug">
             {PERSONAL_INFO.role}
           </h2>
         </ScrollReveal>
 
         {/* Typewriter Text Box (Centered) */}
         <ScrollReveal animation="zoom-in" delay={800} duration={700}>
-          <div className="h-12 flex items-center justify-center px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md mb-6 font-mono text-sm md:text-base text-[#DC2626] shadow-lg w-full max-w-md">
-            <Terminal className="w-4 h-4 mr-2.5 text-[#F43F5E] shrink-0" />
+          <div className="h-12 flex items-center justify-center px-5 py-2.5 rounded-xl bg-slate-900/80 border border-slate-800 mb-6 font-mono text-sm md:text-base text-rose-400 shadow-md w-full max-w-md">
+            <Terminal className="w-4 h-4 mr-2.5 text-rose-500 shrink-0" />
             <span>{currentText}</span>
-            <span className="animate-pulse ml-0.5 font-bold text-[#991B1B]">|</span>
+            <span className="animate-pulse ml-0.5 font-bold text-rose-500">|</span>
           </div>
         </ScrollReveal>
 
         {/* Sub-tagline (Centered) */}
         <ScrollReveal animation="fade-up" delay={1000} duration={800}>
-          <p className="text-slate-400 text-sm md:text-lg max-w-2xl mb-6 leading-relaxed">
+          <p className="text-slate-400 text-sm md:text-base max-w-2xl mb-8 leading-relaxed font-normal">
             {PERSONAL_INFO.tagline}
           </p>
         </ScrollReveal>

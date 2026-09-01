@@ -58,15 +58,15 @@ export const CertificatesSection: React.FC = () => {
         {/* Section Header */}
         <ScrollReveal animation="blur-in">
           <div className="flex flex-col items-center text-center mb-10">
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white flex items-center justify-center gap-3">
-              <span className="text-[#DC2626] font-mono text-3xl sm:text-5xl md:text-6xl">06.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#DC2626]">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-100 flex items-center justify-center gap-3">
+              <span className="text-rose-500 font-mono text-2xl sm:text-4xl md:text-5xl font-bold">06.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-rose-400">
                 CERTIFICATIONS
               </span>
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-[#DC2626] via-[#F43F5E] to-[#991B1B] rounded-full mt-4" />
+            <div className="w-16 h-1 bg-rose-500 rounded-full mt-3" />
             <p className="text-xs sm:text-sm font-mono text-slate-400 mt-3 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#DC2626] animate-ping" />
+              <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping" />
               Use Prev/Next buttons or drag mouse to rotate 3D showcase
             </p>
           </div>
