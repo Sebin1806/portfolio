@@ -9,10 +9,11 @@ export const SkillsSection: React.FC = () => {
 
   const categories = [
     'All',
-    'AI & Machine Learning',
-    'Generative AI & LLMs',
-    'Programming & DB',
-    'Data Analytics & Cloud',
+    'Programming',
+    'AI & Generative AI',
+    'Machine Learning & NLP',
+    'Data Science & Analytics',
+    'Databases & Cloud',
     'Tools & Frameworks'
   ];
 

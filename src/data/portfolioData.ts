@@ -16,7 +16,7 @@ export interface Project {
 
 export interface Skill {
   name: string;
-  category: 'AI & Machine Learning' | 'Generative AI & LLMs' | 'Programming & DB' | 'Data Analytics & Cloud' | 'Tools & Frameworks';
+  category: 'Programming' | 'AI & Generative AI' | 'Machine Learning & NLP' | 'Data Science & Analytics' | 'Databases & Cloud' | 'Tools & Frameworks';
   level: number; // 0-100
   icon: string;
   highlight?: boolean;
@@ -210,18 +210,18 @@ export const PROJECTS: Project[] = [
 ];
 
 export const SKILLS: Skill[] = [
-  { name: 'Python', category: 'Programming & DB', level: 95, icon: 'python', highlight: true, description: 'Core language for AI, Data Structures, ML scripts, and Backend APIs.' },
-  { name: 'Artificial Intelligence', category: 'AI & Machine Learning', level: 92, icon: 'cpu', highlight: true, description: 'Theoretical foundation, searching algorithms, neural networks, heuristic search.' },
-  { name: 'Machine Learning', category: 'AI & Machine Learning', level: 90, icon: 'brain', highlight: true, description: 'Supervised/Unsupervised models, Scikit-Learn, Regression, SVM, Random Forest.' },
-  { name: 'Deep Learning', category: 'AI & Machine Learning', level: 85, icon: 'layers', highlight: true, description: 'Neural networks, PyTorch/TensorFlow basics, CNNs, Transformers architecture.' },
-  { name: 'Generative AI', category: 'Generative AI & LLMs', level: 90, icon: 'sparkles', highlight: true, description: 'Prompt engineering, OpenAI API, HuggingFace Transformers, fine-tuning concepts.' },
-  { name: 'Large Language Models (LLMs)', category: 'Generative AI & LLMs', level: 88, icon: 'bot', highlight: true, description: 'Llama, GPT-4, Claude, LangChain, LlamaIndex integration.' },
-  { name: 'Retrieval-Augmented Gen (RAG)', category: 'Generative AI & LLMs', level: 92, icon: 'database', highlight: true, description: 'Vector databases (ChromaDB, FAISS), embeddings, semantic retrieval chunking.' },
-  { name: 'CrewAI & Multi-Agent Systems', category: 'Generative AI & LLMs', level: 88, icon: 'users', highlight: true, description: 'Agentic workflows, task delegation, autonomous crew orchestration.' },
-  { name: 'Natural Language Processing (NLP)', category: 'AI & Machine Learning', level: 88, icon: 'message-square', description: 'Tokenization, NLTK, spaCy, Sentiment analysis, Text summarization.' },
-  { name: 'Data Analytics & Power BI', category: 'Data Analytics & Cloud', level: 85, icon: 'bar-chart-3', highlight: true, description: 'Interactive dashboards, DAX queries, trend reporting, dataset cleanup.' },
-  { name: 'MySQL & Relational Databases', category: 'Programming & DB', level: 85, icon: 'server', description: 'Complex SQL queries, joins, relational schema design, database optimization.' },
-  { name: 'Cloud Computing (AWS)', category: 'Data Analytics & Cloud', level: 80, icon: 'cloud', highlight: true, description: 'AWS EC2, S3, IAM, Cloud deployment basics for AI models.' },
+  { name: 'Python', category: 'Programming', level: 95, icon: 'python', highlight: true, description: 'Core language for AI, Data Structures, ML scripts, and Backend APIs.' },
+  { name: 'Artificial Intelligence', category: 'AI & Generative AI', level: 92, icon: 'cpu', highlight: true, description: 'Theoretical foundation, searching algorithms, neural networks, heuristic search.' },
+  { name: 'Machine Learning', category: 'Machine Learning & NLP', level: 90, icon: 'brain', highlight: true, description: 'Supervised/Unsupervised models, Scikit-Learn, Regression, SVM, Random Forest.' },
+  { name: 'Deep Learning', category: 'Machine Learning & NLP', level: 85, icon: 'layers', highlight: true, description: 'Neural networks, PyTorch/TensorFlow basics, CNNs, Transformers architecture.' },
+  { name: 'Generative AI', category: 'AI & Generative AI', level: 90, icon: 'sparkles', highlight: true, description: 'Prompt engineering, OpenAI API, HuggingFace Transformers, fine-tuning concepts.' },
+  { name: 'Large Language Models (LLMs)', category: 'AI & Generative AI', level: 88, icon: 'bot', highlight: true, description: 'Llama, GPT-4, Claude, LangChain, LlamaIndex integration.' },
+  { name: 'Retrieval-Augmented Gen (RAG)', category: 'AI & Generative AI', level: 92, icon: 'database', highlight: true, description: 'Vector databases (ChromaDB, FAISS), embeddings, semantic retrieval chunking.' },
+  { name: 'CrewAI & Multi-Agent Systems', category: 'AI & Generative AI', level: 88, icon: 'users', highlight: true, description: 'Agentic workflows, task delegation, autonomous crew orchestration.' },
+  { name: 'Natural Language Processing (NLP)', category: 'Machine Learning & NLP', level: 88, icon: 'message-square', description: 'Tokenization, NLTK, spaCy, Sentiment analysis, Text summarization.' },
+  { name: 'Data Analytics & Power BI', category: 'Data Science & Analytics', level: 85, icon: 'bar-chart-3', highlight: true, description: 'Interactive dashboards, DAX queries, trend reporting, dataset cleanup.' },
+  { name: 'MySQL & Relational Databases', category: 'Databases & Cloud', level: 85, icon: 'server', description: 'Complex SQL queries, joins, relational schema design, database optimization.' },
+  { name: 'Cloud Computing (AWS)', category: 'Databases & Cloud', level: 80, icon: 'cloud', highlight: true, description: 'AWS EC2, S3, IAM, Cloud deployment basics for AI models.' },
   { name: 'Git & GitHub', category: 'Tools & Frameworks', level: 90, icon: 'git-branch', description: 'Version control, collaborative pull requests, GitHub actions & portfolio projects.' },
   { name: 'VS Code & Jupyter Notebook', category: 'Tools & Frameworks', level: 95, icon: 'code-2', description: 'Primary IDEs for rapid prototyping, EDA notebooks, and Python debugging.' }
 ];
