@@ -57,16 +57,16 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
         {/* Project Showcase Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredProjects.map((project: Project, index: number) => (
-            <ScrollReveal key={project.id} animation="flip-up" staggerIndex={index} staggerDelay={150} delay={150}>
+            <ScrollReveal key={project.id} animation="fade-up" staggerIndex={index} staggerDelay={100} delay={100}>
             <div
-              className="glass-panel rounded-3xl overflow-hidden group hover:border-red-500/50 transition-all duration-300 flex flex-col h-full shadow-xl"
+              className="glass-panel rounded-2xl overflow-hidden group hover:border-slate-700 transition-all duration-300 flex flex-col h-full shadow-lg"
             >
               {/* Card Container */}
               <div className="p-6 sm:p-8 flex flex-col justify-between flex-1">
                 <div>
                   {/* Category & Status */}
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-red-600/20 text-red-400 border border-red-500/30">
+                    <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20">
                       {project.category}
                     </span>
                     <span className="text-xs font-mono text-slate-400">

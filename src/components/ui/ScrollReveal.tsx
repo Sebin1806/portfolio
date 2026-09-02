@@ -32,13 +32,13 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   animation = 'fade-up',
   delay = 0,
-  duration = 400,
-  threshold = 0.08,
+  duration = 500,
+  threshold = 0.1,
   once = true,
   className = '',
   as: Tag = 'div',
   staggerIndex = 0,
-  staggerDelay = 45,
+  staggerDelay = 75,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);

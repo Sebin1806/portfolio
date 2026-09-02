@@ -59,19 +59,16 @@ export const SkillsSection: React.FC = () => {
         {/* Skills Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSkills.map((skill: Skill, index: number) => (
-            <ScrollReveal key={skill.name} animation="fade-up" staggerIndex={index} staggerDelay={80} delay={150}>
+            <ScrollReveal key={skill.name} animation="fade-up" staggerIndex={index} staggerDelay={60} delay={100}>
               <div
-                className={`glass-panel rounded-3xl p-6 relative overflow-hidden group glass-card-hover transition-all duration-300 flex flex-col justify-between h-full ${
-                  skill.highlight ? 'border-[#F43F5E]/30 hover:border-[#F43F5E]/70' : 'hover:border-white/20'
+                className={`glass-panel rounded-2xl p-6 relative overflow-hidden group glass-card-hover transition-all duration-300 flex flex-col justify-between h-full ${
+                  skill.highlight ? 'border-rose-500/40 hover:border-rose-500/70' : 'hover:border-slate-700'
                 }`}
               >
-                {/* Glow background accent */}
-                <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#F43F5E]/10 rounded-full blur-2xl group-hover:bg-[#F97316]/20 transition-all pointer-events-none" />
-
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-[#FB7185] group-hover:scale-105 group-hover:text-[#F59E0B] transition-all">
+                      <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-rose-400 group-hover:scale-105 transition-all">
                         {skill.category.includes('AI') ? (
                           <Sparkles className="w-5 h-5" />
                         ) : skill.category.includes('DB') ? (

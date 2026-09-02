@@ -79,9 +79,9 @@ export const AboutSection: React.FC = () => {
             
             {/* Quick Facts Card */}
             <ScrollReveal animation="fade-left" delay={200}>
-              <div className="glass-panel rounded-3xl p-6 md:p-8 space-y-4 hover:border-[#F97316]/40 transition-all">
+              <div className="glass-panel rounded-2xl p-6 md:p-8 space-y-4 hover:border-slate-700 transition-all">
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 font-mono flex items-center gap-2 mb-4">
-                  <Cpu className="w-4 h-4 text-[#F97316]" />
+                  <Cpu className="w-4 h-4 text-rose-400" />
                   <span>Quick Information</span>
                 </h4>
 

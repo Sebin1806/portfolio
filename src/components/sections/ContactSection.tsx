@@ -87,10 +87,10 @@ export const ContactSection: React.FC = () => {
           <ScrollReveal animation="fade-right" delay={100} className="lg:col-span-5">
             <div className="space-y-6">
             
-            <div className="glass-panel rounded-3xl p-8 space-y-6 hover:border-red-500/50 transition-all">
-              <h3 className="text-xl font-bold text-red-400 mb-2">Contact Details</h3>
+            <div className="glass-panel rounded-2xl p-8 space-y-6 hover:border-slate-700 transition-all">
+              <h3 className="text-xl font-bold text-rose-400 mb-2">Contact Details</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Messages sent here deliver directly to my inbox (<strong className="text-red-400 font-mono">sebinsebin180606@gmail.com</strong>).
+                Messages sent here deliver directly to my inbox (<strong className="text-rose-400 font-mono">sebinsebin180606@gmail.com</strong>).
               </p>
 
               <div className="space-y-4">
@@ -191,7 +191,7 @@ export const ContactSection: React.FC = () => {
 
           {/* Right Contact Form (7 Cols) */}
           <ScrollReveal animation="fade-left" delay={200} className="lg:col-span-7">
-          <div className="glass-panel rounded-3xl p-8 md:p-10 border border-white/10 relative overflow-hidden shadow-2xl">
+          <div className="glass-panel rounded-2xl p-8 md:p-10 border border-slate-800 relative overflow-hidden shadow-xl">
             {submitted ? (
               <div className="py-16 text-center space-y-4 animate-fadeIn">
                 <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/50 text-emerald-400 flex items-center justify-center mx-auto mb-4">
