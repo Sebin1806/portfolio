@@ -100,8 +100,13 @@ export const Header: React.FC<HeaderProps> = () => {
           <a
             href="#about"
             onClick={(e) => handleNavClick(e, 'about')}
-            className="text-lg font-extrabold tracking-tight text-white hover:text-rose-400 transition-colors flex items-center gap-1.5"
+            className="text-lg font-extrabold tracking-tight text-white hover:text-rose-400 transition-colors flex items-center gap-2 group"
           >
+            <div className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center group-hover:border-rose-500/50 group-hover:scale-105 transition-all shadow-md">
+              <span className="font-black text-xs text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-red-500 to-rose-600">
+                SS
+              </span>
+            </div>
             <span className="text-rose-500 font-black">SEBIN S</span>
             <span className="hidden sm:inline-block text-[11px] font-mono px-2 py-0.5 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20 font-medium">
               AI Engineer

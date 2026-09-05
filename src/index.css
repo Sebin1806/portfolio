@@ -463,6 +463,17 @@ html {
   z-index: 100;
 }
 
+@media (max-width: 480px) {
+  .uiverse-wrapper {
+    height: 280px;
+  }
+  .uiverse-inner {
+    --w: 120px;
+    --h: 165px;
+    --translateZ: 170px;
+  }
+}
+
 @media (min-width: 640px) {
   .uiverse-wrapper {
     height: 360px;

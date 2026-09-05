@@ -30,7 +30,7 @@ export const SkillsSection: React.FC = () => {
           <div className="flex flex-col items-center text-center mb-12">
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-100 flex items-center justify-center gap-3">
               <span className="text-rose-500 font-mono text-2xl sm:text-4xl md:text-5xl font-bold">02.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-rose-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-500 to-red-600">
                 TECHNICAL SKILLS
               </span>
             </h2>
@@ -45,7 +45,7 @@ export const SkillsSection: React.FC = () => {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`btn-red-custom px-4 py-2 text-xs transition-all duration-300 ${
+                className={`btn-red-custom px-3 sm:px-4 py-2.5 sm:py-2 text-xs min-h-[40px] transition-all duration-300 ${
                   activeCategory === cat
                     ? 'scale-105 shadow-lg shadow-red-600/30 font-bold'
                     : 'opacity-85 hover:opacity-100'

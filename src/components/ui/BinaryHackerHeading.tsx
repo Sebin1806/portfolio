@@ -89,7 +89,7 @@ export const BinaryHackerHeading: React.FC<BinaryHackerHeadingProps> = ({ classN
     >
       <h1
         aria-label="Sebin S"
-        className={className || "text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-normal mb-4 text-center leading-none"}
+        className={className || "text-[2.2rem] min-[380px]:text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-normal mb-4 text-center leading-none"}
       >
         <span className="inline-flex items-center justify-center">
           {textChars.map((char, index) => {
@@ -106,7 +106,7 @@ export const BinaryHackerHeading: React.FC<BinaryHackerHeadingProps> = ({ classN
                 } ${
                   !isRevealed
                     ? 'text-rose-500 opacity-90 select-none'
-                    : 'text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-rose-500 drop-shadow-md font-black'
+                    : 'text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-500 to-red-600 drop-shadow-md font-black'
                 }`}
               >
                 {displayChar === ' ' ? '\u00A0' : displayChar}

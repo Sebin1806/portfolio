@@ -13,7 +13,7 @@ export const ResumeSection: React.FC = () => {
           <div className="flex flex-col items-center text-center mb-12">
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-100 flex items-center justify-center gap-3">
               <span className="text-rose-500 font-mono text-2xl sm:text-4xl md:text-5xl font-bold">10.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-rose-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-500 to-red-600">
                 RESUME & CV
               </span>
             </h2>

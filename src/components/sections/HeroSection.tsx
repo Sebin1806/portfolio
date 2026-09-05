@@ -82,7 +82,7 @@ export const HeroSection: React.FC = () => {
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-100 max-w-3xl leading-tight">
               {PERSONAL_INFO.role}
             </h2>
-            <div className="flex items-center justify-center gap-2 text-xs sm:text-sm font-mono text-slate-400">
+            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-mono text-slate-400">
               <GraduationCap className="w-4 h-4 text-rose-400 shrink-0" />
               <span>B.Tech AI & Data Science (2023 - 2027)</span>
               <span>•</span>

@@ -72,7 +72,7 @@ export const ContactSection: React.FC = () => {
           <div className="flex flex-col items-center text-center mb-16">
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-100 flex items-center justify-center gap-3">
               <span className="text-rose-500 font-mono text-2xl sm:text-4xl md:text-5xl font-bold">11.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-rose-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-500 to-red-600">
                 GET IN TOUCH
               </span>
             </h2>
@@ -90,7 +90,7 @@ export const ContactSection: React.FC = () => {
             <div className="glass-panel rounded-2xl p-6 sm:p-8 space-y-6 hover:border-slate-700 transition-all shadow-md">
               <h3 className="text-xl font-extrabold text-slate-100 mb-2">Contact Details</h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Messages sent here deliver directly to my inbox (<strong className="text-rose-400 font-mono">sebinsebin180606@gmail.com</strong>).
+                Messages sent here deliver directly to my inbox (<strong className="text-rose-400 font-mono break-all sm:break-normal">sebinsebin180606@gmail.com</strong>).
               </p>
 
               <div className="space-y-3.5">
