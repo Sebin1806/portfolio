@@ -97,6 +97,7 @@ export const ContactSection: React.FC = () => {
                 {/* Email Item */}
                 <a
                   href={`mailto:${PERSONAL_INFO.email}`}
+                  aria-label="Send direct email to sebinsebin180606@gmail.com"
                   className="flex items-center gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 hover:text-white hover:border-slate-700 transition-all group"
                 >
                   <div className="p-3 rounded-lg bg-rose-500/10 border border-rose-500/20 text-rose-400 group-hover:scale-110 transition-transform shrink-0">
@@ -126,7 +127,10 @@ export const ContactSection: React.FC = () => {
                       </span>
                     </div>
                   </div>
-                  <button className="p-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white transition-colors shrink-0">
+                  <button
+                    aria-label="Copy phone number +91 9342813276 to clipboard"
+                    className="p-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white transition-colors shrink-0"
+                  >
                     {phoneCopied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                   </button>
                 </div>
@@ -151,6 +155,7 @@ export const ContactSection: React.FC = () => {
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Visit Sebin S's GitHub profile"
                 className="flex flex-col items-center gap-1.5 text-xs text-slate-300 hover:text-rose-400 transition-colors group cursor-pointer"
               >
                 <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 group-hover:scale-110 group-hover:border-rose-500/40 transition-all">
@@ -164,6 +169,7 @@ export const ContactSection: React.FC = () => {
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Visit Sebin S's LinkedIn profile"
                 className="flex flex-col items-center gap-1.5 text-xs text-slate-300 hover:text-[#0A66C2] transition-colors group cursor-pointer"
               >
                 <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 group-hover:scale-110 group-hover:border-[#0A66C2]/40 transition-all">
@@ -174,9 +180,10 @@ export const ContactSection: React.FC = () => {
 
               {/* LeetCode */}
               <a
-                href="https://leetcode.com/u/sebin1806/"
+                href={PERSONAL_INFO.leetcode}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Visit Sebin S's LeetCode profile"
                 className="flex flex-col items-center gap-1.5 text-xs text-slate-300 hover:text-[#FFA116] transition-colors group cursor-pointer"
               >
                 <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 group-hover:scale-110 group-hover:border-[#FFA116]/40 transition-all">

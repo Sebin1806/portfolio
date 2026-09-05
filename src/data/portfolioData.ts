@@ -96,6 +96,7 @@ export const PERSONAL_INFO = {
   email: 'sebinsebin180606@gmail.com',
   github: 'https://github.com/Sebin1806',
   linkedin: 'https://www.linkedin.com/in/sebin1806/',
+  leetcode: 'https://leetcode.com/u/Sebin_S/',
   location: 'Coimbatore, Tamil Nadu, India',
   status: 'Open to Internship & Full-Time AI Engineering Roles (2023-2027 Batch)',
   typingTitles: [

@@ -84,6 +84,8 @@ export const GithubDashboard: React.FC = () => {
                   src={user?.avatar_url || 'https://github.com/Sebin1806.png'}
                   alt="Sebin1806 GitHub Avatar"
                   className="w-16 h-16 rounded-2xl border-2 border-[#F43F5E]/40 p-0.5 object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center gap-1.5">

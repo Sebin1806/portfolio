@@ -179,7 +179,7 @@ export const HeroSection: React.FC = () => {
               <LinkedinIcon className="w-5 h-5" />
             </a>
             <a
-              href="https://leetcode.com/u/Sebin1806/"
+              href={PERSONAL_INFO.leetcode}
               target="_blank"
               rel="noreferrer"
               aria-label="LeetCode Profile"

@@ -110,7 +110,10 @@ export const Header: React.FC<HeaderProps> = () => {
         </div>
 
         {/* Desktop Navigation with Active Indicator */}
-        <nav className="hidden lg:flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 backdrop-blur-md shadow-inner">
+        <nav
+          aria-label="Main Navigation"
+          className="hidden lg:flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 backdrop-blur-md shadow-inner"
+        >
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -138,6 +141,7 @@ export const Header: React.FC<HeaderProps> = () => {
             href={PERSONAL_INFO.resumeUrl}
             target="_blank"
             rel="noreferrer"
+            aria-label="View Resume on Google Drive (opens in new tab)"
             className="btn-red-custom hidden sm:flex items-center gap-1.5 px-4 py-2 text-xs shadow-lg shadow-rose-600/25 hover:scale-105"
           >
             <Download className="w-3.5 h-3.5" />
@@ -149,6 +153,7 @@ export const Header: React.FC<HeaderProps> = () => {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
+            aria-expanded={mobileMenuOpen}
             className="p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white lg:hidden cursor-pointer transition-colors"
           >
             {mobileMenuOpen ? <X className="w-5 h-5 text-rose-500" /> : <Menu className="w-5 h-5 text-rose-500" />}

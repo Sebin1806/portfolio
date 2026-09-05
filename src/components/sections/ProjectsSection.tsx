@@ -72,6 +72,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                     alt={project.title}
                     className="w-full h-full object-cover group-hover/img:scale-105 group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-[#0B0F19]/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
                   

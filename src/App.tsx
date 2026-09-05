@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { Loader } from './components/ui/Loader';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
-import { QuickSearchModal } from './components/layout/QuickSearchModal';
 import { HeroSection } from './components/sections/HeroSection';
 import { AboutSection } from './components/sections/AboutSection';
 import { SkillsSection } from './components/sections/SkillsSection';
@@ -15,10 +14,18 @@ import { GithubDashboard } from './components/sections/GithubDashboard';
 import { TechStackSection } from './components/sections/TechStackSection';
 import { ResumeSection } from './components/sections/ResumeSection';
 import { ContactSection } from './components/sections/ContactSection';
-import { ProjectModal } from './components/ui/ProjectModal';
+import { ScrollToTop } from './components/ui/ScrollToTop';
 import { PROJECTS } from './data/portfolioData';
 import type { Project } from './data/portfolioData';
 import { SubtleAbstractBackground } from './components/ui/SubtleAbstractBackground';
+
+const QuickSearchModal = React.lazy(() =>
+  import('./components/layout/QuickSearchModal').then(module => ({ default: module.QuickSearchModal }))
+);
+
+const ProjectModal = React.lazy(() =>
+  import('./components/ui/ProjectModal').then(module => ({ default: module.ProjectModal }))
+);
 
 export function App() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -63,18 +70,24 @@ export function App() {
       {/* Footer */}
       <Footer />
 
-      {/* Global Quick Search (Ctrl+K) */}
-      <QuickSearchModal
-        isOpen={searchOpen}
-        onClose={() => setSearchOpen(false)}
-        onSelectProject={handleSelectProjectById}
-      />
+      {/* Lazy Loaded Modals */}
+      <Suspense fallback={null}>
+        {/* Global Quick Search (Ctrl+K) */}
+        <QuickSearchModal
+          isOpen={searchOpen}
+          onClose={() => setSearchOpen(false)}
+          onSelectProject={handleSelectProjectById}
+        />
 
-      {/* Project Screenshot & Detail Modal */}
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+        {/* Project Screenshot & Detail Modal */}
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      </Suspense>
+
+      {/* Floating Scroll-To-Top Button */}
+      <ScrollToTop />
     </div>
   );
 }

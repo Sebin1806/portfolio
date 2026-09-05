@@ -194,6 +194,7 @@ export const CertificatesSection: React.FC = () => {
                             alt={cert.title}
                             className="w-full h-full object-contain mx-auto"
                             loading="lazy"
+                            decoding="async"
                           />
                         ) : (
                           <div className={`w-full h-full bg-gradient-to-br ${cert.previewColor} p-2 flex flex-col justify-between rounded-lg`}>
@@ -274,6 +275,8 @@ export const CertificatesSection: React.FC = () => {
                     src={activePreviewCert.image}
                     alt={activePreviewCert.title}
                     className="w-full h-auto max-h-[550px] object-contain mx-auto"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ) : (

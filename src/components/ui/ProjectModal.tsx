@@ -11,6 +11,16 @@ interface ProjectModalProps {
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && project) {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [project, onClose]);
+
   if (!project) return null;
 
   const nextImage = () => {
@@ -22,12 +32,18 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-xl animate-fadeIn">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-project-title"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-xl animate-fadeIn"
+    >
       <div className="relative w-full max-w-4xl max-h-[90vh] bg-[#0F172A] border border-white/10 rounded-3xl shadow-2xl overflow-y-auto glass-panel">
         
         {/* Close Button */}
         <button
           onClick={onClose}
+          aria-label="Close project details"
           className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-black/60 hover:bg-white/20 text-white backdrop-blur-md transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
@@ -39,6 +55,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             src={project.images[currentImageIndex]}
             alt={`${project.title} screenshot ${currentImageIndex + 1}`}
             className="w-full h-full object-cover transition-all duration-500"
+            decoding="async"
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-black/40" />
@@ -87,7 +104,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   {project.timeline}
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">{project.title}</h2>
+              <h2 id="modal-project-title" className="text-2xl sm:text-3xl font-extrabold text-white">{project.title}</h2>
               <p className="text-sm font-medium text-slate-300 mt-1">{project.subtitle}</p>
             </div>
 

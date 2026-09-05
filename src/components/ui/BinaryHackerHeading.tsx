@@ -87,7 +87,10 @@ export const BinaryHackerHeading: React.FC<BinaryHackerHeadingProps> = ({ classN
     <div
       className="relative flex justify-center w-full my-2"
     >
-      <h1 className={className || "text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-normal mb-4 text-center leading-none"}>
+      <h1
+        aria-label="Sebin S"
+        className={className || "text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-normal mb-4 text-center leading-none"}
+      >
         <span className="inline-flex items-center justify-center">
           {textChars.map((char, index) => {
             const isRevealed = index < revealedCount;

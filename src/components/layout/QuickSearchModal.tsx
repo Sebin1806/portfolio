@@ -55,7 +55,12 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({ isOpen, onCl
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/80 backdrop-blur-md animate-fadeIn">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Quick Search Portfolio"
+      className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/80 backdrop-blur-md animate-fadeIn"
+    >
       <div className="relative w-full max-w-2xl bg-[#0F172A] border border-white/10 rounded-2xl shadow-2xl overflow-hidden glass-panel">
         
         {/* Search Header */}
@@ -64,6 +69,7 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({ isOpen, onCl
           <input
             type="text"
             autoFocus
+            aria-label="Search projects, skills, and certificates"
             placeholder="Search projects, skills, certificates, or press ESC..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -71,6 +77,7 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({ isOpen, onCl
           />
           <button
             onClick={onClose}
+            aria-label="Close search modal"
             className="p-1 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />

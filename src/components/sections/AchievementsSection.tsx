@@ -185,6 +185,7 @@ export const AchievementsSection: React.FC = () => {
                             alt={pub.title}
                             className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-105"
                             loading="lazy"
+                            decoding="async"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <span className="px-4 py-2 rounded-xl bg-white/20 text-white text-xs font-semibold backdrop-blur-md border border-white/30 flex items-center gap-1.5 shadow-xl">
@@ -257,6 +258,8 @@ export const AchievementsSection: React.FC = () => {
                   src={activeModalImage}
                   alt="Certificate Preview"
                   className="w-full h-auto max-h-[75vh] object-contain mx-auto"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
