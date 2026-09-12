@@ -1,0 +1,499 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0B0F19;
+  --bg-secondary: #111827;
+  --card-bg: rgba(17, 24, 39, 0.85);
+  --card-border: rgba(30, 41, 59, 0.8);
+  --accent-red: #E11D48;
+  --accent-rose: #F43F5E;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --font-geist: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body, button, input, textarea, select, h1, h2, h3, h4, h5, h6, p, span, a, label {
+  font-family: var(--font-geist);
+}
+
+.light {
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #F1F5F9;
+  --card-bg: rgba(0, 0, 0, 0.03);
+  --card-border: rgba(0, 0, 0, 0.1);
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+}
+
+/* Windows Aero Pixel-Perfect Cursors - Red Fill (#FF0000) with Black Outline */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M0 0 L0 24 L6 18 L10 26 L14 24 L10 16 L17 16 Z' fill='%23FF0000' stroke='%23000000' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 0 0, auto !important;
+}
+
+/* Red Hand Pointer matching user image for links, buttons & all nested children */
+a, button, [role="button"], input[type="button"], input[type="submit"], input[type="reset"], select, label, .cursor-pointer,
+a *, button *, [role="button"] *, input[type="button"] *, input[type="submit"] *, input[type="reset"] *, select *, label *, .cursor-pointer * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M12 2C11.17 2 10.5 2.67 10.5 3.5V13.8L9.1 12.6C8.5 12.05 7.55 12.1 7.02 12.7C6.42 13.38 6.51 14.42 7.2 14.98L13 19.8C14.8 21.3 17.1 22 19.5 22H21.5C23.7 22 25.5 20.2 25.5 18V10.5C25.5 9.67 24.83 9 24 9C23.17 9 22.5 9.67 22.5 10.5V11.5H21.5V8.5C21.5 7.67 20.83 7 20 7C19.17 7 18.5 7.67 18.5 8.5V11.5H17.5V6.5C17.5 5.67 16.83 5 16 5C15.17 5 14.5 5.67 14.5 6.5V11.5H13.5V3.5C13.5 2.67 12.83 2 12 2Z' fill='%23FF0000' stroke='%23000000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 12 2, pointer !important;
+}
+
+/* Windows Text I-Beam Cursor - Red for text inputs */
+input[type="text"], input[type="email"], input[type="password"], input[type="search"], textarea, [contenteditable="true"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M12 4H20M16 4V28M12 28H20' stroke='%23FF0000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 16 16, text !important;
+}
+
+body {
+  font-family: var(--font-geist);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Premium Modern Portfolio Background Utilities */
+.bg-premium-mesh {
+  background-color: #0B0F19;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(225, 29, 72, 0.12), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 95% 45%, rgba(153, 27, 27, 0.08), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 5% 75%, rgba(185, 28, 28, 0.08), transparent 60%);
+}
+
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(225, 29, 72, 0.12) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+/* Smooth scroll & GPU compositing for zero-lag performance */
+html {
+  scroll-behavior: smooth !important;
+  scroll-padding-top: 80px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom Red Button with Skewed White Sweep Hover Effect */
+.btn-red-custom {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: #E11D48;
+  color: #ffffff !important;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.5s ease, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s ease;
+  display: inline-flex;
+  items-center: center;
+  justify-content: center;
+}
+
+.btn-red-custom:active {
+  transform: scale(0.97) !important;
+}
+
+.btn-red-custom:hover {
+  color: #E11D48 !important;
+}
+
+.btn-red-custom * {
+  transition: color 0.5s ease;
+}
+
+.btn-red-custom:hover * {
+  color: #E11D48 !important;
+}
+
+.btn-red-custom::after {
+  content: "";
+  background: #ffffff;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s ease;
+}
+
+.btn-red-custom:hover::after {
+  transform: skewX(-45deg) scale(1, 1);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* High-Contrast Professional Dark Card Utility */
+.glass-panel {
+  background: rgba(17, 24, 39, 0.85);
+  border: 1px solid rgba(30, 41, 59, 0.8);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  contain: content;
+}
+
+.light .glass-panel {
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.glass-card-hover {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(225, 29, 72, 0.4);
+  box-shadow: 0 12px 35px -10px rgba(225, 29, 72, 0.2);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(244, 63, 94, 0.6);
+}
+
+/* Custom animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; filter: blur(40px); }
+  50% { opacity: 0.8; filter: blur(60px); }
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS — Ultra-Smooth 3D Dynamics
+   ═══════════════════════════════════════════════ */
+
+.scroll-reveal {
+  will-change: transform, opacity;
+  transition-property: transform, opacity;
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* ── Fade Up ── */
+.scroll-reveal.fade-up {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+}
+.scroll-reveal.fade-up.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ── Fade Down ── */
+.scroll-reveal.fade-down {
+  opacity: 0;
+  transform: translate3d(0, -20px, 0);
+}
+.scroll-reveal.fade-down.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ── Fade Left (Slide from Left Edge) ── */
+.scroll-reveal.fade-left {
+  opacity: 0;
+  transform: translate3d(-40px, 0, 0) scale(0.98);
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.scroll-reveal.fade-left.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* ── Fade Right (Slide from Right Edge) ── */
+.scroll-reveal.fade-right {
+  opacity: 0;
+  transform: translate3d(40px, 0, 0) scale(0.98);
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.scroll-reveal.fade-right.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* ── Slide Left (Deep Slide from Left Edge) ── */
+.scroll-reveal.slide-left {
+  opacity: 0;
+  transform: translate3d(-60px, 0, 0) scale(0.97);
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.scroll-reveal.slide-left.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* ── Slide Right (Deep Slide from Right Edge) ── */
+.scroll-reveal.slide-right {
+  opacity: 0;
+  transform: translate3d(60px, 0, 0) scale(0.97);
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.scroll-reveal.slide-right.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* ── Blur In (Cinematic Camera Unblur) ── */
+.scroll-reveal.blur-in {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translate3d(0, 12px, 0) scale(0.98);
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.scroll-reveal.blur-in.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* ── Rotate In (Dynamic 3D Tilt) ── */
+.scroll-reveal.rotate-in {
+  opacity: 0;
+  transform: rotate3d(0, 0, 1, -2deg) translate3d(0, 16px, 0) scale(0.98);
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.scroll-reveal.rotate-in.is-visible {
+  opacity: 1;
+  transform: rotate3d(0, 0, 1, 0deg) translate3d(0, 0, 0) scale(1);
+}
+
+/* ── Scale Up (Elastic Spring Pop) ── */
+.scroll-reveal.scale-up {
+  opacity: 0;
+  transform: scale3d(0.82, 0.82, 1) translate3d(0, 20px, 0);
+  transition-timing-function: cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.scroll-reveal.scale-up.is-visible {
+  opacity: 1;
+  transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+}
+
+/* ── Accessibility: Respect reduced motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    transition-duration: 0ms !important;
+    transition-delay: 0ms !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   CERTIFICATE CAROUSEL SMOOTH TRANSITIONS
+   ═══════════════════════════════════════════════ */
+
+.cert-track-transition {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.cert-card-anim {
+  will-change: transform, opacity, box-shadow;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), 
+              opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), 
+              border-color 0.35s ease, 
+              box-shadow 0.35s ease;
+}
+
+@keyframes certSlideNext {
+  0% { transform: translateX(30px) scale(0.97); opacity: 0.4; }
+  100% { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+@keyframes certSlidePrev {
+  0% { transform: translateX(-30px) scale(0.97); opacity: 0.4; }
+  100% { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+.anim-slide-next {
+  animation: certSlideNext 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.anim-slide-prev {
+  animation: certSlidePrev 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes floatElement {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(6deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.08); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 40s linear infinite;
+}
+
+.animate-float {
+  animation: floatElement 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatElement 11s ease-in-out infinite 3s;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 12s ease-in-out infinite;
+}
+
+/* Smooth fade-in for modals / overlays */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.97); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ═══════════════════════════════════════════════
+   UIVERSE.IO 3D ROTATING CYLINDER CAROUSEL STYLING
+   ═══════════════════════════════════════════════ */
+
+.uiverse-wrapper {
+  width: 100%;
+  height: 320px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  perspective: 1200px;
+  touch-action: pan-y;
+}
+
+.uiverse-inner {
+  --w: 145px;
+  --h: 195px;
+  --translateZ: 250px;
+  --rotateX: -6deg;
+  --perspective: 1200px;
+  position: absolute;
+  width: var(--w);
+  height: var(--h);
+  top: calc(50% - (var(--h) / 2));
+  left: calc(50% - (var(--w) / 2));
+  z-index: 2;
+  transform-style: preserve-3d;
+  transform: perspective(var(--perspective)) rotateX(var(--rotateX));
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.uiverse-inner.is-auto-spin {
+  animation: uiverseRotating 34s linear infinite;
+}
+
+@keyframes uiverseRotating {
+  from {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0deg);
+  }
+  to {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(360deg);
+  }
+}
+
+.uiverse-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  inset: 0;
+  transform: rotateY(calc((360deg / var(--quantity)) * var(--index))) translateZ(var(--translateZ));
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  backface-visibility: visible;
+}
+
+.uiverse-card:hover {
+  transform: rotateY(calc((360deg / var(--quantity)) * var(--index))) translateZ(calc(var(--translateZ) + 25px)) scale(1.06);
+  z-index: 100;
+}
+
+@media (max-width: 480px) {
+  .uiverse-wrapper {
+    height: 280px;
+  }
+  .uiverse-inner {
+    --w: 120px;
+    --h: 165px;
+    --translateZ: 170px;
+  }
+}
+
+@media (min-width: 640px) {
+  .uiverse-wrapper {
+    height: 360px;
+  }
+  .uiverse-inner {
+    --w: 165px;
+    --h: 215px;
+    --translateZ: 285px;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   ACCESSIBILITY: FOCUS VISIBLE OUTLINE RINGS
+   ═══════════════════════════════════════════════ */
+:focus-visible {
+  outline: 2px solid #F43F5E !important;
+  outline-offset: 2px !important;
+  border-radius: 0.375rem;
+}
+
+:focus:not(:focus-visible) {
+  outline: none !important;
+}
